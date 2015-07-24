@@ -65,7 +65,7 @@ module.exports = function(config) {
       'app/scripts/**/*.js': ['coverage']
     },
     coverageReporter: {  
-      type: 'html',
+      type: 'lcov',
       dir: 'coverage'
     },
 
