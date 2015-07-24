@@ -1,7 +1,12 @@
+[![Code Climate](https://codeclimate.com/github/el-sonny/ctbook-front/badges/gpa.svg)](https://codeclimate.com/github/el-sonny/ctbook-front)
+
+[![Test Coverage](https://codeclimate.com/github/el-sonny/ctbook-front/badges/coverage.svg)](https://codeclimate.com/github/el-sonny/ctbook-front/coverage)
+
+[![GitHub issues](https://img.shields.io/github/issues/el-sonny/ctbook-front.svg)](https://github.com/el-sonny/ctbook-front/issues)
+
 # ctbook
 
-This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
-version 0.12.1.
+Single Page Application made with Yeoman-angular that connects to ctbook-api
 
 ## Build & development
 
@@ -12,3 +17,7 @@ Run `grunt` for building and `grunt serve` for preview.
 Running `grunt test` will run the unit tests with karma.
 
 Running `grunt protractor` will run the e2e tests with protractor.
+
+## Deployment
+
+Proyect includes configuration for deployment with [divshot](divshot.io) you can change the app name in `divshot.json` and use `divshot push` to deploy your own copy.

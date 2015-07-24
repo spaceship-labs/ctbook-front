@@ -31,10 +31,26 @@ angular.module('ctbookApp')
         if(params.page && params.page !== 1){
           components.push('P'+params.page);
         }
+        
+        if(typeof params.empresas === 'object'){
+          params.empresas.forEach(function(empresa){
+            components.push("E"+empresa);
+          });
+        }
+        if(typeof params.dependencias === 'object'){
+          params.dependencias.forEach(function(dependencia){
+            components.push("D"+dependencia);
+          });
+        }
+        if(typeof params.ucs === 'object'){
+          params.ucs.forEach(function(uc){
+            components.push("U"+uc);
+          });
+        }
         return components.join('/');
       }else{
         return '';  
       }
-      
+
     };
   });

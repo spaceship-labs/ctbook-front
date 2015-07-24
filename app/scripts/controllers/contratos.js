@@ -90,6 +90,17 @@ angular.module('ctbookApp')
 	    $scope.where = { "fecha_inicio_year": { ">": $scope.year.start, "<": $scope.year.end } };
 	    $scope.skip = $scope.perPage * ($scope.currentPage - 1);
 	    $scope.params = {limit: $scope.perPage,skip:$scope.skip,sort:'importe_contrato DESC', where: $scope.where};
+	    
+		$scope.ctbookRoutes.encodeParams({
+	        year : {
+	          start : 2004,
+	          end : 2013
+	        },
+	        page : 2,
+	        empresas : ['ec9','ec8'],
+	        dependencias : ['dp1','dp2'],
+	        ucs : ['uc1','uc2']
+      	});
 	    $scope.ctbookRoutes.encodeParams({
 	    	year : $scope.year,
 	    	page : $scope.currentPage,

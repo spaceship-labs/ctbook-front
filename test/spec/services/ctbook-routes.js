@@ -18,8 +18,13 @@ describe('Service: ctbookRoutes', function () {
       route.should.be.string;
       route.should.eql('');
     });
+    it('ignore year if its not an object', function () {
+      var route = ctbookRoutes.encodeParams({year : 2003});
+      route.should.be.string;
+      route.should.eql('');
+    });
 
-    it('should return an empty string with default params', function () {
+    it('should ignore default params', function () {
       var route = ctbookRoutes.encodeParams({
         year : {
           start : 2000,
@@ -37,10 +42,13 @@ describe('Service: ctbookRoutes', function () {
           start : 2004,
           end : 2013
         },
-        page : 2
+        page : 2,
+        empresas : ['ec9','ec8'],
+        dependencias : ['dp1','dp2'],
+        ucs : ['uc1','uc2']
       });
       route.should.be.string;
-      route.should.equal('Y2004-2013/P2');
+      route.should.equal('Y2004-2013/P2/Eec9/Eec8/Ddp1/Ddp2/Uuc1/Uuc2');
     });
 
   });
