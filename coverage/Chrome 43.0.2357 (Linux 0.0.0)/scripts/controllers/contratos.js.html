@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for scripts/controllers/contratos.js</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../../prettify.css">
+    <link rel="stylesheet" href="../../base.css">
+    <style type='text/css'>
+        div.coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class="header low">
+    <h1>Code coverage report for <span class="entity">scripts/controllers/contratos.js</span></h1>
+    <h2>
+        Statements: <span class="metric">0.96% <small>(1 / 104)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">0% <small>(0 / 52)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">0% <small>(0 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">0.96% <small>(1 / 104)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
+    </h2>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">scripts/controllers/</a> &#187; contratos.js</div>
+</div>
+<div class="body">
+<pre><table class="coverage">
+<tr><td class="line-count">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176
+177
+178
+179
+180</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
+&nbsp;
+/**
+ * @ngdoc function
+ * @name ctbookApp.controller:ContratosCtrl
+ * @description
+ * # ContratosCtrl
+ * Controller of the ctbookApp
+ */
+angular.module('ctbookApp')
+  .controller('ContratosCtrl', <span class="fstat-no" title="function not covered" >function ($scope,$mdSidenav,$location) {</span>
+  		
+<span class="cstat-no" title="statement not covered" >		var params = {};</span>
+<span class="cstat-no" title="statement not covered" >		$scope.init = <span class="fstat-no" title="function not covered" >function(){</span></span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		    $scope.selectedItems = {</span>
+		      'proveedor_contratista' : [],
+		      'dependencia' : [],
+		      'nombre_de_la_uc' : []
+		    };
+<span class="cstat-no" title="statement not covered" >		    var params = $scope.ctbookRoutes.decodeUrl();</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.loading = false;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.currentMenuItem = 'home';</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.perPage = (params.limit === undefined) ? 10 : params.limit;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.year = {start:2000,end:2016};</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.sum = 0;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.sum_usd = 0;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.where = {};</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		    if(params.where !== undefined &amp;&amp; params.where.fecha_inicio_year !== undefined &amp;&amp; </span>
+		      params.where.fecha_inicio_year["&gt;"] !== undefined &amp;&amp; params.where.fecha_inicio_year["&lt;"] !== undefined) {
+<span class="cstat-no" title="statement not covered" >		      $scope.where.fecha_inicio_year = { '&gt;': params.where.fecha_inicio_year["&gt;"], '&lt;': params.where.fecha_inicio_year["&lt;"] };</span>
+<span class="cstat-no" title="statement not covered" >		      $scope.year.start = params.where.fecha_inicio_year["&gt;"];</span>
+<span class="cstat-no" title="statement not covered" >		      $scope.year.end = params.where.fecha_inicio_year["&lt;"];</span>
+		    }
+&nbsp;
+		    // TODO: solo se debería hacer una petición a refresh (mas bien pasar al service del api)
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		     if(params.where !== undefined &amp;&amp; params.where.dependencia2 !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >		      	$scope.ctbookApi.Dependencia.getList(params.where.dependencia2).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >		        	$scope.selectedItems.dependencia.push(response);</span>
+<span class="cstat-no" title="statement not covered" >		        	$scope.refresh();</span>
+		      	});
+		    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		    if(params.where !== undefined &amp;&amp; params.where.provedorContratista !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >		    	$scope.ctbookApi.Empresa.getList(params.where.provedorContratista).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >			        $scope.selectedItems.proveedor_contratista.push(response);</span>
+<span class="cstat-no" title="statement not covered" >			        $scope.refresh();</span>
+		      	});
+		    }
+		   
+<span class="cstat-no" title="statement not covered" >		    if(params.where !== undefined &amp;&amp; params.where.unidadCompradora !== undefined) {</span>
+<span class="cstat-no" title="statement not covered" >		      	$scope.ctbookApi.UnidadCompradora.getList(params.where.unidadCompradora).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >		        	$scope.selectedItems.nombre_de_la_uc.push(response);</span>
+<span class="cstat-no" title="statement not covered" >		        	$scope.refresh();</span>
+		      	});
+		    }
+&nbsp;
+<span class="cstat-no" title="statement not covered" >		    $scope.loadingCount = true;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.pages = 0;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.skip = (params.skip === undefined) ? 0 : params.skip;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.currentPage = Math.round(($scope.skip / $scope.perPage) + 1);</span>
+		   
+<span class="cstat-no" title="statement not covered" >		    $scope.refresh();</span>
+&nbsp;
+	  	};
+<span class="cstat-no" title="statement not covered" >	  $scope.sliderup = <span class="fstat-no" title="function not covered" >function () {</span></span>
+<span class="cstat-no" title="statement not covered" >	    $scope.currentPage = 1;</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.refresh();</span>
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.toggleContract = <span class="fstat-no" title="function not covered" >function(contract){</span></span>
+<span class="cstat-no" title="statement not covered" >	    if(contract.show !== null){</span>
+<span class="cstat-no" title="statement not covered" >	    	contract.show = !contract.show;</span>
+	    }else{
+<span class="cstat-no" title="statement not covered" >	    	contract.show = true;</span>
+	    }
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.getContractMeta = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >	  	$scope.ctbookApi.Contrato.one('count').get($scope.params).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >	      $scope.pages = Math.ceil(response.count/$scope.perPage);</span>
+<span class="cstat-no" title="statement not covered" >	      $scope.loadingCount = ($scope.pages &gt; 1) ? false : true;</span>
+	    });
+<span class="cstat-no" title="statement not covered" >	    $scope.ctbookApi.Contrato.one('sum').get($scope.params).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >	      $scope.sum = (response.sum &gt; 999999) ? response.sum/1000000 : response.sum;</span>
+<span class="cstat-no" title="statement not covered" >	      $scope.sum_abbr = (response.sum &gt; 999999) ? "MDP" : "";</span>
+	    });	    
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.getContracts = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >	    $scope.where = { "fecha_inicio_year": { "&gt;": $scope.year.start, "&lt;": $scope.year.end } };</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.skip = $scope.perPage * ($scope.currentPage - 1);</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.params = {limit: $scope.perPage,skip:$scope.skip,sort:'importe_contrato DESC', where: $scope.where};</span>
+<span class="cstat-no" title="statement not covered" >	    var url = $scope.ctbookRoutes.encodeParams({</span>
+	    	year : $scope.year,
+	    	page : $scope.currentPage,
+	    	empresas : $scope.selectedItems.proveedor_contratista,
+	    	dependencias : $scope.selectedItems.dependencia,
+	    	ucs : $scope.selectedItems.nombre_de_la_uc
+	    });
+<span class="cstat-no" title="statement not covered" >	    $scope.loading = true;</span>
+<span class="cstat-no" title="statement not covered" >	    angular.extend($scope.params.where,$scope.formParams('proveedor_contratista','provedorContratista'));</span>
+<span class="cstat-no" title="statement not covered" >	    angular.extend($scope.params.where,$scope.formParams('dependencia','dependencia2'));</span>
+<span class="cstat-no" title="statement not covered" >	    angular.extend($scope.params.where,$scope.formParams('nombre_de_la_uc','unidadCompradora'));</span>
+	    
+	    
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	    $scope.ctbookApi.Contrato.getList($scope.params).then(<span class="fstat-no" title="function not covered" >function(response){</span></span>
+<span class="cstat-no" title="statement not covered" >	      	$scope.loading = false;</span>
+<span class="cstat-no" title="statement not covered" >	      	$scope.contracts = response;</span>
+	    });
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	    if ($scope.year.start !== 2000 || $scope.year.end !== 2016 || $scope.skip !== 0 || Object.keys($scope.params.where).length &gt; 1) {</span>
+<span class="cstat-no" title="statement not covered" >	      $location.search(JSON.stringify($scope.params));</span>
+	    }
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.formParams = <span class="fstat-no" title="function not covered" >function(items,field){</span></span>
+<span class="cstat-no" title="statement not covered" >	    params = {};</span>
+<span class="cstat-no" title="statement not covered" >	    if($scope.selectedItems[items].length !== 0){</span>
+<span class="cstat-no" title="statement not covered" >	      params[field] = [];</span>
+<span class="cstat-no" title="statement not covered" >	      $scope.selectedItems[items].forEach(<span class="fstat-no" title="function not covered" >function(item){</span></span>
+<span class="cstat-no" title="statement not covered" >	        params[field].push(item.id);</span>
+	      });
+	    }
+<span class="cstat-no" title="statement not covered" >	    return params;</span>
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.addItem = <span class="fstat-no" title="function not covered" >function(item,items){</span></span>
+<span class="cstat-no" title="statement not covered" >	    if(item){</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.selectedItems[items].push(item);</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.currentPage = 1;</span>
+<span class="cstat-no" title="statement not covered" >		    $scope.refresh();</span>
+		}
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.refresh = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >	    $scope.getContracts();</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.getContractMeta();</span>
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.numberFormat = <span class="fstat-no" title="function not covered" >function(number){</span></span>
+<span class="cstat-no" title="statement not covered" >	    if(number === undefined || isNaN(number)) {</span>
+<span class="cstat-no" title="statement not covered" >	      number = "0";</span>
+	    }
+<span class="cstat-no" title="statement not covered" >	    number = Number(number);</span>
+<span class="cstat-no" title="statement not covered" >	    number = number.toFixed(2);</span>
+<span class="cstat-no" title="statement not covered" >	    return new Intl.NumberFormat().format(number);</span>
+	  };
+	  
+<span class="cstat-no" title="statement not covered" >	  $scope.toggleLeft = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >	    $mdSidenav('left').toggle();</span>
+	  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	  $scope.removeItem = <span class="fstat-no" title="function not covered" >function(key,item){</span></span>
+<span class="cstat-no" title="statement not covered" >	    for(var x in $scope.selectedItems[key]){</span>
+<span class="cstat-no" title="statement not covered" >	      if($scope.selectedItems[key][x].id === item.id){</span>
+<span class="cstat-no" title="statement not covered" >	        $scope.selectedItems[key].splice(x,1);</span>
+<span class="cstat-no" title="statement not covered" >	        break;</span>
+	      }
+	    }
+<span class="cstat-no" title="statement not covered" >	    $scope.refresh();</span>
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.prevPage = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >	    $scope.currentPage -=1;</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.currentPage = $scope.currentPage &gt; 0 ? $scope.currentPage : $scope.pages;</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.getContracts();</span>
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.nextPage = <span class="fstat-no" title="function not covered" >function(){</span></span>
+<span class="cstat-no" title="statement not covered" >	    $scope.currentPage += 1;</span>
+<span class="cstat-no" title="statement not covered" >	    $scope.currentPage = $scope.currentPage &lt;= $scope.pages ? $scope.currentPage : 1; </span>
+<span class="cstat-no" title="statement not covered" >	    $scope.getContracts();</span>
+	  };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >	  $scope.searchObjectsExists = <span class="fstat-no" title="function not covered" >function() {</span></span>
+<span class="cstat-no" title="statement not covered" >	    for (var item in $scope.selectedItems) {</span>
+<span class="cstat-no" title="statement not covered" >	      if($scope.selectedItems[item].length !== 0) {</span>
+<span class="cstat-no" title="statement not covered" >	        return true;</span>
+	      }
+	    }
+<span class="cstat-no" title="statement not covered" >	    return false;</span>
+	  };
+<span class="cstat-no" title="statement not covered" >	  $scope.init();</span>
+  });
+&nbsp;</pre></td></tr>
+</table></pre>
+
+</div>
+<div class="footer">
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Jul 24 2015 12:24:08 GMT-0500 (CDT)</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>

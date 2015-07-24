@@ -97,7 +97,6 @@ angular.module('ctbookApp')
 	    	dependencias : $scope.selectedItems.dependencia,
 	    	ucs : $scope.selectedItems.nombre_de_la_uc
 	    });
-	    console.log(url);
 	    $scope.loading = true;
 	    angular.extend($scope.params.where,$scope.formParams('proveedor_contratista','provedorContratista'));
 	    angular.extend($scope.params.where,$scope.formParams('dependencia','dependencia2'));

@@ -15,8 +15,8 @@ describe('Service: ctbookRoutes', function () {
 
     it('should return a string', function () {
       var route = ctbookRoutes.encodeParams();
-      route.should.be.string.and.eql('');
-//      route.should.equal('/');
+      route.should.be.string;
+      route.should.eql('');
     });
 
   });

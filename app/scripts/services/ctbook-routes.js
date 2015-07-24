@@ -21,7 +21,7 @@ angular.module('ctbookApp')
   	
     this.encodeParams = function(params){
       if(typeof params === 'object'){
-        
+        return '';
       }else{
         return '';  
       }
