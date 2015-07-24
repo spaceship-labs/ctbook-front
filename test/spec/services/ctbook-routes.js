@@ -13,8 +13,19 @@ describe('Service: ctbookRoutes', function () {
   }));
   describe('encodeParams',function(){
 
-    it('should return a string', function () {
+    it('should return empty string with no params', function () {
       var route = ctbookRoutes.encodeParams();
+      route.should.be.string;
+      route.should.eql('');
+    });
+
+    it('should return empty string with default params', function () {
+      var route = ctbookRoutes.encodeParams({
+        year : {
+          start : 2000,
+          end : 2016
+        }
+      });
       route.should.be.string;
       route.should.eql('');
     });
