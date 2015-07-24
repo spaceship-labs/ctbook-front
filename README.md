@@ -1,7 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/el-sonny/ctbook-front/badges/gpa.svg)](https://codeclimate.com/github/el-sonny/ctbook-front)
-
 [![Test Coverage](https://codeclimate.com/github/el-sonny/ctbook-front/badges/coverage.svg)](https://codeclimate.com/github/el-sonny/ctbook-front/coverage)
-
 [![GitHub issues](https://img.shields.io/github/issues/el-sonny/ctbook-front.svg)](https://github.com/el-sonny/ctbook-front/issues)
 
 # ctbook

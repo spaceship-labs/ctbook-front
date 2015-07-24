@@ -5,8 +5,7 @@
 
 module.exports = function(config) {
   'use strict';
-
-  config.set({
+  var cfg = {
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: true,
 
@@ -69,6 +68,13 @@ module.exports = function(config) {
       dir: 'coverage'
     },
 
+    //Travis Support
+    customLaunchers: {
+        Chrome_travis_ci: {
+            base: 'Chrome',
+            flags: ['--no-sandbox']
+        }
+    },
     // Which plugins to enable
     plugins: [
       "karma-chrome-launcher",
@@ -94,6 +100,11 @@ module.exports = function(config) {
     // },
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
-  });
+  };
+   if (process.env.TRAVIS) {
+        cfg.browsers = ['Chrome_travis_ci'];
+    }
+
+    config.set(cfg);
 
 };
