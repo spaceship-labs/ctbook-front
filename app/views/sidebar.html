@@ -1,0 +1,122 @@
+<md-sidebar layout='column' class="md-sidenav-left md-whiteframe-z2 main-sidenav">
+  
+  <md-toolbar>
+    <h2 class="md-toolbar-tools md-title">
+      <span>Contratobook</span>
+    </h2>
+  </md-toolbar>
+
+  <md-content flex layout='column' >
+
+    <a href='/' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/"' >Inicio</a>
+    <a href='/contratos' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/contratos" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/contratos"' >Contratos</a>
+
+    <md-content ng-show='ctbookRoutes.path == "/contratos"' flex class='md-padding'>
+
+
+      <md-autocomplete
+          md-search-text-change=""
+          md-selected-item-change="addItem(item,'dependencia');dependencia=''"
+          md-selected-item="selectedItem"
+          md-search-text="dependencia"
+          md-items="item in ctbookApi.autocomplete(dependencia,'dependencia','Dependencia')"
+          md-item-text="item.dependencia"
+          md-min-length="1"
+          placeholder="Dependencia">
+        <md-item-template>
+          <span md-highlight-text="dependencia" md-highlight-flags="^i">{{item.dependencia}}</span>
+        </md-item-template>
+        <md-not-found>
+          No se encontraron resultados.
+        </md-not-found>
+      </md-autocomplete>
+      <br>
+      <md-autocomplete
+          md-search-text-change=""
+          md-selected-item-change="addItem(item,'nombre_de_la_uc');nombre_de_la_uc=''"
+          md-selected-item="selectedItem2"
+          md-search-text="nombre_de_la_uc"
+          md-items="item in ctbookApi.autocomplete(nombre_de_la_uc,'nombre_de_la_uc','UnidadCompradora')"
+          md-item-text="item.nombre_de_la_uc"
+          md-min-length="1"
+          placeholder="Unidad compradora">
+        <md-item-template>
+          <span md-highlight-text="nombre_de_la_uc" md-highlight-flags="^i">{{item.nombre_de_la_uc}}</span>
+        </md-item-template>
+        <md-not-found>
+          No se encontraron resultados.
+        </md-not-found>
+      </md-autocomplete>
+
+
+     <br>
+
+      <md-autocomplete
+          md-search-text-change=""
+          md-selected-item-change="addItem(item,'proveedor_contratista');proveedor_contratista=''"
+          md-selected-item="selectedItem3"
+          md-search-text="proveedor_contratista"
+          md-items="item in ctbookApi.autocomplete(proveedor_contratista,'proveedor_contratista','Empresa')"
+          md-item-text="item.proveedor_contratista"
+          md-min-length="1"
+          placeholder="Empresa">
+        <md-item-template>
+          <span md-highlight-text="proveedor_contratista" md-highlight-flags="^i">{{item.proveedor_contratista}}</span>
+        </md-item-template>
+        <md-not-found>
+          No se encontraron resultados.
+        </md-not-found>
+      </md-autocomplete> 
+       
+      <h4 class="subtitle">Años:  {{year.start}} -  {{year.end}}</h4>
+      <div layout-align='center center'>
+        <md-slider flex='80' ng-model="year.start" min="2000" max="{{year.end}}" ng-mouseup="sliderup($event)" aria-label="año" ></md-slider>
+
+        <md-slider flex='80' ng-model="year.end" min="{{year.start}}" ng-mouseup="sliderup($event)" max="2016" aria-label="año" ></md-slider>           
+      </div>        
+    </md-content>
+
+    <a href='/dependencias' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/dependencias" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/dependencias"' >Dependencias</a>
+
+    <md-content ng-show='ctbookRoutes.path == "/dependencias"' flex class='md-padding'>
+      
+      <md-input-container label="provedor" class="ng-isolate-scope md-default-theme ng-valid md-input-has-value" aria-invalid="false">
+
+        <label for="dependenciaInput" class="ng-binding">Dependencia</label>
+        <input 
+          id='dependenciaInput'
+          type='text' 
+          ng-model='dependencia'
+          typeahead-min-length="3"
+          typeahead-wait-ms='500'
+          typeahead='dependencia.dependencia for dependencia in getAutocomplete($viewValue,"dependencia","dependencia")' 
+          typeahead-on-select='addItem($item,"dependencia");dependencia=""'
+          />
+      </md-input-container>
+    </md-content>
+
+
+    <a href='/empresas' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/empresas" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/empresas"' >Empresas</a>
+
+    <md-content ng-show='ctbookRoutes.path == "/empresas"' flex class='md-padding'>
+      <md-input-container label="empresa" class="ng-isolate-scope md-default-theme ng-valid md-input-has-value" aria-invalid="false">
+        <label for="empresaInput" class="ng-binding">Empresa</label>
+        <input id='empresaInput' type='text' ng-model='empresa' ng-change="query(empresa,'proveedor_contratista')" ng-model-options="{debounce: 1000}"/>
+      </md-input-container>
+      <md-input-container label="provedor" class="ng-isolate-scope md-default-theme ng-valid md-input-has-value" aria-invalid="false">
+
+        <label for="dependenciaInput" class="ng-binding">Dependencia</label>
+        <input 
+          id='dependenciaInput'
+          type='text' 
+          ng-model='dependencia'
+          typeahead-min-length="3"
+          typeahead-wait-ms='500'
+          typeahead='dependencia.dependencia for dependencia in getAutocomplete($viewValue,"dependencia","dependencia")' 
+          typeahead-on-select='addItem($item,"dependencia");dependencia=""'
+          />
+      </md-input-container>
+    </md-content>
+
+  </md-content>
+</md-sidebar>

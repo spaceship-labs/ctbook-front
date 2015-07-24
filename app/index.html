@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app='ctbookApp' ng-controller='MainCtrl'>
+  <head >
+    <title>Contratobook</title>
+    <!-- Viewport mobile tag for sensible mobile support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <base href="/templates">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(.) styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+  </head>
+
+  <body layout="column" >
+    
+    <md-content ng-view layout-class="md-padding" layout='row' flex></md-content>   
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/packery/1.4.2/packery.pkgd.min.js"></script>   
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/angular-aria/angular-aria.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-material/angular-material.js"></script>
+    <script src="bower_components/angular-packery/dist/packery.js"></script>
+    <script src="bower_components/angular-contentful/dist/angular-contentful.js"></script>
+    <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/restangular/dist/restangular.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+      <!-- build:js({.tmp,app}) scripts/scripts.js -->
+      <script src="scripts/app.js"></script>
+      <script src="scripts/controllers/main.js"></script>
+      <script src="scripts/controllers/home.js"></script>
+      <script src="scripts/controllers/contratos.js"></script>
+      <script src="scripts/services/ctbook-api.js"></script>
+      <script src="scripts/services/ctbook-routes.js"></script>
+      <script src="scripts/controllers/delete.js"></script>
+      <!-- endbuild -->
+  </body>
+</html>

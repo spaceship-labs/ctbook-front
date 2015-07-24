@@ -1,0 +1,83 @@
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+[32m>> [39m1 path cleaned.
+
+[4mRunning "wiredep:app" (wiredep) task[24m
+
+[4mRunning "wiredep:test" (wiredep) task[24m
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+    
+    [4mRunning "copy:styles" (copy) task[24m
+    Copied 2 files
+    
+    [32mDone, without errors.[39m
+    
+    
+    Execution Time (2015-07-22 00:44:35 UTC)
+    loading tasks               121ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 77%
+    loading grunt-contrib-copy   19ms  ▇▇▇▇▇ 12%
+    copy:styles                  17ms  ▇▇▇▇ 11%
+    Total 158ms
+    
+[4mRunning "autoprefixer:server" (autoprefixer) task[24m
+Autoprefixer's process() method is deprecated and will removed in next major release. Use postcss([autoprefixer]).process() instead
+File .tmp/styles/home.css created.
+Autoprefixer's process() method is deprecated and will removed in next major release. Use postcss([autoprefixer]).process() instead
+File .tmp/styles/main.css created.
+
+[4mRunning "connect:livereload" (connect) task[24m
+Started connect web server on http://localhost:9000
+
+[4mRunning "watch" task[24m
+Waiting...
+
+
+Execution Time (2015-07-22 00:44:34 UTC)
+wiredep:app                 219ms  ▇ 2%
+concurrent:server           586ms  ▇▇ 4%
+loading grunt-autoprefixer  227ms  ▇ 2%
+watch                       11.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 88%
+Total 13.1s
+
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+[32m>> [39m1 path cleaned.
+
+[4mRunning "wiredep:app" (wiredep) task[24m
+
+[4mRunning "wiredep:test" (wiredep) task[24m
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+    
+    [4mRunning "copy:styles" (copy) task[24m
+    Copied 2 files
+    
+    [32mDone, without errors.[39m
+    
+    
+    Execution Time (2015-07-22 00:56:51 UTC)
+    loading tasks               117ms  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 75%
+    loading grunt-contrib-copy   21ms  ▇▇▇▇▇ 13%
+    copy:styles                  17ms  ▇▇▇▇ 11%
+    Total 156ms
+    
+[4mRunning "autoprefixer:server" (autoprefixer) task[24m
+Autoprefixer's process() method is deprecated and will removed in next major release. Use postcss([autoprefixer]).process() instead
+File .tmp/styles/home.css created.
+Autoprefixer's process() method is deprecated and will removed in next major release. Use postcss([autoprefixer]).process() instead
+File .tmp/styles/main.css created.
+
+[4mRunning "connect:livereload" (connect) task[24m
+Started connect web server on http://localhost:9000
+
+[4mRunning "watch" task[24m
+Waiting...
+
+
+Execution Time (2015-07-22 00:56:50 UTC)
+watch           3m 28.7s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 99%
+Total 3m 30.3s
+
