@@ -2,6 +2,7 @@
   "name": "ctbook",
   "private": true,
   "devDependencies": {
+    "bower": "^1.4.1",
     "chai": "^3.2.0",
     "connect-modrewrite": "^0.8.1",
     "grunt": "^0.4.5",

@@ -90,7 +90,7 @@ angular.module('ctbookApp')
 	    $scope.where = { "fecha_inicio_year": { ">": $scope.year.start, "<": $scope.year.end } };
 	    $scope.skip = $scope.perPage * ($scope.currentPage - 1);
 	    $scope.params = {limit: $scope.perPage,skip:$scope.skip,sort:'importe_contrato DESC', where: $scope.where};
-	    var url = $scope.ctbookRoutes.encodeParams({
+	    $scope.ctbookRoutes.encodeParams({
 	    	year : $scope.year,
 	    	page : $scope.currentPage,
 	    	empresas : $scope.selectedItems.proveedor_contratista,
@@ -102,8 +102,6 @@ angular.module('ctbookApp')
 	    angular.extend($scope.params.where,$scope.formParams('dependencia','dependencia2'));
 	    angular.extend($scope.params.where,$scope.formParams('nombre_de_la_uc','unidadCompradora'));
 	    
-	    
-
 	    $scope.ctbookApi.Contrato.getList($scope.params).then(function(response){
 	      	$scope.loading = false;
 	      	$scope.contracts = response;

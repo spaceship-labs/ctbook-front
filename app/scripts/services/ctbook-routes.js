@@ -21,11 +21,20 @@ angular.module('ctbookApp')
   	
     this.encodeParams = function(params){
       if(typeof params === 'object'){
-        return '';
+        var components = [];
+        if(typeof params.year === 'object'){
+          if(params.year.start !== 2000 && params.year.end !== 2015){
+            var component = 'Y'+params.year.start+'-'+params.year.end;  
+            components.push(component);
+          }          
+        }
+        if(params.page && params.page !== 1){
+          components.push('P'+params.page);
+        }
+        return components.join('/');
       }else{
         return '';  
       }
       
-    }
-    // AngularJS will instantiate a singleton by calling "new" on this function
+    };
   });
