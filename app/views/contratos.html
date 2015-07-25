@@ -7,10 +7,10 @@
         <div ng-hide='!sum'> Monto de contratos : $ {{numberFormat(sum)}} {{sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
      </div>
     <div layout='column'>
-        <div layout='column' ng-hide='pages <= 1'>
-            <div>Pagina {{currentPage}} de {{pages}}</div>
+        <div layout='column' ng-hide='!pages || pages <= 1'>
+            <div>Pagina {{params.page}} de {{pages}}</div>
             <div>
-                <md-button ng-click='prevPage()' ng-disabled='currentPage === 1' > &lt; </md-button>
+                <md-button ng-click='prevPage()' ng-disabled='params.page === 1' > &lt; </md-button>
                 <md-button ng-click='nextPage()' > &gt; </md-button>
             </div>
         </div>        
@@ -18,14 +18,6 @@
   </md-toolbar>      
     
   <md-content flex layout-fill layout='column'>
-    <!-- Los filtros seleccionados -->
-    <md-content class='' layout='row' style="min-height:86px;" ng-show='searchObjectsExists()'>
-        <md-content ng-hide='items.length == 0' ng-repeat='(key,items) in selectedItems' layout='column' class='md-padding'>
-          <div  md-ink-ripple="#bbb" ng-show='items.length' ng-bind='key'></div>
-          <md-button ng-repeat='item in items ' class='menu-item tag' ng-click='removeItem(key,item)' >{{item[key]}}</md-button>
-        </md-content>
-    </md-content>
-
     <!-- El Loader -->
     <md-content ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
@@ -33,6 +25,21 @@
 
     <!-- El listado -->
     <md-list ng-hide='loading' >
+      <!-- Los filtros seleccionados -->
+      <md-content flex class='' layout='row' style="min-height:86px;" ng-show='searchObjectsExists()'>
+          <md-content ng-hide='params.dependencias.length === 0' class='md-padding'>
+            <div  md-ink-ripple="#bbb">Dependencias</div>
+            <md-button ng-repeat='item in params.dependencias' class='menu-item tag' ng-click='removeItem("dependencias",item)' >{{item.dependencia}}</md-button>
+          </md-content>
+          <md-content ng-hide='params.ucs.length === 0' class='md-padding'>
+            <div  md-ink-ripple="#bbb">Unidades Compradoras</div>
+            <md-button ng-repeat='item in params.ucs' class='menu-item tag' ng-click='removeItem("ucs",item)' >{{item.nombre_de_la_uc}}</md-button>
+          </md-content>
+          <md-content ng-hide='params.empresas.length === 0' class='md-padding'>
+            <div  md-ink-ripple="#bbb">Empresas</div>
+            <md-button ng-repeat='item in params.empresas' class='menu-item tag' ng-click='removeItem("empresas",item)' >{{item.proveedor_contratista}}</md-button>
+          </md-content>
+      </md-content>
       <md-item ng-repeat="contract in contracts" ng-click='toggleContract(contract)'>
         <md-item-content layout='column' class="contrato-item">
           <div layout='row' class="md-tile-content" layout-fill>

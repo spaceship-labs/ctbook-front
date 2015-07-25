@@ -18,18 +18,20 @@ angular
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
-
+    
     $routeProvider
       .when('/',{        
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
-      }).when('/contratos', {
+      })
+      .when('/contratos/',{
         templateUrl: 'views/contratos.html',
         controller: 'ContratosCtrl',
         controllerAs: 'contratos',
         reloadOnSearch: false
-      }).when('/empresas', {
+      })
+      .when('/empresas', {
         templateUrl: 'templates/pages/companies.html',
         controller : 'companyCtrl', 
         reloadOnSearch: false

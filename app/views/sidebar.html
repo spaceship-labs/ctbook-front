@@ -9,14 +9,13 @@
   <md-content flex layout='column' >
 
     <a href='/' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/"' >Inicio</a>
-    <a href='/contratos' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/contratos" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/contratos"' >Contratos</a>
+    <a href='/contratos' class='menu-item menu-title' ng-class='ctbookRoutes.basePath() === "contratos" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/contratos"' >Contratos</a>
 
-    <md-content ng-show='ctbookRoutes.path == "/contratos"' flex class='md-padding'>
-
+    <md-content ng-show='ctbookRoutes.basePath() === "contratos"' flex class='md-padding'>
 
       <md-autocomplete
           md-search-text-change=""
-          md-selected-item-change="addItem(item,'dependencia');dependencia=''"
+          md-selected-item-change="addItem(item,'dependencias');dependencia=''"
           md-selected-item="selectedItem"
           md-search-text="dependencia"
           md-items="item in ctbookApi.autocomplete(dependencia,'dependencia','Dependencia')"
@@ -31,9 +30,10 @@
         </md-not-found>
       </md-autocomplete>
       <br>
+
       <md-autocomplete
           md-search-text-change=""
-          md-selected-item-change="addItem(item,'nombre_de_la_uc');nombre_de_la_uc=''"
+          md-selected-item-change="addItem(item,'ucs');nombre_de_la_uc=''"
           md-selected-item="selectedItem2"
           md-search-text="nombre_de_la_uc"
           md-items="item in ctbookApi.autocomplete(nombre_de_la_uc,'nombre_de_la_uc','UnidadCompradora')"
@@ -47,13 +47,11 @@
           No se encontraron resultados.
         </md-not-found>
       </md-autocomplete>
-
-
-     <br>
+      <br>
 
       <md-autocomplete
           md-search-text-change=""
-          md-selected-item-change="addItem(item,'proveedor_contratista');proveedor_contratista=''"
+          md-selected-item-change="addItem(item,'empresas');proveedor_contratista=''"
           md-selected-item="selectedItem3"
           md-search-text="proveedor_contratista"
           md-items="item in ctbookApi.autocomplete(proveedor_contratista,'proveedor_contratista','Empresa')"
@@ -68,11 +66,11 @@
         </md-not-found>
       </md-autocomplete> 
        
-      <h4 class="subtitle">Años:  {{year.start}} -  {{year.end}}</h4>
+      <h4 class="subtitle">Años:  {{params.year.start}} -  {{params.year.end}}</h4>
       <div layout-align='center center'>
-        <md-slider flex='80' ng-model="year.start" min="2000" max="{{year.end}}" ng-mouseup="sliderup($event)" aria-label="año" ></md-slider>
+        <md-slider flex='80' ng-model="params.year.start" min="2000" max="{{params.year.end}}" ng-mouseup="sliderup($event)" aria-label="año" ></md-slider>
 
-        <md-slider flex='80' ng-model="year.end" min="{{year.start}}" ng-mouseup="sliderup($event)" max="2016" aria-label="año" ></md-slider>           
+        <md-slider flex='80' ng-model="params.year.end" min="{{params.year.start}}" ng-mouseup="sliderup($event)" max="2016" aria-label="año" ></md-slider>           
       </div>        
     </md-content>
 
