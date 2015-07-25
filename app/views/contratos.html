@@ -7,10 +7,10 @@
         <div ng-hide='!sum'> Monto de contratos : $ {{numberFormat(sum)}} {{sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
      </div>
     <div layout='column'>
-        <div layout='column' ng-hide='loadingCount'>
+        <div layout='column' ng-hide='pages <= 1'>
             <div>Pagina {{currentPage}} de {{pages}}</div>
             <div>
-                <md-button ng-click='prevPage()' > &lt; </md-button>
+                <md-button ng-click='prevPage()' ng-disabled='currentPage === 1' > &lt; </md-button>
                 <md-button ng-click='nextPage()' > &gt; </md-button>
             </div>
         </div>        

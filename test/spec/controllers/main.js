@@ -18,4 +18,9 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
+  it('should atach services to the scope',function(){
+    scope.ctbookApi.should.be.an('object');
+    scope.ctbookRoutes.should.be.an('object');
+  });
+
 });
