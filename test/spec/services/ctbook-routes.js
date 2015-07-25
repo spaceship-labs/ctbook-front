@@ -37,7 +37,7 @@ describe('Service: ctbookRoutes', function () {
         dependencias : [{id:'dp1'},{id:'dp2'}],
         ucs : [{id:'uc1'},{id:'uc2'}]
       });
-      ctbookRoutes.getParams().should.equal('Y2004-2013.P2.Eec9.Eec8.Ddp1.Ddp2.Uuc1.Uuc2');
+      Object.keys(location.search())[0].should.equal('Y2004-2013.P2.Eec9.Eec8.Ddp1.Ddp2.Uuc1.Uuc2');
     });
   });
 
