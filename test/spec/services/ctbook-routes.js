@@ -45,10 +45,10 @@ describe('Service: ctbookRoutes', function () {
         page : 2,
         empresas : ['ec9','ec8'],
         dependencias : ['dp1','dp2'],
-        ucs : ['uc1','uc2']
+        ucs : ['uc1','uc2','uc3']
       });
       route.should.be.string;
-      route.should.equal('Y2004-2013/P2/Eec9/Eec8/Ddp1/Ddp2/Uuc1/Uuc2');
+      route.should.equal('Y2004-2013/P2/Eec9/Eec8/Ddp1/Ddp2/Uuc1/Uuc2/Uuc3');
     });
 
   });
