@@ -4,9 +4,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/el-sonny/ctbook-front.svg)](https://github.com/el-sonny/ctbook-front/issues)
 [![Dependency Status](https://gemnasium.com/el-sonny/ctbook-front.svg)](https://gemnasium.com/el-sonny/ctbook-front)
 
-# ctbook
+# ctbook-front
 
-Single Page Application made with Yeoman-angular that connects to ctbook-api
+Single page application (SPA) made with Yeoman-angular that connects to ctbook-api
 
 ## Build & development
 
