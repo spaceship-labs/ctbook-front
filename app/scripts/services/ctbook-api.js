@@ -23,25 +23,63 @@ angular.module('ctbookApp')
 	};
 
 	this.completeParams = function(params,contracts){
+		params = this.completeParamsFromCache(params,contracts);
+		params.empresas = this.completeParamsFromApi(params.empresas,'proveedor_contratista',this.Empresa);
+		params.dependencias = this.completeParamsFromApi(params.dependencias,'dependencia',this.Dependencia);
+		params.ucs = this.completeParamsFromApi(params.ucs,'nombre_de_la_uc',this.UnidadCompradora);
+		return params;
+	};
+
+	this.completeParamsFromApi = function(entities,target,model){
+		var unCached = [];
+		for (var x in entities){
+			var entity= entities[x];
+			if(!entity[target]){
+				entity.index = x;
+				unCached.push(entity);
+			}
+		}
+		if(unCached.length){
+			var query = unCached.map(function(item){return item.id;});
+			query = {
+				where: {
+					id : query
+				}
+			};
+			model.getList(query).then(function(items){
+				unCached.forEach(function(item){
+					entities[item.index] = items.filter(function(e){return e.id === item.id;})[0];
+				});	
+			});
+		}
+		return entities;
+	};
+
+
+	this.completeParamsFromCache = function(params,contracts){
+
 		for(var x in params.empresas){
-			params.empresas[x] = this.findEntity(params.empresas[x],contracts,'provedorContratista') ;
-		};
-		for(var x in params.dependencias){
+			params.empresas[x] = this.findEntity(params.empresas[x],contracts,'provedorContratista');
+		}
+		for(x in params.dependencias){
 			params.dependencias[x] = this.findEntity(params.dependencias[x],contracts,'dependencia2') ;
-		};
-		for(var x in params.ucs){
+		}
+		for(x in params.ucs){
 			params.ucs[x] = this.findEntity(params.ucs[x],contracts,'unidadCompradora') ;
-		};
+		}
 		return params;
 	};
 
 	this.findEntity = function(entity,contracts,target){
 		for(var x in contracts){
 			var contract = contracts[x];
-			if(contract[target].id === entity.id){
-				return contract[target];
+			if(contract && contract[target]){
+				if(contract[target].id === entity.id){
+					return contract[target];
+				}
 			}
 		}
+		return entity;
 	};
 	
 	this.getContracts = function(params){

@@ -28,10 +28,12 @@ describe('Service: ctbookApi', function () {
 
   describe('completeParams',function(){
     it('get the missing names',function(){
+      $httpBackend.expectGET('http://contratobook.herokuapp.com/api/v1/empresa?where=%7B%22id%22:%5B%223%22%5D%7D')
+        .respond([{id:'3',dependencia:'dependencia 3 async'}]);
       var params = ctbookApi.completeParams({
         empresas : [{id:'1'},{id:'2'},{id:'3'}],
-        dependencias : [{id:'1'},{id:'2'},{id:'3'}],
-        ucs : [{id:'1'},{id:'2'},{id:'3'}],
+        dependencias : [{id:'1'},{id:'2'}],
+        ucs : [{id:'1'},{id:'2'}],
       },
       [
         {
@@ -45,12 +47,16 @@ describe('Service: ctbookApi', function () {
           unidadCompradora:{id:'2',nombre_de_la_uc:'uc 2'}
         }
       ]);
+
       params.empresas[0].proveedor_contratista.should.equal('company 1');
       params.empresas[1].proveedor_contratista.should.equal('company 2');
       params.dependencias[0].dependencia.should.equal('dependencia 1');
       params.dependencias[1].dependencia.should.equal('dependencia 2');
+      //params.dependencias[2].dependencia.should.equal('dependencia 3 async');
       params.ucs[0].nombre_de_la_uc.should.equal('uc 1');
       params.ucs[1].nombre_de_la_uc.should.equal('uc 2');
+      
+      $httpBackend.flush();
     });
   });
 
