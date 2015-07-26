@@ -25,7 +25,7 @@ angular
         controller: 'HomeCtrl',
         controllerAs: 'home'
       })
-      .when('/contratos/',{
+      .when('/contratos',{
         templateUrl: 'views/contratos.html',
         controller: 'ContratosCtrl',
         controllerAs: 'contratos',

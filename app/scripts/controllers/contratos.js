@@ -27,6 +27,7 @@ angular.module('ctbookApp')
 		$scope.ctbookApi.getContracts($scope.params).then(function(response){
 			$scope.loading = false;
 			$scope.contracts = response;
+			$scope.params = $scope.ctbookApi.completeParams($scope.params,$scope.contracts);
 		});
 	};
 

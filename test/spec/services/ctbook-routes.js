@@ -8,12 +8,30 @@ describe('Service: ctbookRoutes', function () {
 
   // instantiate service
   var ctbookRoutes,
-      location;
+      location,
+      sample;
+
+  var samples = [
+    {
+      hash : 'Y2004-2013.P2.Ee1.Ee2.Dd1.Dd2.Uuc1.Uuc2',
+      params : {
+        year : {
+          start : 2004,
+          end : 2013
+        },
+        page : 2,
+        empresas : [{id:'e1'},{id:'e2'}],
+        dependencias : [{id:'d1'},{id:'d2'}],
+        ucs : [{id:'uc1'},{id:'uc2'}]
+      }
+    }
+  ];
 
   beforeEach(inject(function (_ctbookRoutes_,$location) {
     ctbookRoutes = _ctbookRoutes_;
     location = $location;
-    location.search('Y2004-2013.P2.Eec9.Eec8.Ddp1.Uuc1.Uuc2.Uuc3.Ddp2.K12');
+    sample = samples[0];
+    location.search(sample.hash);
   }));
   
   describe('basePath',function(){
@@ -26,18 +44,9 @@ describe('Service: ctbookRoutes', function () {
   });
 
   describe('setParams',function(){
-    it('should set the params in the URL search', function () {
-      ctbookRoutes.setParams({
-        year : {
-          start : 2004,
-          end : 2013
-        },
-        page : 2,
-        empresas : [{id:'ec9'},{id:'ec8'}],
-        dependencias : [{id:'dp1'},{id:'dp2'}],
-        ucs : [{id:'uc1'},{id:'uc2'}]
-      });
-      Object.keys(location.search())[0].should.equal('Y2004-2013.P2.Eec9.Eec8.Ddp1.Ddp2.Uuc1.Uuc2');
+    it('should set the params in the URL search', function () {      
+      ctbookRoutes.setParams(sample.params);
+      Object.keys(location.search())[0].should.equal(sample.hash);
     });
   });
 
@@ -47,13 +56,12 @@ describe('Service: ctbookRoutes', function () {
       params.year.start.should.equal(2004);
       params.year.end.should.equal(2013);
       params.page.should.equal(2);
-      params.empresas[0].id.should.equal('ec9');
-      params.empresas[1].id.should.equal('ec8');
-      params.dependencias[0].id.should.equal('dp1');
-      params.dependencias[1].id.should.equal('dp2');
+      params.empresas[0].id.should.equal('e1');
+      params.empresas[1].id.should.equal('e2');
+      params.dependencias[0].id.should.equal('d1');
+      params.dependencias[1].id.should.equal('d2');
       params.ucs[0].id.should.equal('uc1');
       params.ucs[1].id.should.equal('uc2');
-      params.ucs[2].id.should.equal('uc3');
     });
   });
 
@@ -84,18 +92,9 @@ describe('Service: ctbookRoutes', function () {
     });
 
     it('should encode year and page', function () {
-      var route = ctbookRoutes.encodeParams({
-        year : {
-          start : 2004,
-          end : 2013
-        },
-        page : 2,
-        empresas : [{id:'ec9'},{id:'ec8'}],
-        dependencias : [{id:'dp1'},{id:'dp2'}],
-        ucs : [{id:'uc1'},{id:'uc2'}]
-      });
+      var route = ctbookRoutes.encodeParams(sample.params);
       route.should.be.string;
-      route.should.equal('Y2004-2013.P2.Eec9.Eec8.Ddp1.Ddp2.Uuc1.Uuc2');
+      route.should.equal(sample.hash);
     });
 
   });

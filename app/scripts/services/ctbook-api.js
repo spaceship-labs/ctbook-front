@@ -22,7 +22,29 @@ angular.module('ctbookApp')
 	    return this[object].getList(params);
 	};
 
-	this.getContracts = function(params){		
+	this.completeParams = function(params,contracts){
+		for(var x in params.empresas){
+			params.empresas[x] = this.findEntity(params.empresas[x],contracts,'provedorContratista') ;
+		};
+		for(var x in params.dependencias){
+			params.dependencias[x] = this.findEntity(params.dependencias[x],contracts,'dependencia2') ;
+		};
+		for(var x in params.ucs){
+			params.ucs[x] = this.findEntity(params.ucs[x],contracts,'unidadCompradora') ;
+		};
+		return params;
+	};
+
+	this.findEntity = function(entity,contracts,target){
+		for(var x in contracts){
+			var contract = contracts[x];
+			if(contract[target].id === entity.id){
+				return contract[target];
+			}
+		}
+	};
+	
+	this.getContracts = function(params){
 		return this.Contrato.getList(this.makeQuery(params));
 	};
 

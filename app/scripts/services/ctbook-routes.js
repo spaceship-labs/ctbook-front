@@ -8,7 +8,7 @@
  * Service in the ctbookApp.
  */
 angular.module('ctbookApp')
-  .service('ctbookRoutes', function ($location,$routeParams) {
+  .service('ctbookRoutes', function ($location) {
     
     this.path = $location.path();
 
@@ -85,12 +85,18 @@ angular.module('ctbookApp')
           params.year.end = parseInt(value[1]);
         }else if(key === 'P'){
           params.page = parseInt(value);
-        }else if(key === 'D'){
-          params.dependencias.push({id:value});
+        }else if(key === 'D'){         
+          params.dependencias.push({
+            id:value
+          });
         }else if(key === 'E'){
-          params.empresas.push({id:value});
+          params.empresas.push({
+            id:value
+          });
         }else if(key === 'U'){
-          params.ucs.push({id:value});
+          params.ucs.push({
+            id:value
+          });
         }
       });
       return params;
