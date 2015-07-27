@@ -82,8 +82,8 @@ describe('Service: ctbookRoutes', function () {
     it('should ignore default params', function () {
       var route = ctbookRoutes.encodeParams({
         year : {
-          start : 2000,
-          end : 2016,
+          start : 2002,
+          end : 2015,
         },     
         page : 1
       });
@@ -101,8 +101,8 @@ describe('Service: ctbookRoutes', function () {
   describe('decodeParams',function(){
     it('should return default params when given blank url',function(){
       var params = ctbookRoutes.decodeParams();
-      params.year.start.should.equal(2000); 
-      params.year.end.should.equal(2016);
+      params.year.start.should.equal(2002); 
+      params.year.end.should.equal(2015);
       params.page.should.equal(1);
       params.empresas.should.be.empty;
       params.dependencias.should.be.empty;

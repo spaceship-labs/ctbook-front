@@ -104,7 +104,7 @@ angular.module('ctbookApp')
 	};
 	
 	this.makeQuery = function(params){
-		var where = { "fecha_inicio_year": { ">": params.year.start, "<": params.year.end } };
+		var where = { "fecha_inicio_year": { ">=": params.year.start, "<=": params.year.end } };
 	    var skip = this.perPage * (params.page - 1);
 	    var query = {limit: this.perPage,skip:skip,sort:'importe_contrato DESC', where: where};
 
