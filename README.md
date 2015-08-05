@@ -14,9 +14,11 @@ Run `grunt` for building and `grunt serve` for preview.
 
 ## Testing
 
-Running `grunt test` will run the unit tests with karma.
+Running `grunt test` will run unit and end to end tests
 
-Running `grunt protractor` will run the e2e tests with protractor.
+Running `grunt karma` will run unit tests with karma.
+
+Running `grunt protractor` will run unit tests with protractor. Server must be running on port 9000
 
 ## Deployment
 

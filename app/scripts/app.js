@@ -58,4 +58,21 @@ angular
   .config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('http://contratobook.herokuapp.com/api/v1');
     //RestangularProvider.setBaseUrl('http://localhost:1337/api/v1');
+  })
+  .config(function($mdThemingProvider) {
+    
+    var ctBookBackgroundMap = $mdThemingProvider.extendPalette('indigo', {
+      'A100': 'D9EDF4'
+    });
+    var ctBookPimaryMap = $mdThemingProvider.extendPalette('blue', {
+      '500': '1C7EE1'
+    });
+
+    $mdThemingProvider.definePalette('ctBookBackground', ctBookBackgroundMap);
+    $mdThemingProvider.definePalette('ctBookPimary', ctBookPimaryMap);
+
+    $mdThemingProvider.theme('default')
+      .primaryPalette('ctBookPimary')
+      .accentPalette('blue')
+      .backgroundPalette('ctBookBackground');
   });

@@ -1,12 +1,15 @@
 <md-sidebar layout='column' class="md-sidenav-left md-whiteframe-z2 main-sidenav">
   
-  <md-toolbar>
+  <!-- <md-toolbar>
     <h2 class="md-toolbar-tools md-title">
       <span>Contratobook</span>
     </h2>
-  </md-toolbar>
+  </md-toolbar> -->
+
 
   <md-content flex layout='column' >
+
+    <a href='/'><img src='/images/gobiernamx.png' alt='contratobook' /></a>
 
     <a href='/' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/"' >Inicio</a>
     <a href='/contratos' class='menu-item menu-title' ng-class='ctbookRoutes.basePath() === "contratos" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/contratos"' >Contratos</a>
