@@ -1,16 +1,12 @@
 <md-sidebar layout='column' class="md-sidenav-left md-whiteframe-z2 main-sidenav">
   
-  <!-- <md-toolbar>
-    <h2 class="md-toolbar-tools md-title">
-      <span>Contratobook</span>
-    </h2>
-  </md-toolbar> -->
-
-
   <md-content flex layout='column' >
-
-    <a href='/'><img src='/images/gobiernamx.png' alt='contratobook' /></a>
-
+    <h2 class='logobox'>
+      <a href='/'>
+        <img src='/images/imago.png' alt='contratobook' />
+        <span>contrato<strong>Book</strong></span>
+      </a>
+    </h2>
     <a href='/' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/"' >Inicio</a>
     <a href='/contratos' class='menu-item menu-title' ng-class='ctbookRoutes.basePath() === "contratos" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/contratos"' >Contratos</a>
 
@@ -70,10 +66,27 @@
       </md-autocomplete> 
        
       <h4 class="subtitle">Años:  {{params.year.start}} -  {{params.year.end}}</h4>
+      
       <div layout-align='center center'>
-        <md-slider flex='80' ng-model="params.year.start" min="2002" max="{{params.year.end}}" ng-mouseup="sliderup($event)" aria-label="año" ></md-slider>
+        <md-slider 
+          flex='80' 
+          ng-model="params.year.start" 
+          min="2002" 
+          max="{{params.year.end}}" 
+          ng-mouseup="sliderup($event)" 
+          aria-label="año" 
+          md-discrete
+        ></md-slider>
 
-        <md-slider flex='80' ng-model="params.year.end" min="{{params.year.start}}" ng-mouseup="sliderup($event)" max="2015" aria-label="año" ></md-slider>           
+        <md-slider 
+          flex='80' 
+          ng-model="params.year.end" 
+          min="{{params.year.start}}" 
+          ng-mouseup="sliderup($event)" 
+          max="2015" 
+          aria-label="año" 
+          md-discrete
+        ></md-slider>           
       </div>        
     </md-content>
 

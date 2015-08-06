@@ -1,6 +1,6 @@
 <div ng-include="'views/sidebar.html'" layout='row' onload='packery.layout()'></div>
 
-<div id='home-content' flex layout-fill>
+<div id='home-content' class='main-container' flex layout-fill>
  	<packery draggable='false'>
  		<div contentful-entries="'content_type=2wKn6yEnZewu2SCCkus4as&amp;order=-sys.createdAt'">
 			<packery-object class='item' ng-style='sizePack(entry)' ng-repeat="entry in $contentfulEntries.items">

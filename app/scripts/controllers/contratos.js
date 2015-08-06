@@ -8,7 +8,12 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('ContratosCtrl', function ($scope) {
+  .controller('ContratosCtrl', function ($scope,$rootScope) {
+	
+	$rootScope.$on('params change', function(){
+		console.log('params change in contracts');
+		$scope.init();
+	});
 
 	$scope.init = function(){
 		$scope.params = $scope.ctbookRoutes.getParams();

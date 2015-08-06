@@ -1,32 +1,37 @@
 <div ng-include="'views/sidebar.html'" layout='row'></div>
 
-<div layout='column' flex layout-fill role='main' tab-index='-1' role='main'> 
-  <!-- El header -->
-  <md-toolbar class='md-toolbar-tools results-toolbar md-accent'>
-     <div flex >
-        <div ng-hide='!sum'> Monto de contratos : $ {{numberFormat(sum)}} {{sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
-     </div>
-    <div layout='column'>
-        <div layout='column' ng-hide='!pages || pages <= 1'>
-            <div>Pagina {{params.page}} de {{pages}}</div>
-            <div>
-                <md-button ng-click='prevPage()' ng-disabled='params.page === 1' > &lt; </md-button>
-                <md-button ng-click='nextPage()' > &gt; </md-button>
-            </div>
-        </div>        
-    </div>
-  </md-toolbar>      
+<div layout='column' flex layout-fill role='main' tab-index='-1' role='main'>     
     
-  <md-content flex layout-fill layout='column'>
-    <!-- El Loader -->
-    <md-content ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
-      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
-    </md-content>
+  <md-content class='main-container' flex layout-fill layout='column'>
+    
+    <!-- pagination -->
+    <md-toolbar class='transparent-toolbar' layout='row' ng-hide='loading'>
+      
+      <div flex >
+        <div ng-hide='!sum'> Monto de contratos : $ {{numberFormat(sum)}} {{sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
+      </div>
+      
+      <div layout='column'>
+          <div layout='column' ng-hide='!pages || pages <= 1'>
+              <div>Pagina {{params.page}} de {{pages}}</div>
+              <div>
+                  <md-button ng-click='prevPage()' ng-disabled='params.page === 1' > &lt; </md-button>
+                  <md-button ng-click='nextPage()' > &gt; </md-button>
+              </div>
+          </div>        
+      </div>
 
-    <!-- El listado -->
+    </md-toolbar>  
+
+    <!-- El Loader -->
+    <div ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+
+    
     <md-list ng-hide='loading' >
       <!-- Los filtros seleccionados -->
-      <md-content flex class='' layout='row' style="min-height:86px;" ng-show='searchObjectsExists()'>
+      <md-content flex layout='row' style="min-height:86px;" ng-show='searchObjectsExists()'>
           <md-content ng-hide='params.dependencias.length === 0' class='md-padding'>
             <div  md-ink-ripple="#bbb">Dependencias</div>
             <md-button ng-repeat='item in params.dependencias' class='menu-item tag' ng-click='removeItem("dependencias",item)' >{{item.dependencia}}</md-button>
@@ -40,21 +45,27 @@
             <md-button ng-repeat='item in params.empresas' class='menu-item tag' ng-click='removeItem("empresas",item)' >{{item.proveedor_contratista}}</md-button>
           </md-content>
       </md-content>
+
+      <!-- El listado -->  
       <md-item ng-repeat="contract in contracts" ng-click='toggleContract(contract)'>
-        <md-item-content layout='column' class="contrato-item">
-          <div layout='row' class="md-tile-content" layout-fill>
-            <div flex>
-              <h3><a target='_blank' ng-href='{{contract.anuncio}}'>{{contract.titulo_expediente}} - {{contract.titulo_contrato}}</a></h3>
-              <h4>{{contract.proveedor_contratista}}</h4>
-              <p>{{contract.tipo_procedimiento}} ({{contract.dependencia}} : {{contract.nombre_de_la_uc}}) </p>
+        <md-content layout='column' class="contrato-item">
+          <div layout='row' >
+            <div flex='50'>
+              <h3 class='ammount'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</h3>
+              <p class='title'><a target='_blank' ng-href='{{contract.anuncio}}'>{{contract.titulo_contrato}}</a></p>
+              <p class='light'>{{contract.tipo_procedimiento}} </p>
             </div>
-            <h3>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</h3>
+            <div flex='50'>
+              <p><a ng-href='/dependencias/{{contract.dependencia2.id}}'>{{contract.dependencia}}</a></p>
+              <p><a ng-href='/unidadesCompradoras/{{contract.unidadCompradora.id}}'>{{contract.nombre_de_la_uc}}</a></p>
+              <p><a ng-href='/empresas/{{contract.provedorContratista.id}}'>{{contract.proveedor_contratista}}</a></p>
+              <p>{{contract.fecha_inicio}}</p>
+            </div>
           </div>
           <div ng-show='contract.show' class='md-tile-content'>
             <div ng-repeat='(key,value) in contract'>{{key}} : {{value}}</div>
           </div>
-        </md-item-content>
-        <md-divider ng-if="!$last"></md-divider>
+        </md-content>
       </md-item>
     </md-list>
   </md-content>

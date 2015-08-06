@@ -7,9 +7,10 @@
  * # ctbookRoutes
  * Service in the ctbookApp.
  */
+
 angular.module('ctbookApp')
-  .service('ctbookRoutes', function ($location) {
-    
+  .service('ctbookRoutes', function ($location,$rootScope) {
+        
     this.path = $location.path();
 
     this.basePath = function(){
@@ -26,6 +27,16 @@ angular.module('ctbookApp')
       var path = this.encodeParams(params);
       $location.search(path);
     };
+
+    $rootScope.$on('$locationChangeSuccess', function() {
+      $rootScope.actualLocation = $location.search();
+    }); 
+
+    $rootScope.$watch(function () {return $location.search();}, function (newLocation) {
+      if($rootScope.actualLocation === newLocation) {
+        $rootScope.$emit("params change");
+      }
+    });
 
     this.encodeParams = function(params){
       if(typeof params === 'object'){

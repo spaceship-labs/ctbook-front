@@ -1,0 +1,26 @@
+.contrato-item {
+  padding:20px 40px;
+  margin:10px 0;
+  border-radius: 6px;
+}
+.contrato-item h3 {
+  font-size: 14px;
+  margin:0;
+}
+.contrato-item h4 {
+  font-size: 14px;
+  margin-top: 0px;
+}
+.contrato-item p {
+  font-size: 12px;
+  margin-top: 0px;
+  line-height: 20px;
+}
+.contrato-item .ammount{
+	font-size:24px;
+	color:#1E7EE2;
+	margin:0 0 5px;
+}
+.contrato-item .title{
+	padding:0 40px 0 0;
+}
