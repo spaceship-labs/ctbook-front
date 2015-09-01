@@ -18,9 +18,9 @@ angular
   ])
   .config(function ($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
-    
+
     $routeProvider
-      .when('/',{        
+      .when('/',{
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
@@ -33,11 +33,11 @@ angular
       })
       .when('/empresas', {
         templateUrl: 'templates/pages/companies.html',
-        controller : 'companyCtrl', 
+        controller : 'companyCtrl',
         reloadOnSearch: false
       }).when('/dependencias', {
         templateUrl: 'templates/pages/dependencias.html',
-        controller : 'dependenciaCtrl', 
+        controller : 'dependenciaCtrl',
         reloadOnSearch: false
       }).when('/widget', {
         templateUrl: 'templates/pages/widget.html',
@@ -56,13 +56,13 @@ angular
     });
   })
   .config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://contratobook.herokuapp.com/api/v1');
+    RestangularProvider.setBaseUrl('http://ctbook-api.herokuapp.com/');
     //RestangularProvider.setBaseUrl('http://localhost:1337/api/v1');
   })
   .config(function($mdThemingProvider) {
-    
+
     var ctBookBackgroundMap = $mdThemingProvider.extendPalette('indigo', {
-      'A100': 'D9EDF4'
+      'A100': 'rgba(255,255,255,.75);'
     });
     var ctBookPimaryMap = $mdThemingProvider.extendPalette('blue', {
       '500': '1C7EE1'
