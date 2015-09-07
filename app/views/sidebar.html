@@ -19,58 +19,62 @@
     <section class="sidenav-filter" ng-show='ctbookRoutes.basePath() === "contratos"'>
       <md-content flex class='md-padding'>
 
-        <md-autocomplete
-            md-search-text-change=""
-            md-selected-item-change="addItem(item,'dependencias');dependencia=''"
-            md-selected-item="selectedItem"
-            md-search-text="dependencia"
-            md-items="item in ctbookApi.autocomplete(dependencia,'dependencia','Dependencia')"
-            md-item-text="item.dependencia"
-            md-min-length="1"
-            placeholder="Dependencia">
-          <md-item-template>
-            <span md-highlight-text="dependencia" md-highlight-flags="^i">{{item.dependencia}}</span>
-          </md-item-template>
-          <md-not-found>
-            No se encontraron resultados.
-          </md-not-found>
-        </md-autocomplete>
-        <br>
+        <section class="autocomplete-search-area">
+          <md-autocomplete
+              md-search-text-change=""
+              md-selected-item-change="addItem(item,'dependencias');dependencia=''"
+              md-selected-item="selectedItem"
+              md-search-text="dependencia"
+              md-items="item in ctbookApi.autocomplete(dependencia,'dependencia','Dependencia')"
+              md-item-text="item.dependencia"
+              md-min-length="1"
+              md-floating-label="Dependencia">
+            <md-item-template>
+              <span md-highlight-text="dependencia" md-highlight-flags="^i">{{item.dependencia}}</span>
+            </md-item-template>
+            <md-not-found>
+              No se encontraron resultados.
+            </md-not-found>
+          </md-autocomplete>
+          <br>
 
-        <md-autocomplete
-            md-search-text-change=""
-            md-selected-item-change="addItem(item,'ucs');nombre_de_la_uc=''"
-            md-selected-item="selectedItem2"
-            md-search-text="nombre_de_la_uc"
-            md-items="item in ctbookApi.autocomplete(nombre_de_la_uc,'nombre_de_la_uc','UnidadCompradora')"
-            md-item-text="item.nombre_de_la_uc"
-            md-min-length="1"
-            placeholder="Unidad compradora">
-          <md-item-template>
-            <span md-highlight-text="nombre_de_la_uc" md-highlight-flags="^i">{{item.nombre_de_la_uc}}</span>
-          </md-item-template>
-          <md-not-found>
-            No se encontraron resultados.
-          </md-not-found>
-        </md-autocomplete>
-        <br>
+          <md-autocomplete
+              md-search-text-change=""
+              md-selected-item-change="addItem(item,'ucs');nombre_de_la_uc=''"
+              md-selected-item="selectedItem2"
+              md-search-text="nombre_de_la_uc"
+              md-items="item in ctbookApi.autocomplete(nombre_de_la_uc,'nombre_de_la_uc','UnidadCompradora')"
+              md-item-text="item.nombre_de_la_uc"
+              md-min-length="1"
+              md-floating-label="Unidad compradora"
+              placeholder="">
+            <md-item-template>
+              <span md-highlight-text="nombre_de_la_uc" md-highlight-flags="^i">{{item.nombre_de_la_uc}}</span>
+            </md-item-template>
+            <md-not-found>
+              No se encontraron resultados.
+            </md-not-found>
+          </md-autocomplete>
+          <br>
 
-        <md-autocomplete
-            md-search-text-change=""
-            md-selected-item-change="addItem(item,'empresas');proveedor_contratista=''"
-            md-selected-item="selectedItem3"
-            md-search-text="proveedor_contratista"
-            md-items="item in ctbookApi.autocomplete(proveedor_contratista,'proveedor_contratista','Empresa')"
-            md-item-text="item.proveedor_contratista"
-            md-min-length="1"
-            placeholder="Empresa">
-          <md-item-template>
-            <span md-highlight-text="proveedor_contratista" md-highlight-flags="^i">{{item.proveedor_contratista}}</span>
-          </md-item-template>
-          <md-not-found>
-            No se encontraron resultados.
-          </md-not-found>
-        </md-autocomplete>
+          <md-autocomplete
+              md-search-text-change=""
+              md-selected-item-change="addItem(item,'empresas');proveedor_contratista=''"
+              md-selected-item="selectedItem3"
+              md-search-text="proveedor_contratista"
+              md-items="item in ctbookApi.autocomplete(proveedor_contratista,'proveedor_contratista','Empresa')"
+              md-item-text="item.proveedor_contratista"
+              md-min-length="1"
+              md-floating-label="Empresa">
+            <md-item-template>
+              <span md-highlight-text="proveedor_contratista" md-highlight-flags="^i">{{item.proveedor_contratista}}</span>
+            </md-item-template>
+            <md-not-found>
+              No se encontraron resultados.
+            </md-not-found>
+          </md-autocomplete>
+
+        </section>
 
         <h5 class="subtitle">Filtrar por año</h5>
 
