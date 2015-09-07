@@ -31,6 +31,21 @@ a{text-decoration: none}
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#189abc', endColorstr='#265293',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+.main-sidenav .autocomplete-search-area{padding: 0 0 16px}
+.main-sidenav md-autocomplete-wrap{max-height: 35px}
+
+.main-sidenav md-autocomplete{
+  padding-bottom: 0;
+}
+
+.main-sidenav md-autocomplete:first-child md-autocomplete-wrap{margin-top: -16px}
+
+
+.main-sidenav md-autocomplete input::-webkit-input-placeholder {color: #75797C; }
+.main-sidenav md-autocomplete input:-moz-placeholder { /* Firefox 18- */ color: #75797C; }
+.main-sidenav md-autocomplete input::-moz-placeholder {  /* Firefox 19+ */ color: #75797C; }
+.main-sidenav md-autocomplete input:-ms-input-placeholder {color: #75797C; }
+
 .logobox{text-align:center;}
 .logobox img{display:block;margin:0 auto;}
 .logobox span{color:#189ABC;font-size:29px;font-weight: 400;text-decoration: none;}
