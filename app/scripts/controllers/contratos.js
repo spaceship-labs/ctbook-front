@@ -82,7 +82,7 @@ angular.module('ctbookApp')
 
 	$scope.prevPage = function(){
 		$scope.params.page -=1;
-		$scope.params.page = $scope.params.page > 0 ? $scope.params.page : $scope.pages;
+		$scope.params.page = $scope.params.page > 0 ? $scope.params.page : 1;
 		$scope.getContracts();
 	};
 
