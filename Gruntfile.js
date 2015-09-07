@@ -82,7 +82,7 @@ module.exports = function (grunt) {
           open: true,
           middleware: function (connect) {
             return [
-              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.jpg$ /index.html [L]']),
+              modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png|\\.ttf|\\.woff|\\.jpg$ /index.html [L]']),
               connect.static('.tmp'),
               connect().use(
                 '/bower_components',
@@ -372,6 +372,13 @@ module.exports = function (grunt) {
           cwd: '.tmp/images',
           dest: '<%= yeoman.dist %>/images',
           src: ['generated/*']
+        },{
+          //for font-awesome
+          expand: true,
+          dot: true,
+          cwd: 'bower_components/components-font-awesome/fonts',
+          src: ['*.*'],
+          dest: '<%= yeoman.dist %>/fonts'
         }]
       },
       styles: {

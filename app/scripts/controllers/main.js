@@ -10,6 +10,5 @@
 angular.module('ctbookApp')
   .controller('MainCtrl', function ($scope,ctbookApi,ctbookRoutes) {
     $scope.ctbookApi = ctbookApi;
-    $scope.ctbookRoutes = ctbookRoutes; 
-
+    $scope.ctbookRoutes = ctbookRoutes;
   });

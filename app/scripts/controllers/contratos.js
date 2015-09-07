@@ -9,7 +9,7 @@
  */
 angular.module('ctbookApp')
   .controller('ContratosCtrl', function ($scope,$rootScope) {
-	
+
 	$rootScope.$on('params change', function(){
 		console.log('params change in contracts');
 		$scope.init();
@@ -18,6 +18,7 @@ angular.module('ctbookApp')
 	$scope.init = function(){
 		$scope.params = $scope.ctbookRoutes.getParams();
 		$scope.refresh();
+    $scope.endPagination = 8;
 	};
 
 	$scope.refresh = function(){
@@ -28,11 +29,16 @@ angular.module('ctbookApp')
 	$scope.getContracts = function() {
 		$scope.loading = true;
 		$scope.ctbookRoutes.setParams($scope.params);
-		
+
 		$scope.ctbookApi.getContracts($scope.params).then(function(response){
 			$scope.loading = false;
 			$scope.contracts = response;
 			$scope.params = $scope.ctbookApi.completeParams($scope.params,$scope.contracts);
+      if($scope.params.page > 7){
+        $scope.endPagination = $scope.params.page;
+      }else{
+        $scope.endPagination = 8;
+      }
 		});
 	};
 
@@ -41,7 +47,7 @@ angular.module('ctbookApp')
 			$scope.pages = response.pages;
 			$scope.sum = response.sum;
 		});
-	};	
+	};
 
 	$scope.sliderup = function () {
 		$scope.params.page = 1;
@@ -82,9 +88,14 @@ angular.module('ctbookApp')
 
 	$scope.nextPage = function(){
 		$scope.params.page += 1;
-		$scope.params.page = $scope.params.page <= $scope.pages ? $scope.params.page : 1; 
+		$scope.params.page = $scope.params.page <= $scope.pages ? $scope.params.page : 1;
 		$scope.getContracts();
 	};
+
+  $scope.moveToPage = function(page){
+    $scope.params.page = page;
+    $scope.getContracts();
+  }
 
 	$scope.numberFormat = function(number){
 		if(number === undefined || isNaN(number)) {
@@ -106,6 +117,12 @@ angular.module('ctbookApp')
 		}
 		return false;
 	};
+
+  $scope.getRange = function(n) {
+    var arr = new Array(n);
+    for(var i=0;i<n;i++) arr[i] = i+1;
+    return arr;
+  };
 
 	$scope.init();
 
