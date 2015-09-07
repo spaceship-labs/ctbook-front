@@ -72,9 +72,13 @@
           </md-not-found>
         </md-autocomplete>
 
-        <h4 class="subtitle">Años:  {{params.year.start}} -  {{params.year.end}}</h4>
+        <h5 class="subtitle">Filtrar por año</h5>
 
         <div layout-align='center center'>
+          <div class="year-range" layout="row" layout-align="space-between center">
+            <span>Desde</span>
+            <span>{{params.year.start}}</span>
+          </div>
           <md-slider
             flex='80'
             ng-model="params.year.start"
@@ -85,6 +89,10 @@
             md-discrete
           ></md-slider>
 
+          <div class="year-range" layout="row" layout-align="space-between center">
+            <span>Hasta</span>
+            <span>{{params.year.end}}</span>
+          </div>
           <md-slider
             flex='80'
             ng-model="params.year.end"
