@@ -165,6 +165,7 @@
     padding: 10px 0;
   }
   .search-header-social a:first-child{margin-left: 0;}
+  .contrato-item{padding: 20px;}
 }
 
 @media screen and (max-width: 600px){
