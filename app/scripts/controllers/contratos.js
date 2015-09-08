@@ -10,11 +10,14 @@
 angular.module('ctbookApp')
   .controller('ContratosCtrl', function ($scope,$rootScope) {
 
-	$rootScope.$on('params change', $scope.init);
+	$rootScope.$on('params change',function(){
+    $scope.init();
+  });
 
 	$scope.init = function(){
 		$scope.params = $scope.ctbookRoutes.getParams();
 		$scope.refresh();
+    $scope.endPagination = 8;
 	};
 
 	$scope.refresh = function(){
@@ -29,6 +32,11 @@ angular.module('ctbookApp')
 			$scope.loading = false;
 			$scope.contracts = response;
 			$scope.params = $scope.ctbookApi.completeParams($scope.params,$scope.contracts);
+      if($scope.params.page > 7){
+        $scope.endPagination = $scope.params.page;
+      }else{
+        $scope.endPagination = 8;
+      }
 		});
 	};
 
@@ -72,7 +80,7 @@ angular.module('ctbookApp')
 
 	$scope.prevPage = function(){
 		$scope.params.page -=1;
-		$scope.params.page = $scope.params.page > 0 ? $scope.params.page : $scope.pages;
+		$scope.params.page = $scope.params.page > 0 ? $scope.params.page : 1;
 		$scope.getContracts();
 	};
 
@@ -82,6 +90,20 @@ angular.module('ctbookApp')
 		$scope.getContracts();
 	};
 
+
+  $scope.moveToPage = function(page){
+    $scope.params.page = page;
+    $scope.getContracts();
+  };
+
+	$scope.numberFormat = function(number){
+		if(number === undefined || isNaN(number)) {
+			number = "0";
+		}
+		number = Number(number);
+		number = number.toFixed(2);
+		return new Intl.NumberFormat().format(number);
+	};
 
 
 	$scope.searchObjectsExists = function() {
@@ -95,6 +117,14 @@ angular.module('ctbookApp')
 		}
 		return false;
 	};
+
+  $scope.getRange = function(n) {
+    var arr = new Array(n);
+    for(var i=0;i<n;i++){
+      arr[i] = i+1;
+    }
+    return arr;
+  };
 
 	$scope.init();
 

@@ -4,24 +4,68 @@
 
   <md-content class='main-container' flex layout-fill layout='column'>
 
-    <!-- pagination -->
+    <md-toolbar class="search-header transparent-toolbar" layout="row" layout-align="space-between center">
+      <div class="search-header-title">
+        <h1><strong>BUSCA ANALIZA Y COMPARTE</strong></h1>
+        <h1>LOS CONTRATOS DEL GOBIERNO</h1>
+      </div>
+      <div class="search-header-social">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+      </div>
+    </md-toolbar>
+
+
+    <md-toolbar class='search-filter transparent-toolbar' ng-hide='loading'>
+      <!-- Los filtros seleccionados -->
+      <md-content class="transparent-toolbar" style="min-height:86px;" ng-show='searchObjectsExists()'>
+        <md-checkbox
+          md-no-ink
+          ng-repeat='item in params.dependencias track by $index'
+          ng-init="dependencyChecked=true"
+          ng-model="dependencyChecked"
+          class="md-primary"
+          ng-click='removeItem("dependencias",item)'>
+          {{item.dependencia}}
+        </md-checkbox>
+
+        <md-checkbox
+          md-no-ink
+          ng-repeat='item in params.ucs track by $index'
+          ng-init="ucChecked=true"
+          ng-model="ucChecked"
+          class="md-primary"
+          ng-click='removeItem("ucs",item)'>
+          {{item.nombre_de_la_uc}}
+        </md-checkbox>
+
+        <md-checkbox
+          md-no-ink
+          ng-repeat='item in params.empresas track by $index'
+          ng-init="empresaChecked=true"
+          ng-model="empresaChecked"
+          class="md-primary"
+          ng-click='removeItem("empresas",item)'>
+          {{item.proveedor_contratista}}
+        </md-checkbox>
+
+      </md-content>
+    </md-toolbar>
+
+    <section class="search-results-info" layout="row" layout-align="space-between center">
+      <p class="search-results-text"><strong>Resultados de la búsqueda</strong></p>
+      <div ng-hide='!pages || pages <= 1'>Pagina {{params.page}} de {{pages}}</div>
+    </section>
+
+    <!-- montos -->
     <md-toolbar class='transparent-toolbar' layout='row' ng-hide='loading'>
 
       <div flex >
         <div ng-hide='!sum'> Monto de contratos : $ {{numberFormat(sum)}} {{sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
       </div>
 
-      <div layout='column'>
-          <div layout='column' ng-hide='!pages || pages <= 1'>
-              <div>Pagina {{params.page}} de {{pages}}</div>
-              <div>
-                  <md-button ng-click='prevPage()' ng-disabled='params.page === 1' > &lt; </md-button>
-                  <md-button ng-click='nextPage()' > &gt; </md-button>
-              </div>
-          </div>
-      </div>
-
     </md-toolbar>
+
 
     <!-- El Loader -->
     <div ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
@@ -30,36 +74,49 @@
 
 
     <md-list ng-hide='loading' >
-      <!-- Los filtros seleccionados -->
-      <md-content flex layout='row' style="min-height:86px;" ng-show='searchObjectsExists()'>
-          <md-content ng-hide='params.dependencias.length === 0' class='md-padding'>
-            <div  md-ink-ripple="#bbb">Dependencias</div>
-            <md-button ng-repeat='item in params.dependencias' class='menu-item tag' ng-click='removeItem("dependencias",item)' >{{item.dependencia}}</md-button>
-          </md-content>
-          <md-content ng-hide='params.ucs.length === 0' class='md-padding'>
-            <div  md-ink-ripple="#bbb">Unidades Compradoras</div>
-            <md-button ng-repeat='item in params.ucs' class='menu-item tag' ng-click='removeItem("ucs",item)' >{{item.nombre_de_la_uc}}</md-button>
-          </md-content>
-          <md-content ng-hide='params.empresas.length === 0' class='md-padding'>
-            <div  md-ink-ripple="#bbb">Empresas</div>
-            <md-button ng-repeat='item in params.empresas' class='menu-item tag' ng-click='removeItem("empresas",item)' >{{item.proveedor_contratista}}</md-button>
-          </md-content>
-      </md-content>
 
       <!-- El listado -->
-      <md-item ng-repeat="contract in contracts">
-        <md-content layout='column' class="rounded-box">
+      <md-item ng-repeat="contract in contracts" ng-click='toggleContract(contract)'>
+        <md-content layout='column' class="contrato-item">
           <div layout='row' >
             <div flex='50'>
-              <h3 class='ammount'><a ng-href='/contrato/{{contract.id}}'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</a></h3>
-              <p class='title'><a ng-href='/contrato/{{contract.id}}'>{{contract.titulo_contrato}}</a></p>
-              <p class='light'><a ng-href='/contrato/{{contract.id}}'>{{contract.tipo_procedimiento}}</a> </p>
+              <h3 class='ammount'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</h3>
+              <p class='title'><a target='_blank' ng-href='{{contract.anuncio}}'>{{contract.titulo_contrato}}</a></p>
+              <p class='light'>{{contract.tipo_procedimiento}} </p>
             </div>
             <div flex='50'>
-              <p><a ng-href='/dependencias/{{contract.dependencia2.id}}'>{{contract.dependencia}}</a></p>
-              <p><a ng-href='/unidadesCompradoras/{{contract.unidadCompradora.id}}'>{{contract.nombre_de_la_uc}}</a></p>
-              <p><a ng-href='/empresas/{{contract.provedorContratista.id}}'>{{contract.proveedor_contratista}}</a></p>
-              <p>{{contract.fecha_inicio}}</p>
+              <ul class="data-items-list">
+                <li>
+                  <p>
+                    <a ng-href='/dependencias/{{contract.dependencia2.id}}'>
+                      <i class="fa fa-map-marker"></i> {{contract.dependencia}}
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <a ng-href='/unidadesCompradoras/{{contract.unidadCompradora.id}}'>
+                      <i class="fa fa-shopping-cart"></i> Unidad compradora
+                    </a>
+                  </p>
+                  <p>
+                    <a class="data-item" ng-href='/unidadesCompradoras/{{contract.unidadCompradora.id}}'>
+                      {{contract.nombre_de_la_uc}}
+                    </a>
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <a ng-href='/empresas/{{contract.provedorContratista.id}}'>
+                      <i class="fa fa-suitcase"></i> Empresa
+                    </a>
+                  </p>
+                  <p><a href="#" class="data-item">{{contract.proveedor_contratista}}</a></p>
+                </li>
+                <li>
+                  <p>{{contract.fecha_inicio}}</p>
+                </li>
+              </ul>
             </div>
           </div>
           <div ng-show='contract.show' class='md-tile-content'>
@@ -68,5 +125,23 @@
         </md-content>
       </md-item>
     </md-list>
+
+    <!-- pagination -->
+    <md-toolbar class='transparent-toolbar pagination-wrapper' layout='row' layout-align="end center" ng-hide='loading'>
+
+      <nav class="pagination-cb" ng-hide='!pages || pages <= 1' layout="row" >
+       <a ng-click='prevPage()' href="">&lt;</a>
+        <a
+          ng-repeat="itemPage in getRange(pages) | limitTo:8:(endPagination-8) track by $index"
+          ng-click='moveToPage(itemPage)'
+          ng-class="{'current-page': (itemPage) === params.page}"
+          href="">
+          {{itemPage}}
+        </a>
+        <a ng-click='nextPage()' href="">&gt;</a></li>
+      </nav>
+
+    </md-toolbar>
+
   </md-content>
 </div>

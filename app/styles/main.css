@@ -1,4 +1,5 @@
 @import 'home.css';
+@import 'contratos.css';
 
 body{
   font-family:'Open Sans', sans-serif;
@@ -7,9 +8,43 @@ body{
 a{text-decoration: none}
 
 .main-sidenav{
+  background: #189abc; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #189abc 0%, #265293 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#189abc), color-stop(100%,#265293)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #189abc 0%,#265293 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#189abc', endColorstr='#265293',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
   z-index:60;
   width:290px;
 }
+
+.sidenav-filter{
+  background: #189abc; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #189abc 0%, #265293 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#189abc), color-stop(100%,#265293)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #189abc 0%,#265293 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#189abc', endColorstr='#265293',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.main-sidenav .autocomplete-search-area{padding: 0 0 16px}
+.main-sidenav md-autocomplete-wrap{max-height: 35px}
+
+.main-sidenav md-autocomplete{
+  padding-bottom: 0;
+}
+
+.main-sidenav md-autocomplete:first-child md-autocomplete-wrap{margin-top: -16px}
+
+
+.main-sidenav md-autocomplete input::-webkit-input-placeholder {color: #75797C; }
+.main-sidenav md-autocomplete input:-moz-placeholder { /* Firefox 18- */ color: #75797C; }
+.main-sidenav md-autocomplete input::-moz-placeholder {  /* Firefox 19+ */ color: #75797C; }
+.main-sidenav md-autocomplete input:-ms-input-placeholder {color: #75797C; }
 
 .logobox{text-align:center;}
 .logobox img{display:block;margin:0 auto;}
@@ -17,7 +52,17 @@ a{text-decoration: none}
 .logobox span strong{font-weight: 700}
 
 .main-container{
-  background: linear-gradient(45deg, #1C7EE1 0%, #189ABC 40%, #189ABC 60%, #1C7EE1 100%);
+  /*background: linear-gradient(45deg, #1C7EE1 0%, #189ABC 40%, #189ABC 60%, #1C7EE1 100%);*/
+
+  background: #189abc; /* Old browsers */
+  background: -moz-linear-gradient(45deg,  #189abc 0%, #265293 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#189abc), color-stop(100%,#265293)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(45deg,  #189abc 0%,#265293 100%); /* IE10+ */
+  background: linear-gradient(45deg,  #189abc 0%,#265293 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#189abc', endColorstr='#265293',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
   padding:40px 40px;
 }
 
@@ -49,6 +94,11 @@ a{text-decoration: none}
   transition: 0.45s cubic-bezier(0.35, 0, 0.25, 1);
   transition-property: max-height, background-color, opacity;
 }
+.menu-item:hover{
+  background: #1C7EE1;
+  color: #fff;
+}
+
 .md-toolbar-tools {
   font-size: 16px;
 }
@@ -148,7 +198,6 @@ md-content a{
   font-weight:bold;
 }
 md-content .light{font-weight:300;font-size:18px;text-transform: uppercase;}
-md-content .light a{font-weight:300;font-size:12px;text-transform: uppercase;}
 md-slider {
   height: 32px;
 }
@@ -164,29 +213,30 @@ md-slider {
 
 .transparent-toolbar{background:transparent;}
 
-.rounded-box {
-  padding:20px 40px;
-  margin:10px 0;
-  border-radius: 6px;
+.pagination-wrapper{
+  min-height: auto;
 }
-.rounded-box h3 {
+.pagination-cb{
+  list-style: none;
+  padding-left: 0;
+}
+.pagination-cb a{
+  background-color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 4px;
+  border-radius: 2px;
+  font-weight: 400;
   font-size: 14px;
-  margin:0;
+  padding: 6px 10px;
 }
-.rounded-box h4 {
-  font-size: 14px;
-  margin-top: 0px;
+
+.pagination-cb a:hover,
+.pagination-cb .current-page{
+  background: #1C7EE1;
+  color: #fff;
 }
-.rounded-box p {
-  font-size: 12px;
-  margin-top: 0px;
-  line-height: 20px;
-}
-.rounded-box .ammount a{
-  font-size:24px;
-  color:#1E7EE2;
-  margin:0 0 5px;
-}
-.rounded-box .title{
-  padding:0 40px 0 0;
+.pagination-cb a:hover,
+.pagination-cb .current-page{
+  color: #fff;
 }
