@@ -31,8 +31,15 @@ a{text-decoration: none}
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#189abc', endColorstr='#265293',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
+.toggle-sidenav-filter{
+  text-align: center;
+  padding: 4px 0;
+}
+.toggle-sidenav-filter a,
+.toggle-sidenav-filter i{font-weight: 400}
+
 .main-sidenav .autocomplete-search-area{padding: 0 0 16px}
-.main-sidenav md-autocomplete-wrap{max-height: 35px}
+.main-sidenav md-autocomplete-wrap{/*max-height: 35px*/}
 
 .main-sidenav md-autocomplete{
   padding-bottom: 0;
@@ -93,6 +100,10 @@ a{text-decoration: none}
   -moz-transition-property: max-height, background-color, opacity;
   transition: 0.45s cubic-bezier(0.35, 0, 0.25, 1);
   transition-property: max-height, background-color, opacity;
+}
+.menu-item-toggle{
+  float: right;
+  font-size: 12px;
 }
 .menu-item:hover{
   background: #1C7EE1;
@@ -244,3 +255,30 @@ md-slider {
 .user-list md-list-item .md-list-item-text h3{font-size:15px;}
 .user-list md-list-item .md-list-item-text h4{line-height:1.20em;letter-spacing:0.001em;font-size: 13px}
 .user-list md-list-item .md-list-item-text p{font-size:12px;line-height:1.05em;}
+
+@media (max-width: 959px) and (min-width: 600px){
+  [flex-md="100"]{
+    -webkit-flex: 1!important;
+    -ms-flex: 1!important;
+    flex: 1!important;
+  }
+}
+
+
+@media screen and (max-width: 900px){
+
+}
+
+@media screen and (max-width: 599px){
+  [flex-sm="100"]{
+    -webkit-flex: 1!important;
+    -ms-flex: 1!important;
+    flex: 1!important;
+  }
+
+  .wrap-main-container{
+    margin: 0;
+    min-height: auto;
+    width: 100%;
+  }
+}

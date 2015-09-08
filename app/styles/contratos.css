@@ -3,6 +3,14 @@
   margin:10px 0;
   border-radius: 6px;
   background-color:rgba(255,255,255,.75);
+  -webkit-transition: background .4s;
+  -moz-transition: background .4s;
+  -o-transition: background .4s;
+  -ms-transition: background .4s;
+  transition: background .4s;
+}
+.contrato-item:hover{
+  background: #fff;
 }
 .contrato-item h3 {
   font-size: 14px;
@@ -79,6 +87,11 @@
   border-bottom: 1px solid #fff;
   padding-bottom: 20px;
   min-height: auto;
+  margin-top: 10px;
+}
+.search-filter p{
+  margin: 0 0 10px;
+  font-size: 16px;
 }
 .search-filter span{
   font-size: 12px;
@@ -102,4 +115,32 @@
   height: 10px;
   top: 1px;
   width: 4px;
+}
+
+.search-clear a{
+  font-size: 14px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.sum-toolbar{min-height: auto;}
+
+
+@media screen and (max-width: 959px){
+  .search-header-social{
+    text-align: left;
+    padding: 10px 0;
+  }
+  .search-header-social a:first-child{margin-left: 0;}
+}
+
+@media screen and (max-width: 600px){
+  .main-sidenav{
+    width: 100%!important;
+  }
+  .main-sidenav md-autocomplete:first-child md-autocomplete-wrap{
+    margin-top: 0;
+  }
+
+  .contrato-item h1{font-size: 16px;}
 }

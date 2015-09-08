@@ -11,12 +11,35 @@
       <i class="fa fa-home"></i>
       Inicio
     </a> -->
-    <a href='/contratos' class='menu-item menu-title' ng-class='ctbookRoutes.basePath() === "contratos" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/contratos"' >
+    <a
+      href='/contratos'
+      class='menu-item menu-title'
+      ng-class='ctbookRoutes.basePath() === "contratos" ? "selected" : ""'
+      md-ink-ripple="#bbb"
+      ng-click='contratosActionMenu()'
+      >
       <i class="fa fa-folder-open"></i>
       Contratos
+
+      <span
+        class="menu-item-toggle"
+        ng-show='toggleFilters && ctbookRoutes.basePath() === "contratos" '
+        ng-click="toggleFilters = !toggleFilters"
+        href="">
+        Ocultar filtros <i class="fa fa-arrow-circle-up"></i>
+      </span>
+
+      <span
+        class="menu-item-toggle"
+        ng-show='!toggleFilters && ctbookRoutes.basePath() === "contratos" '
+        ng-click="toggleFilters = !toggleFilters"
+        href="">
+        Mostrar filtros <i class="fa fa-arrow-circle-down"></i>
+      </span>
+
     </a>
 
-    <section class="sidenav-filter" ng-show='ctbookRoutes.basePath() === "contratos"'>
+    <section class="sidenav-filter" ng-show='ctbookRoutes.basePath() === "contratos" && toggleFilters'>
       <md-content flex class='md-padding'>
 
         <section class="autocomplete-search-area">
