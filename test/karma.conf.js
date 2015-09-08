@@ -30,6 +30,8 @@ module.exports = function(config) {
       'bower_components/angular-contentful/dist/angular-contentful.js',
       'bower_components/lodash/lodash.js',
       'bower_components/restangular/dist/restangular.js',
+      'bower_components/jsSHA/src/sha.js',
+      'bower_components/ng-twitter-api/dist/ng-twitter-api.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       "node_modules/chai/chai.js",

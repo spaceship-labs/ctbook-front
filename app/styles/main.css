@@ -241,3 +241,6 @@ md-slider {
 .pagination-cb .current-page{
   color: #fff;
 }
+.user-list md-list-item .md-list-item-text h3{font-size:15px;}
+.user-list md-list-item .md-list-item-text h4{line-height:1.20em;letter-spacing:0.001em;font-size: 13px}
+.user-list md-list-item .md-list-item-text p{font-size:12px;line-height:1.05em;}

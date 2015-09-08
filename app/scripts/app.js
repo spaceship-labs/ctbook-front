@@ -12,6 +12,7 @@ angular
   .module('ctbookApp', [
     'ngRoute',
     'ngMaterial',
+    'ngTwitter',
     'angular-packery',
     'contentful',
     'restangular',
@@ -62,7 +63,7 @@ angular
   })
   .config(function(RestangularProvider) {
     RestangularProvider.setBaseUrl('http://ctbook-api.herokuapp.com/');
-    //RestangularProvider.setBaseUrl('http://localhost:1337/api/v1');
+    //RestangularProvider.setBaseUrl('http://localhost:1337/');
   })
   .config(function($mdThemingProvider) {
 
