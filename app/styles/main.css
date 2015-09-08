@@ -257,6 +257,11 @@ md-slider {
 .user-list md-list-item .md-list-item-text p{font-size:12px;line-height:1.05em;}
 
 @media (max-width: 959px) and (min-width: 600px){
+  [flex-md="100"]{
+    -webkit-flex: 1!important;
+    -ms-flex: 1!important;
+    flex: 1!important;
+  }
 }
 
 
@@ -265,9 +270,16 @@ md-slider {
 }
 
 @media screen and (max-width: 599px){
+  [flex-sm="100"]{
+    -webkit-flex: 1!important;
+    -ms-flex: 1!important;
+    flex: 1!important;
+  }
   .wrap-main-container{
     margin: 0;
     min-height: auto;
     width: 100%;
   }
+
+  [layout=column]{display: block;}
 }
