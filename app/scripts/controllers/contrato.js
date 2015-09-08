@@ -12,7 +12,6 @@ angular.module('ctbookApp')
     $scope.contractId = $routeParams.contractId;
     $scope.loading = true;
 
-    console.log($scope.ctbookRoutes.basePath());
 
     $scope.getTweets = function() {
       twitter.getTweets('#'+$scope.contract.hashTag).then(function(tweets) {

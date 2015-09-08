@@ -12,6 +12,7 @@ describe('Controller: ContratoCtrl', function () {
   beforeEach(inject(function ($controller, $rootScope, ctbookApi) {
     scope = $rootScope.$new();
     scope.ctbookApi = ctbookApi;
+
     ContratoCtrl = $controller('ContratoCtrl', {
       $scope: scope
       // place here mocked dependencies
