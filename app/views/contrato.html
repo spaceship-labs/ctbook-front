@@ -17,29 +17,37 @@
 
       <ul class="data-items-list">
         <li>
-          <p><i class="fa fa-map-marker"></i> <strong>{{contract.dependencia}}</strong></p>
+          <p><i class="fa fa-institution"></i> <strong>Institución:</strong> {{contract.dependencia}}</p>
         </li>
         <li>
-          <p><i class="fa fa-shopping-cart"></i> <strong>Unidad compradora:</strong> {{contract.nombre_de_la_uc}}</p>
+          <p>
+            <i class="fa fa-shopping-cart"></i> <strong>Unidad compradora:</strong> {{contract.nombre_de_la_uc}} (clave: {{contract.unidadCompradora.claveuc}})</p>
         </li>
         <li>
           <p><i class="fa fa-suitcase"></i> <strong>Proveedor contratista:</strong> {{contract.proveedor_contratista}}</p>
         </li>
         <li>
-          <p> <strong>Tipo de contratacion:</strong> {{contract.tipo_contratacion}}</p>
+          <p><i class="fa fa-calendar"></i> <strong>Fecha de inicio del contrato:</strong> {{contract.fecha_inicio}}</p>
         </li>
         <li>
-          <p> <strong>Importe:</strong> {{contract.importe_contrato}}</p>
+          <p><i class="fa fa-database"></i> <strong>Fuente:</strong> {{contract.source}}</p>
         </li>
+        <li>
+          <p><strong>Tipo de contratación:</strong> {{contract.tipo_contratacion}}</p>
+        </li>
+        <li>
+          <p><strong>Tipo de procedimiento:</strong> {{contract.tipo_procedimiento}}</p>
+        </li>
+        <li>
+          <p><strong>Caracter:</strong> {{contract.caracter}}</p>
+        </li>
+
           <!--Solo disponibleen registros de compranet 2010-2012 -->
           <div ng-if='contract.numero_expediente'>
-            <p> <strong>Titulo Expediente:</strong> {{contract.numero_expediente}}</p>
-            <p> <strong>Responsable:</strong> {{contract.responsable}}</p>
-            <p> <strong>Numero de Expediente:</strong> {{contract.numero_expediente}}</p>
+            <li><p> <strong>Titulo Expediente:</strong> {{contract.numero_expediente}}</p></li>
+            <li><p> <strong>Responsable:</strong> {{contract.responsable}}</p></li>
+            <li><p> <strong>Numero de Expediente:</strong> {{contract.numero_expediente}}</p></li>
           </div>
-        <li>
-          <p>{{contract.fecha_inicio}}</p>
-        </li>
       </ul>
     </div>
   </md-content>

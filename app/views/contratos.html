@@ -103,7 +103,7 @@
                 <li>
                   <p>
                     <a ng-href='/dependencias/{{contract.dependencia2.id}}'>
-                      <i class="fa fa-map-marker"></i> {{contract.dependencia}}
+                      <i class="fa fa-institution"></i> {{contract.dependencia}}
                     </a>
                   </p>
                 </li>
@@ -128,7 +128,12 @@
                   <p><a href="#" class="data-item">{{contract.proveedor_contratista}}</a></p>
                 </li>
                 <li>
-                  <p>{{contract.fecha_inicio}}</p>
+                  <p>
+                    <a>
+                      <i class="fa fa-calendar"></i> Fecha de inicio del contrato
+                    </a>
+                  </p>
+                  <p><a href="#" class="data-item">{{contract.fecha_inicio}}</a></p>
                 </li>
               </ul>
             </div>
