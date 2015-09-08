@@ -16,40 +16,45 @@ angular
     'contentful',
     'restangular',
   ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
-      .when('/',{
+      .when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
       })
-      .when('/contratos',{
+      .when('/contratos', {
         templateUrl: 'views/contratos.html',
         controller: 'ContratosCtrl',
         controllerAs: 'contratos',
         reloadOnSearch: false
       })
+      .when('/contrato/:contractId', {
+        templateUrl: 'views/contrato.html',
+        controller: 'ContratoCtrl',
+        controllerAs: 'contrato'
+      })
       .when('/empresas', {
         templateUrl: 'templates/pages/companies.html',
-        controller : 'companyCtrl',
+        controller: 'companyCtrl',
         reloadOnSearch: false
-      }).when('/dependencias', {
-        templateUrl: 'templates/pages/dependencias.html',
-        controller : 'dependenciaCtrl',
-        reloadOnSearch: false
-      }).when('/widget', {
+      })
+      .when('/dependencias', {
+        templateUrl: 'views/dependencias.html',
+        controller: 'DependenciasCtrl',
+        controllerAs: 'dependencias'
+      })
+      .when('/widget', {
         templateUrl: 'templates/pages/widget.html',
-        controller : 'contratoCtrl',
-      }).when('/contrato',{
-        templateUrl: 'templates/pages/contract-single.html',
-        controller : 'contratoCtrl'
-      }).otherwise({
+        controller: 'contratoCtrl',
+      })
+      .otherwise({
         redirectTo: '/'
       });
   })
-  .config(function(contentfulProvider){
+  .config(function(contentfulProvider) {
     contentfulProvider.setOptions({
       space: 'wih8dujs4vq4',
       accessToken: '4f71400e47c59d849a2c5a435cd9eb38346e0e0c888f2c28385342876c6f00d9'

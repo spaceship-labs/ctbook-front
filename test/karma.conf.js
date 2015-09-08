@@ -55,16 +55,16 @@ module.exports = function(config) {
     // - PhantomJS
     // - IE (only Windows)
     browsers: [
-      "Chrome",
+      "PhantomJS",
       //"Firefox",
     ],
 
     // Code coverage report
-    reporters: ['progress', 'coverage'],  
-    preprocessors: {  
+    reporters: ['progress', 'coverage'],
+    preprocessors: {
       'app/scripts/**/*.js': ['coverage']
     },
-    coverageReporter: {  
+    coverageReporter: {
       type: 'lcov',
       dir: 'coverage'
     },
@@ -78,8 +78,9 @@ module.exports = function(config) {
     },
     // Which plugins to enable
     plugins: [
-      "karma-chrome-launcher",
-      "karma-firefox-launcher",
+      "karma-phantomjs-launcher",
+      //"karma-chrome-launcher",
+      //"karma-firefox-launcher",
       'karma-mocha',
       'karma-chai',
       'karma-coverage'

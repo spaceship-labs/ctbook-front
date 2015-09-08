@@ -1,5 +1,4 @@
 @import 'home.css';
-@import 'contratos.css';
 
 body{
   font-family:'Open Sans', sans-serif;
@@ -149,6 +148,7 @@ md-content a{
   font-weight:bold;
 }
 md-content .light{font-weight:300;font-size:18px;text-transform: uppercase;}
+md-content .light a{font-weight:300;font-size:12px;text-transform: uppercase;}
 md-slider {
   height: 32px;
 }
@@ -163,3 +163,30 @@ md-slider {
 }
 
 .transparent-toolbar{background:transparent;}
+
+.rounded-box {
+  padding:20px 40px;
+  margin:10px 0;
+  border-radius: 6px;
+}
+.rounded-box h3 {
+  font-size: 14px;
+  margin:0;
+}
+.rounded-box h4 {
+  font-size: 14px;
+  margin-top: 0px;
+}
+.rounded-box p {
+  font-size: 12px;
+  margin-top: 0px;
+  line-height: 20px;
+}
+.rounded-box .ammount a{
+  font-size:24px;
+  color:#1E7EE2;
+  margin:0 0 5px;
+}
+.rounded-box .title{
+  padding:0 40px 0 0;
+}

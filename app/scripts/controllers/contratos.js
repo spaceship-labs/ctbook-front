@@ -9,11 +9,8 @@
  */
 angular.module('ctbookApp')
   .controller('ContratosCtrl', function ($scope,$rootScope) {
-	
-	$rootScope.$on('params change', function(){
-		console.log('params change in contracts');
-		$scope.init();
-	});
+
+	$rootScope.$on('params change', $scope.init);
 
 	$scope.init = function(){
 		$scope.params = $scope.ctbookRoutes.getParams();
@@ -28,7 +25,6 @@ angular.module('ctbookApp')
 	$scope.getContracts = function() {
 		$scope.loading = true;
 		$scope.ctbookRoutes.setParams($scope.params);
-		
 		$scope.ctbookApi.getContracts($scope.params).then(function(response){
 			$scope.loading = false;
 			$scope.contracts = response;
@@ -41,7 +37,7 @@ angular.module('ctbookApp')
 			$scope.pages = response.pages;
 			$scope.sum = response.sum;
 		});
-	};	
+	};
 
 	$scope.sliderup = function () {
 		$scope.params.page = 1;
@@ -82,18 +78,11 @@ angular.module('ctbookApp')
 
 	$scope.nextPage = function(){
 		$scope.params.page += 1;
-		$scope.params.page = $scope.params.page <= $scope.pages ? $scope.params.page : 1; 
+		$scope.params.page = $scope.params.page <= $scope.pages ? $scope.params.page : 1;
 		$scope.getContracts();
 	};
 
-	$scope.numberFormat = function(number){
-		if(number === undefined || isNaN(number)) {
-			number = "0";
-		}
-		number = Number(number);
-		number = number.toFixed(2);
-		return new Intl.NumberFormat().format(number);
-	};
+
 
 	$scope.searchObjectsExists = function() {
 		for(var key in $scope.params){

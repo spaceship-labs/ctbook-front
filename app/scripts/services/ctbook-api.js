@@ -95,6 +95,10 @@ angular.module('ctbookApp')
       return this.Contrato.getList(this.makeQuery(params));
     };
 
+    this.getContract = function(id){
+      return Restangular.one('contrato',id).get();
+    };
+
     this.getContractMeta = function(params) {
       var query = this.makeQuery(params);
       var meta = {};
@@ -134,6 +138,23 @@ angular.module('ctbookApp')
       return query;
     };
 
+    this.getDependencias = function(params){
+      var page = params.page ? params.page : 1;
+      var skip = 20 * (page - 1);
+      var letter = params.letter ? params.letter : 'a';
+      params = {
+        limit : 400,
+        skip : skip,
+        sort : 'dependencia DESC',
+        where : {
+          dependencia : {
+            startsWith : letter
+          }
+        }
+      };
+      return this.Dependencia.getList(params);
+    };
+
     var formParams = function(items, field) {
       var params = {};
       if (items) {
@@ -146,5 +167,7 @@ angular.module('ctbookApp')
       }
       return params;
     };
+
+
 
   });

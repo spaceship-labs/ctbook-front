@@ -5,7 +5,7 @@ describe('contratobook:inicio', function(){
   });
 
   it('should render imgs', function(){
-    expect(element.all(by.css('img')).count()).toEqual(11);;
+    expect(element.all(by.css('img')).count()).toEqual(11);
   });
 
 });
