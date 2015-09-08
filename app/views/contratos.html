@@ -25,7 +25,7 @@
 
     <md-toolbar class='search-filter transparent-toolbar' layout="row" layout-md="column" layout-sm="column" layout-align="space-between start" ng-hide='loading'>
       <!-- Los filtros seleccionados -->
-      <section  flex="80" flex-md="100" flex-sm='100'>
+      <section  flex="80" flex-md="100" flex-sm='100' ng-hide='params.dependencias.length === 0 && params.ucs.length === 0 && params.empresas.length === 0'>
         <p><strong>Filtrar resultados de búsqueda</strong></p>
         <md-content class="transparent-toolbar" style="min-height:86px;" ng-show='searchObjectsExists()'>
           <md-checkbox
@@ -60,7 +60,7 @@
 
         </md-content>
       </section>
-      <section flex-md="100" flex-sm='100' class="search-clear">
+      <section flex-md="100" flex-sm='100' class="search-clear" ng-hide='params.dependencias.length === 0 && params.ucs.length === 0 && params.empresas.length === 0'>
         <p><a href="">Limpiar resultados <i class="fa fa-trash"></i></a></p>
       </section>
 
