@@ -76,13 +76,13 @@
     <md-list ng-hide='loading' >
 
       <!-- El listado -->
-      <md-item ng-repeat="contract in contracts" ng-click='toggleContract(contract)'>
+      <md-item ng-repeat="contract in contracts" >
         <md-content layout='column' class="contrato-item">
           <div layout='row' >
             <div flex='50'>
-              <h3 class='ammount'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</h3>
-              <p class='title'><a target='_blank' ng-href='{{contract.anuncio}}'>{{contract.titulo_contrato}}</a></p>
-              <p class='light'>{{contract.tipo_procedimiento}} </p>
+              <h3 class='ammount'><a ng-href='contrato/{{contract.id}}'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</a></h3>
+              <p class='title'><a ng-href='contrato/{{contract.id}}'>{{contract.titulo_contrato}}</a></p>
+              <p class='light'><a ng-href='contrato/{{contract.id}}'>{{contract.tipo_procedimiento}} {{contract.caracter}}</a> </p>
             </div>
             <div flex='50'>
               <ul class="data-items-list">

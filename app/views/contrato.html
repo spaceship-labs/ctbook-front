@@ -3,27 +3,26 @@
 <div ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
-<md-content ng-show='!loading' class='main-container' layout='column'>
-  <md-content class="rounded-box">
-    <h1>{{contract.titulo_contrato}}</h1>
-    <h2>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</h2>
-    <h3>{{contract.dependencia}}</h3>
-    <h3>{{contract.nombre_de_la_uc}}</h3>
-    <h3>{{contract.tipo_procedimiento}} {{contract.caracter}} #{{contract.numero_procedimiento}}</h3>
-    <br>
-    <p> <strong>Proveedor contratista:</strong> {{contract.proveedor_contratista}}</p>
-
-    <p>Contrato #{{contract.codigo_contrato}}</p>
-
-    <p> <strong>Tipo de contratacion:</strong> {{contract.tipo_contratacion}}</p>
-    <p> <strong>Importe:</strong> {{contract.importe_contrato}}</p>
-    <p> <strong>Importe:</strong> {{contract.importe_contrato}}</p>
-
-    <!--Solo disponibleen registros de compranet 2010-2012 -->
-    <div ng-if='contract.numero_expediente'>
-      <p> <strong>Titulo Expediente:</strong> {{contract.numero_expediente}}</p>
-      <p> <strong>Responsable:</strong> {{contract.responsable}}</p>
-      <p> <strong>Numero de Expediente:</strong> {{contract.numero_expediente}}</p>
+<div layout='column' flex layout-fill role='main' tab-index='-1' role='main'>
+  <md-content ng-show='!loading' class='main-container' layout-fill flex layout='column'>
+    <div class="contrato-item md-whiteframe-z1">
+      <h1>{{contract.titulo_contrato}}</h1>
+      <h2>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</h2>
+      <h3>{{contract.dependencia}}</h3>
+      <h3>{{contract.nombre_de_la_uc}}</h3>
+      <h3>{{contract.tipo_procedimiento}} {{contract.caracter}} #{{contract.numero_procedimiento}}</h3>
+      <br>
+      <p> <strong>Proveedor contratista:</strong> {{contract.proveedor_contratista}}</p>
+      <p>Contrato #{{contract.codigo_contrato}}</p>
+      <p> <strong>Tipo de contratacion:</strong> {{contract.tipo_contratacion}}</p>
+      <p> <strong>Importe:</strong> {{contract.importe_contrato}}</p>
+      <p> <strong>Importe:</strong> {{contract.importe_contrato}}</p>
+      <!--Solo disponibleen registros de compranet 2010-2012 -->
+      <div ng-if='contract.numero_expediente'>
+        <p> <strong>Titulo Expediente:</strong> {{contract.numero_expediente}}</p>
+        <p> <strong>Responsable:</strong> {{contract.responsable}}</p>
+        <p> <strong>Numero de Expediente:</strong> {{contract.numero_expediente}}</p>
+      </div>
     </div>
   </md-content>
-</md-content>
+</div>

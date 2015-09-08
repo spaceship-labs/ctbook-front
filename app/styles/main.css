@@ -198,6 +198,7 @@ md-content a{
   font-weight:bold;
 }
 md-content .light{font-weight:300;font-size:18px;text-transform: uppercase;}
+md-content .light a{font-weight:300;font-size:13px;text-transform: uppercase;}
 md-slider {
   height: 32px;
 }

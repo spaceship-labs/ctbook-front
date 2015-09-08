@@ -2,6 +2,7 @@
   padding:20px 40px;
   margin:10px 0;
   border-radius: 6px;
+  background-color:rgba(255,255,255,.75);
 }
 .contrato-item h3 {
   font-size: 14px;
@@ -16,7 +17,7 @@
   margin-top: 0px;
   line-height: 20px;
 }
-.contrato-item .ammount{
+.contrato-item .ammount a{
   font-size:24px;
   color:#1E7EE2;
   margin:0 0 5px;
