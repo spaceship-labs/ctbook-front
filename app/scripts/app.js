@@ -20,11 +20,11 @@ angular
     $locationProvider.html5Mode(true);
 
     $routeProvider
-      .when('/', {
+      /*.when('/', {
         templateUrl: 'views/home.html',
         controller: 'HomeCtrl',
         controllerAs: 'home'
-      })
+      })*/
       .when('/contratos', {
         templateUrl: 'views/contratos.html',
         controller: 'ContratosCtrl',
@@ -51,7 +51,7 @@ angular
         controller: 'contratoCtrl',
       })
       .otherwise({
-        redirectTo: '/'
+        redirectTo: '/contratos'
       });
   })
   .config(function(contentfulProvider) {
