@@ -54,9 +54,37 @@ a{text-decoration: none}
 .main-sidenav md-autocomplete input:-ms-input-placeholder {color: #75797C; }
 
 .logobox{text-align:center;}
-.logobox img{display:block;margin:0 auto;}
+.logobox img{
+  display:block;
+  margin:0 auto;
+  max-width: 85%;
+}
 .logobox span{color:#189ABC;font-size:29px;font-weight: 400;text-decoration: none;}
 .logobox span strong{font-weight: 700}
+
+/*--------------/
+  #SEND-COMMENT
+/*-------------*/
+.send-comment{
+  margin-top: 20px;
+  color: #30A1C2;
+  text-align: center;
+}
+.send-comment i{font-size: 30px;}
+.send-comment p{margin: 0;}
+.send-comment-btn{
+  background: #30A1C2;
+  display: block;
+  color: #fff;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+
+/*--------------/
+  #MAIN-CONTAINER
+/*-------------*/
 
 .main-container{
   /*background: linear-gradient(45deg, #1C7EE1 0%, #189ABC 40%, #189ABC 60%, #1C7EE1 100%);*/
@@ -252,6 +280,13 @@ md-slider {
 .pagination-cb .current-page{
   color: #fff;
 }
+.user-list-wrapper{background: #fff}
+.user-list md-list-item .md-list-item-text h3,
+.user-list md-list-item .md-list-item-text h4,
+.user-list md-list-item .md-list-item-text p{
+  color: #686868!important;
+  margin: 4px 0;
+}
 .user-list md-list-item .md-list-item-text h3{font-size:15px;}
 .user-list md-list-item .md-list-item-text h4{line-height:1.20em;letter-spacing:0.001em;font-size: 13px}
 .user-list md-list-item .md-list-item-text p{font-size:12px;line-height:1.05em;}
@@ -266,7 +301,9 @@ md-slider {
 
 
 @media screen and (max-width: 900px){
-
+  .main-container{
+    padding: 20px 14px;
+  }
 }
 
 @media screen and (max-width: 599px){

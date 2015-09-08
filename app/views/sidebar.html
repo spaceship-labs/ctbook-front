@@ -3,14 +3,10 @@
   <md-content flex layout='column' >
     <h2 class='logobox'>
       <a href='/'>
-        <!--<img src='/images/imago.png' alt='contratobook' />-->
-        <span>contrato<strong>Book</strong></span>
+        <img src='/images/contratologo.png' alt='contratobook' />
+        <!--<span>contrato<strong>Book</strong></span>-->
       </a>
     </h2>
-   <!--  <a href='/' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/"' >
-      <i class="fa fa-home"></i>
-      Inicio
-    </a> -->
     <a
       href='/contratos'
       class='menu-item menu-title'
@@ -181,6 +177,6 @@
           />
       </md-input-container>
     </md-content>
-    <md-content ng-if='ctbookRoutes.basePath() == "contrato"' flex ng-include="'views/twitter-feed.html'"></md-content>
+    <md-content class="user-list-wrapper" ng-if='ctbookRoutes.basePath() == "contrato"' flex ng-include="'views/twitter-feed.html'"></md-content>
   </md-content>
 </md-sidebar>
