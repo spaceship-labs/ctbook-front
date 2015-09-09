@@ -27,8 +27,6 @@ angular.module('ctbookApp')
         $scope.ctbookRoutes.path = "/contratos";
       }else{
         $scope.toggleFilters = !$scope.toggleFilters;
-        console.log('toggle');
-        console.log($scope.toggleFilters);
       }
     }
   });

@@ -17,20 +17,36 @@
 
       <ul class="data-items-list">
         <li>
-          <p><i class="fa fa-institution"></i> <strong>Institución:</strong> {{contract.dependencia}}</p>
+          <p>
+            <a ng-click="addSearchParam('dependencias',contract.dependencia2)" href=""><i class="fa fa-institution"></i> <strong>Institución:</strong> {{contract.dependencia}}
+            </a>
+          </p>
         </li>
         <li>
           <p>
-            <i class="fa fa-shopping-cart"></i> <strong>Unidad compradora:</strong> {{contract.nombre_de_la_uc}} (clave: {{contract.unidadCompradora.claveuc}})</p>
+              <a ng-click="addSearchParam('ucs',contract.unidadCompradora)" href="">
+                <i class="fa fa-shopping-cart"></i> <strong>Unidad compradora:</strong> {{contract.nombre_de_la_uc}} (clave: {{contract.unidadCompradora.claveuc}})
+              </a>
+            </p>
         </li>
         <li>
-          <p><i class="fa fa-suitcase"></i> <strong>Proveedor contratista:</strong> {{contract.proveedor_contratista}}</p>
+          <p>
+            <a ng-click="addSearchParam('empresas',contract.provedorContratista)" href="">
+              <i class="fa fa-suitcase"></i> <strong>Proveedor contratista:</strong> {{contract.proveedor_contratista}}
+            </a>
+          </p>
         </li>
         <li>
           <p><i class="fa fa-calendar"></i> <strong>Fecha de inicio del contrato:</strong> {{contract.fecha_inicio}}</p>
         </li>
         <li>
-          <p><i class="fa fa-database"></i> <strong>Fuente:</strong> {{contract.source}}</p>
+          <p><i class="fa fa-external-link"></i> <strong>Información general del procedimiento: </strong> <a target="_blank" ng-href="{{contract.anuncio}}">{{contract.anuncio}}</a></p>
+        </li>
+        <li>
+          <p><i class="fa fa-database"></i> <strong>Fuente:</strong> <a target="_blank" ng-href="{{contract.source}}">{{contract.source}}</a></p>
+        </li>
+        <li>
+          <p><strong>Código identificador del contrato:</strong> {{contract.codigo_contrato}}</p>
         </li>
         <li>
           <p><strong>Tipo de contratación:</strong> {{contract.tipo_contratacion}}</p>

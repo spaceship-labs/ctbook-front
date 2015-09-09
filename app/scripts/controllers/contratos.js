@@ -78,6 +78,14 @@ angular.module('ctbookApp')
 		$scope.refresh();
 	};
 
+  $scope.clearFilters = function(){
+    $scope.params.dependencias = [];
+    $scope.params.empresas = [];
+    $scope.params.ucs = [];
+
+    $scope.refresh();
+  }
+
 	$scope.prevPage = function(){
 		$scope.params.page -=1;
 		$scope.params.page = $scope.params.page > 0 ? $scope.params.page : 1;
