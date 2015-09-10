@@ -23,10 +23,10 @@ angular.module('ctbookApp')
     };
 
     $scope.contratosActionMenu = function(){
-      if($scope.ctbookRoutes.basePath() != "contratos"){
+      if($scope.ctbookRoutes.basePath() !== "contratos"){
         $scope.ctbookRoutes.path = "/contratos";
       }else{
         $scope.toggleFilters = !$scope.toggleFilters;
       }
-    }
+    };
   });

@@ -8,7 +8,7 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('ContratosCtrl', function ($scope,$rootScope,$location) {
+  .controller('ContratosCtrl', function ($scope,$rootScope) {
 
 	$rootScope.$on('params change',function(){
     $scope.init();
@@ -84,7 +84,7 @@ angular.module('ctbookApp')
     $scope.params.ucs = [];
 
     $scope.refresh();
-  }
+  };
 
 	$scope.prevPage = function(){
 		$scope.params.page -=1;
