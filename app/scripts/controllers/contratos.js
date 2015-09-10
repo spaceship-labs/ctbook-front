@@ -8,7 +8,7 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('ContratosCtrl', function ($scope,$rootScope) {
+  .controller('ContratosCtrl', function ($scope,$rootScope,$location) {
 
 	$rootScope.$on('params change',function(){
     $scope.init();
@@ -125,6 +125,12 @@ angular.module('ctbookApp')
 		}
 		return false;
 	};
+
+  /*$scope.changeSearchParam = function(url, item, collection){
+    $scope.addItem(item,collection);
+    $location.path(url);
+    $scope.init();
+  };*/
 
   $scope.getRange = function(n) {
     var arr = new Array(n);

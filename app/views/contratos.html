@@ -102,26 +102,30 @@
               <ul class="data-items-list">
                 <li>
                   <p>
-                    <a ng-href='/dependencias/{{contract.dependencia2.id}}'>
+                    <!--<a ng-href="/contratos?D{{contract.dependencia2.id}}" ng-click="changeSearchParam('/contratos?D'+ contract.dependencia2.id)">-->
+                    <a ng-href="/contratos?D{{contract.dependencia2.id}}" target="_self">
                       <i class="fa fa-institution"></i> {{contract.dependencia}}
                     </a>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a ng-href='/unidadesCompradoras/{{contract.unidadCompradora.id}}'>
+                    <!--<a ng-href="/contratos?U{{contract.unidadCompradora.id}}" ng-click="changeSearchParam('/contratos?U'+ contract.unidadCompradora.id)">-->
+                    <a ng-href="/contratos?U{{contract.unidadCompradora.id}}" target="_self">
                       <i class="fa fa-shopping-cart"></i> Unidad compradora
                     </a>
                   </p>
                   <p>
-                    <a class="data-item" ng-href='/unidadesCompradoras/{{contract.unidadCompradora.id}}'>
+                    <!--<a class="data-item" ng-href="/contratos?U{{contract.unidadCompradora.id}}" ng-click="changeSearchParam('/contratos?U'+ contract.unidadCompradora.id)">-->
+                    <a class="data-item" ng-href="/contratos?U{{contract.unidadCompradora.id}}" target="_self">
                       {{contract.nombre_de_la_uc}}
                     </a>
                   </p>
                 </li>
                 <li>
                   <p>
-                    <a ng-href='/empresas/{{contract.provedorContratista.id}}'>
+                    <!--<a ng-href="/contratos?E{{contract.provedorContratista.id}}" ng-click="changeSearchParam('/contratos?E'+ contract.provedorContratista.id)">-->
+                    <a ng-href="/contratos?E{{contract.provedorContratista.id}}" target="_self">
                       <i class="fa fa-suitcase"></i> Empresa
                     </a>
                   </p>

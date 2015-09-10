@@ -30,15 +30,6 @@ angular.module('ctbookApp')
       $scope.params = $scope.ctbookRoutes.getParams();
     };
 
-    $scope.addSearchParam = function(collection, item){
-      if(item){
-        $scope.params[collection].push(item);
-        $scope.params.page = 1;
-        $scope.ctbookRoutes.setParams($scope.params);
-        $location.path('/contratos');
-      }
-    }
-
     $scope.init();
 
 
