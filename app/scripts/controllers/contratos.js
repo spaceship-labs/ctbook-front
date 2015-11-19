@@ -126,6 +126,12 @@ angular.module('ctbookApp')
 		return false;
 	};
 
+  /*$scope.changeSearchParam = function(url, item, collection){
+    $scope.addItem(item,collection);
+    $location.path(url);
+    $scope.init();
+  };*/
+
   $scope.getRange = function(n) {
     var arr = new Array(n);
     for(var i=0;i<n;i++){

@@ -8,7 +8,7 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('ContratoCtrl', function($scope, $routeParams, twitter, $location) {
+  .controller('ContratoCtrl', function($scope, $routeParams, twitter) {
     $scope.contractId = $routeParams.contractId;
     $scope.loading = true;
 
