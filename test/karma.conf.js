@@ -16,7 +16,8 @@ module.exports = function(config) {
     // as well as any additional frameworks (requirejs/chai/sinon/...)
     frameworks: [
       "mocha",
-      "chai"
+      "chai",
+      'sinon-chai'
     ],
     // list of files / patterns to load in the browser
     files: [
@@ -32,8 +33,15 @@ module.exports = function(config) {
       'bower_components/restangular/dist/restangular.js',
       'bower_components/jsSHA/src/sha.js',
       'bower_components/ng-twitter-api/dist/ng-twitter-api.js',
+      'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+      'bower_components/Chart.js/Chart.js',
+      'bower_components/angular-chart.js/dist/angular-chart.js',
+      'bower_components/d3/d3.js',
+      'bower_components/nvd3/build/nv.d3.js',
+      'bower_components/angular-nvd3/dist/angular-nvd3.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
+
       "node_modules/chai/chai.js",
       "node_modules/chai-things/lib/chai-things.js",
       "app/scripts/**/*.js",
@@ -42,8 +50,7 @@ module.exports = function(config) {
     ],
 
     // list of files / patterns to exclude
-    exclude: [
-    ],
+    exclude: [],
 
     // web server port
     port: 8080,
@@ -58,7 +65,8 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: [
       "PhantomJS",
-      //"Firefox",
+      "Chrome",
+      "Firefox",
     ],
 
     // Code coverage report
@@ -73,19 +81,20 @@ module.exports = function(config) {
 
     //Travis Support
     customLaunchers: {
-        Chrome_travis_ci: {
-            base: 'Chrome',
-            flags: ['--no-sandbox']
-        }
+      Chrome_travis_ci: {
+        base: 'Chrome',
+        flags: ['--no-sandbox']
+      }
     },
     // Which plugins to enable
     plugins: [
       "karma-phantomjs-launcher",
-      //"karma-chrome-launcher",
-      //"karma-firefox-launcher",
+      /*"karma-chrome-launcher",
+      "karma-firefox-launcher",*/
       'karma-mocha',
       'karma-chai',
-      'karma-coverage'
+      'karma-coverage',
+      'karma-sinon-chai'
     ],
 
     // Continuous Integration mode
@@ -105,10 +114,10 @@ module.exports = function(config) {
     // URL root prevent conflicts with the site root
     // urlRoot: '_karma_'
   };
-   if (process.env.TRAVIS) {
-        cfg.browsers = ['Chrome_travis_ci'];
-    }
+  if (process.env.TRAVIS) {
+    cfg.browsers = ['Chrome_travis_ci'];
+  }
 
-    config.set(cfg);
+  config.set(cfg);
 
 };

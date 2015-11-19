@@ -16,6 +16,9 @@ angular
     'angular-packery',
     'contentful',
     'restangular',
+    'infinite-scroll',
+    'nvd3'
+
   ])
   .config(function($routeProvider, $locationProvider) {
     $locationProvider.html5Mode(true);
@@ -37,11 +40,6 @@ angular
         controller: 'ContratoCtrl',
         controllerAs: 'contrato'
       })
-      .when('/empresas', {
-        templateUrl: 'templates/pages/companies.html',
-        controller: 'companyCtrl',
-        reloadOnSearch: false
-      })
       .when('/dependencias', {
         templateUrl: 'views/dependencias.html',
         controller: 'DependenciasCtrl',
@@ -50,6 +48,26 @@ angular
       .when('/widget', {
         templateUrl: 'templates/pages/widget.html',
         controller: 'contratoCtrl',
+      })
+      .when('/companies', {
+        templateUrl: 'views/companies.html',
+        controller: 'CompaniesCtrl',
+        controllerAs: 'companies'
+      })
+      .when('/empresas', {
+        templateUrl: 'views/companies.html',
+        controller: 'CompaniesCtrl',
+        controllerAs: 'companies'
+      })
+      .when('/company/:companyId', {
+        templateUrl: 'views/company.html',
+        controller: 'CompanyCtrl',
+        controllerAs: 'ctrl'
+      })
+      .when('/empresa/:companyId', {
+        templateUrl: 'views/company.html',
+        controller: 'CompanyCtrl',
+        controllerAs: 'ctrl'
       })
       .otherwise({
         redirectTo: '/contratos'
@@ -62,8 +80,8 @@ angular
     });
   })
   .config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://ctbook-api.herokuapp.com/');
-    //RestangularProvider.setBaseUrl('http://localhost:1337/');
+    //RestangularProvider.setBaseUrl('http://ctbook-api.herokuapp.com/');
+    RestangularProvider.setBaseUrl('http://localhost:1337/');
   })
   .config(function($mdThemingProvider) {
 

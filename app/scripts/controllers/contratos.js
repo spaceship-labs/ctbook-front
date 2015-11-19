@@ -84,7 +84,7 @@ angular.module('ctbookApp')
     $scope.params.ucs = [];
 
     $scope.refresh();
-  }
+  };
 
 	$scope.prevPage = function(){
 		$scope.params.page -=1;

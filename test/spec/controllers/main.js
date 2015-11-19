@@ -23,4 +23,18 @@ describe('Controller: MainCtrl', function () {
     scope.ctbookRoutes.should.be.an('object');
   });
 
+  describe('numberFormat',function(){
+    it('should human format a number',function(){
+      var res = scope.numberFormat(1234567890);
+      //known phantomjs issue https://github.com/ariya/phantomjs/issues/12581
+      res.should.equal('1234567890');
+    });
+
+    it('should be 0 if no param provided',function(){
+      var res = scope.numberFormat();
+      res.should.equal('0');
+    });
+
+  });
+
 });

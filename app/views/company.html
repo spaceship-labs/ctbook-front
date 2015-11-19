@@ -1,0 +1,17 @@
+<div ng-include="'views/sidebar.html'" layout='row'></div>
+<!-- El Loader -->
+<div ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div class="wrap-main-container" layout='column' flex layout-fill role='main' tab-index='-1' role='main'>
+  <md-content ng-show='!loading' class='main-container' layout-fill flex layout='column'>
+    <div class="contrato-item contrato-item-main md-whiteframe-z1">
+      <h2 class="ammount">{{ctrl.company.proveedor_contratista}}</h2>
+      <div layout='column'>
+        <nvd3 options="ctrl.chartOptions" data="ctrl.stats.timeSeries" ></nvd3>
+        <nvd3 options="ctrl.pieOptions" data="ctrl.stats.agencyDistribution" ></nvd3>
+
+      </div>
+    </div>
+  </md-content>
+</div>

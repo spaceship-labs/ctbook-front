@@ -37,10 +37,10 @@ angular.module('ctbookApp')
 
     this.completeParamsFromApi = function(entities, target, model) {
       var unCached = [];
-      for (var x in entities) {
-        var entity = entities[x];
-        if (!entity[target]) {
-          entity.index = x;
+      for (var i = 0; i < entities.length; i++) {
+        var entity = entities[i];
+        if (!entities[i][target]) {
+          entity.index = i;
           unCached.push(entity);
         }
       }
@@ -66,21 +66,20 @@ angular.module('ctbookApp')
 
 
     this.completeParamsFromCache = function(params, contracts) {
-
-      for (var x in params.empresas) {
+      for (var x = 0; x < params.empresas.length; x++) {
         params.empresas[x] = this.findEntity(params.empresas[x], contracts, 'provedorContratista');
       }
-      for (x in params.dependencias) {
+      for (x = 0; x < params.dependencias.length; x++) {
         params.dependencias[x] = this.findEntity(params.dependencias[x], contracts, 'dependencia2');
       }
-      for (x in params.ucs) {
+      for (x = 0; x < params.ucs.length; x++) {
         params.ucs[x] = this.findEntity(params.ucs[x], contracts, 'unidadCompradora');
       }
       return params;
     };
 
     this.findEntity = function(entity, contracts, target) {
-      for (var x in contracts) {
+      for (var x = 0; x < contracts.length ; x++) {
         var contract = contracts[x];
         if (contract && contract[target]) {
           if (contract[target].id === entity.id) {
@@ -95,8 +94,8 @@ angular.module('ctbookApp')
       return this.Contrato.getList(this.makeQuery(params));
     };
 
-    this.getContract = function(id){
-      return Restangular.one('contrato',id).get();
+    this.getContract = function(id) {
+      return Restangular.one('contrato', id).get();
     };
 
     this.getContractMeta = function(params) {
@@ -116,14 +115,29 @@ angular.module('ctbookApp')
 
     };
 
+    this.getContractStats = function(params) {
+      var query = this.makeQuery(params);
+      return this.Contrato.one('stats').get(query);
+    };
+
     this.makeQuery = function(params) {
+      var defaults = {
+        year: {
+          start: 2002,
+          end: 2015
+        },
+        page : 1
+      };
+
+      angular.extend(defaults, params);
+
       var where = {
-        "fecha_inicio_year": {
-          ">=": params.year.start,
-          "<=": params.year.end
+        'fecha_inicio_year': {
+          '>=': defaults.year.start,
+          '<=': defaults.year.end
         }
       };
-      var skip = this.perPage * (params.page - 1);
+      var skip = this.perPage * (defaults.page - 1);
       var query = {
         limit: this.perPage,
         skip: skip,
@@ -131,28 +145,70 @@ angular.module('ctbookApp')
         where: where
       };
 
-      angular.extend(query.where, formParams(params.dependencias, 'dependencia2'));
-      angular.extend(query.where, formParams(params.empresas, 'provedorContratista'));
-      angular.extend(query.where, formParams(params.ucs, 'unidadCompradora'));
+      angular.extend(query.where, formParams(defaults.dependencias, 'dependencia2'));
+      angular.extend(query.where, formParams(defaults.empresas, 'provedorContratista'));
+      angular.extend(query.where, formParams(defaults.ucs, 'unidadCompradora'));
 
       return query;
     };
 
-    this.getDependencias = function(params){
-      var page = params.page ? params.page : 1;
-      var skip = 20 * (page - 1);
-      var letter = params.letter ? params.letter : 'a';
+
+    this.getDependencias = function(params) {
+      if (!params) {
+        params = {};
+      }
+
+      var defaults = {
+        page: 0,
+        limit: 20,
+        letter: 'a',
+        sort: 'dependencia ASC'
+      };
+
+      angular.extend(defaults, params);
+
       params = {
-        limit : 400,
-        skip : skip,
-        sort : 'dependencia DESC',
-        where : {
-          dependencia : {
-            startsWith : letter
+        limit: defaults.limit,
+        skip: defaults.page * defaults.limit,
+        sort: defaults.sort,
+        where: {
+          dependencia: {
+            startsWith: defaults.letter
           }
         }
       };
       return this.Dependencia.getList(params);
+    };
+
+    this.getCompany = function(id) {
+      return Restangular.one('empresa', id).get();
+    };
+
+    this.getCompanies = function(params) {
+      if (!params) {
+        params = {};
+      }
+
+      var defaults = {
+        page: 0,
+        limit: 20,
+        letter: 'a',
+        sort: 'proveedor_contratista ASC'
+      };
+
+      angular.extend(defaults, params);
+
+      params = {
+        limit: defaults.limit,
+        skip: defaults.page * defaults.limit,
+        sort: defaults.sort,
+        where: {
+          proveedor_contratista: {
+            startsWith: defaults.letter
+          }
+        }
+      };
+      return this.Empresa.getList(params);
     };
 
     var formParams = function(items, field) {

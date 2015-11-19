@@ -37,7 +37,7 @@ angular.module('ctbookApp')
         $scope.ctbookRoutes.setParams($scope.params);
         $location.path('/contratos');
       }
-    }
+    };
 
     $scope.init();
 

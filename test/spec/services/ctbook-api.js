@@ -77,6 +77,15 @@ describe('Service: ctbookApi', function () {
       });
       $httpBackend.flush();
     });
+
+    it('should work with no params', function () {
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2015%7D%7D')
+        .respond([{'nombre':'instituto ifai'}]);
+      ctbookApi.getContracts();
+      $httpBackend.flush();
+    });
+
+
   });
 
   describe('getContractMeta',function(){
@@ -105,4 +114,45 @@ describe('Service: ctbookApi', function () {
     });
   });
 
+  describe('getCompanies',function(){
+    it('should call the api searching for companies', function (done) {
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&skip=0&sort=proveedor_contratista+ASC&where=%7B%22proveedor_contratista%22:%7B%22startsWith%22:%22a%22%7D%7D')
+        .respond([{'proveedor_contratista':'abc'}]);
+      ctbookApi.getCompanies().then(function(companies){
+        companies.length.should.equal(1);
+        done();
+      });
+      $httpBackend.flush();
+    });
+    it('should calls the api searching for companies with params', function (done) {
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&skip=40&sort=proveedor_contratista+ASC&where=%7B%22proveedor_contratista%22:%7B%22startsWith%22:%22a%22%7D%7D')
+        .respond([{'proveedor_contratista':'abc'}]);
+      ctbookApi.getCompanies({page:2}).then(function(companies){
+        companies.length.should.equal(1);
+        done();
+      });
+      $httpBackend.flush();
+    });
+  });
+
+  describe('getDependencias',function(){
+    it('should call the api searching for dependencias', function (done) {
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/dependencia?limit=20&skip=0&sort=dependencia+ASC&where=%7B%22dependencia%22:%7B%22startsWith%22:%22a%22%7D%7D')
+        .respond([{'dependencia':'abc'}]);
+      ctbookApi.getDependencias().then(function(companies){
+        companies.length.should.equal(1);
+        done();
+      });
+      $httpBackend.flush();
+    });
+    it('should calls the api searching for companies with params', function (done) {
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/dependencia?limit=20&skip=40&sort=dependencia+ASC&where=%7B%22dependencia%22:%7B%22startsWith%22:%22a%22%7D%7D')
+        .respond([{'dependencia':'abc'}]);
+      ctbookApi.getDependencias({page:2}).then(function(companies){
+        companies.length.should.equal(1);
+        done();
+      });
+      $httpBackend.flush();
+    });
+  });
 });

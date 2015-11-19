@@ -1,0 +1,16 @@
+<div ng-include="'views/sidebar.html'" layout='row'></div>
+<div layout='column' flex layout-fill role='main' tab-index='-1' role='main' >
+
+    <md-content class='main-container' flex layout-fill layout='column' >
+      <md-list layout='row' layout-wrap infinite-scroll="nextPage()" infinite-scroll-distance="0" >
+        <md-item ng-repeat="company in companies" flex='50' layout-padding>
+          <md-content class="rounded-box half">
+            <a ng-href='/empresa/{{company.id}}' layout='row'>
+              <p >{{company.proveedor_contratista}}</p>
+            </a>
+          </md-content>
+        </md-item>
+      </md-list>
+    </md-content>
+
+</div>

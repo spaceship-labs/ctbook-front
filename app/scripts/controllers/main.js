@@ -15,18 +15,19 @@ angular.module('ctbookApp')
 
     $scope.numberFormat = function(number) {
       if (number === undefined || isNaN(number)) {
-        number = "0";
+        number = '0';
       }
       number = Number(number);
-      number = number.toFixed(2);
-      return new Intl.NumberFormat().format(number);
+      //return number;
+      //number = number.toFixed(2);
+      return number.toLocaleString();
     };
 
     $scope.contratosActionMenu = function(){
-      if($scope.ctbookRoutes.basePath() != "contratos"){
-        $scope.ctbookRoutes.path = "/contratos";
+      if($scope.ctbookRoutes.basePath() !== 'contratos'){
+        $scope.ctbookRoutes.path = '/contratos';
       }else{
         $scope.toggleFilters = !$scope.toggleFilters;
       }
-    }
+    };
   });
