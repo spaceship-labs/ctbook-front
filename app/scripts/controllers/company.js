@@ -17,7 +17,6 @@ angular.module('ctbookApp')
     vm.setStats = setStats;
 
     vm.companyId = $routeParams.companyId;
-    //$scope.data = [{ values: [], key: 'Monto Total' }];
 
     vm.chartOptions = {
       chart: {
