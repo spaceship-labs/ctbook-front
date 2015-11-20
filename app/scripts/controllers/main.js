@@ -23,9 +23,17 @@ angular.module('ctbookApp')
       return number.toLocaleString();
     };
 
+    $scope.mdpify = function(number){
+      if (number === undefined || isNaN(number)) {
+        number = '0';
+      }
+      number = Number(number);
+      return Math.round(number/100000)/10;
+    };
+
     $scope.contratosActionMenu = function(){
-      if($scope.ctbookRoutes.basePath() !== "contratos"){
-        $scope.ctbookRoutes.path = "/contratos";
+      if($scope.ctbookRoutes.basePath() !== 'contratos'){
+        $scope.ctbookRoutes.path = '/contratos';
       }else{
         $scope.toggleFilters = !$scope.toggleFilters;
       }

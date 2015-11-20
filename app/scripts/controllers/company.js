@@ -9,12 +9,15 @@
  */
 angular.module('ctbookApp')
   .controller('CompanyCtrl', function($routeParams, ctbookApi, $scope) {
+    var minFreq, maxFreq, minSum, maxSum;
     var vm = this;
 
     vm.load = load;
     vm.setCompany = setCompany;
     vm.setContracts = setContracts;
     vm.setStats = setStats;
+    vm.histMode = 'frecuencias';
+
 
     vm.companyId = $routeParams.companyId;
 
@@ -71,9 +74,58 @@ angular.module('ctbookApp')
       }
     };
 
+    vm.histOptions = {
+      chart: {
+        type: 'discreteBarChart',
+        height: 450,
+        margin: {
+          top: 20,
+          right: 20,
+          bottom: 120,
+          left: 35
+        },
+        x: function(d) {
+          return d.range;
+        },
+        y: function(d) {
+          if (vm.histMode === 'frecuencias') {
+            return d.frequency;
+          } else {
+            return Math.round(d.sum / 100000) / 10;
+          }
+        },
+        color: function(d) {
+          if(vm.histMode === 'frecuencias'){
+            var scale = d3.scale.linear()
+              .domain([minSum, (maxSum - minSum) / 2 + minSum, maxSum])
+              .range(['#ccccff', '#cc22ff', 'red']);
+            var color = scale(d.sum);
+            return color;
+          }else{
+            var scale2 = d3.scale.linear()
+              .domain([minFreq, (maxFreq - minFreq) / 2 + minFreq, maxFreq])
+              .range(['#ccccff', '#cc22ff', 'red']);
+            return scale2(d.frequency);
+          }
+        },
+        transitionDuration: 500,
+        xAxis: {
+          axisLabel: 'Rango',
+          rotateLabels: -45,
+          axisLabelDistance : 10
+        },
+
+        yAxis: {
+          axisLabel: vm.histMode === 'frecuencias' ? 'Numero de contratos' : 'Millones de pesos',
+          axisLabelDistance: 0,
+          tickFormat: function(d) {
+            return d;
+          }
+        }
+      }
+    };
+
     vm.load();
-
-
 
     function load() {
       vm.loading = true;
@@ -96,6 +148,18 @@ angular.module('ctbookApp')
 
     function setStats(stats) {
       vm.stats = stats;
+      var sums = vm.stats.frequency[0].values.map(function(bin) {
+        return bin.sum;
+      });
+      maxSum = Math.max.apply(Math, sums);
+      minSum = Math.min.apply(Math, sums);
+
+      var freqs = vm.stats.frequency[0].values.map(function(bin) {
+        return bin.frequency;
+      });
+
+      maxFreq = Math.max.apply(Math, freqs);
+      minFreq = Math.min.apply(Math, freqs);
     }
 
 

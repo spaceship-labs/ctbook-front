@@ -7,7 +7,9 @@ body{
 }
 
 a{text-decoration: none}
-
+.nvd3 text {
+    font: normal 12px "Open sans";
+}
 .main-sidenav{
   background: #189abc; /* Old browsers */
   background: -moz-linear-gradient(45deg,  #189abc 0%, #265293 100%); /* FF3.6+ */

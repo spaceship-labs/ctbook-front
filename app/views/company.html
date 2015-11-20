@@ -7,10 +7,28 @@
   <md-content ng-show='!loading' class='main-container' layout-fill flex layout='column'>
     <div class="contrato-item contrato-item-main md-whiteframe-z1">
       <h2 class="ammount">{{ctrl.company.proveedor_contratista}}</h2>
+      <ul class='data-items-list'>
+        <li>
+          <p><strong>Monto total en contratos:</strong> $ {{mdpify(ctrl.stats.generalStats.total)}} MDP</p>
+          <p><strong>Contrato Promédio: </strong> $ {{mdpify(ctrl.stats.generalStats.mean)}} MDP</p>
+          <p><strong>Contrato mas grande:</strong> $ {{mdpify(ctrl.stats.generalStats.limits.max)}} MDP</p>
+          <p><strong>Desviación Estandar: </strong> $ {{mdpify(ctrl.stats.generalStats.stdev)}} MDP</p>
+        </li>
+      </ul>
       <div layout='column'>
-        <nvd3 options="ctrl.chartOptions" data="ctrl.stats.timeSeries" ></nvd3>
-        <nvd3 options="ctrl.pieOptions" data="ctrl.stats.agencyDistribution" ></nvd3>
+        <div layout='row'>
+          <h3 flex>Histograma</h3>
+          <div>Ver {{ctrl.histMode}}</div>
+          <md-switch ng-true-value="'montos'" ng-false-value="'frecuencias'"  ng-model="ctrl.histMode" aria-label="montos o frecuencias" class="md-block" ng-change='api.update()'>
 
+          </md-switch>
+        </div>
+        <nvd3 options="ctrl.histOptions" data="ctrl.stats.frequency" api="api"></nvd3>
+        <br/>
+        <h3>Serie Historica</h3>
+        <nvd3 options="ctrl.chartOptions" data="ctrl.stats.timeSeries"></nvd3>
+        <h3>Por dependencia</h3>
+        <nvd3 options="ctrl.pieOptions" data="ctrl.stats.agencyDistribution"></nvd3>
       </div>
     </div>
   </md-content>

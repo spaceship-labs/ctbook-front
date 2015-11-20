@@ -106,7 +106,7 @@ angular.module('ctbookApp')
 
 	$scope.numberFormat = function(number){
 		if(number === undefined || isNaN(number)) {
-			number = "0";
+			number = '0';
 		}
 		number = Number(number);
 		number = number.toFixed(2);
@@ -116,8 +116,7 @@ angular.module('ctbookApp')
 
 	$scope.searchObjectsExists = function() {
 		for(var key in $scope.params){
-			var param = $scope.params[key];
-			if(param.length !== 0){
+			if($scope.params[key].length !== 0){
 				if(key === 'dependencias' || key === 'empresas' || key === 'ucs'){
 					return true;
 				}
