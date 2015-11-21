@@ -9,7 +9,7 @@
       <h2 class="ammount">{{vm.company.proveedor_contratista}}</h2>
       <ul class='data-items-list'>
         <li>
-          <p><strong>Numero de contratos:</strong>  {{vm.stats.generalStats.count}} </p>
+          <p><strong>Numero de contratos:</strong> {{vm.stats.generalStats.count}} </p>
           <p><strong>Monto total en contratos:</strong> $ {{mdpify(vm.stats.generalStats.total)}} MDP</p>
           <p><strong>Contrato Promédio: </strong> $ {{mdpify(vm.stats.generalStats.mean)}} MDP</p>
           <p><strong>Contrato mas grande:</strong> $ {{mdpify(vm.stats.generalStats.limits.max)}} MDP</p>
@@ -17,19 +17,22 @@
         </li>
       </ul>
       <div layout='column'>
+
         <div layout='row'>
           <h3 flex>Histograma</h3>
           <div>Ver {{vm.histMode}}</div>
-          <md-switch ng-true-value="'montos'" ng-false-value="'frecuencias'"  ng-model="vm.histMode" aria-label="montos o frecuencias" class="md-block" ng-change='api.update()'>
-
+          <md-switch ng-true-value="'montos'" ng-false-value="'frecuencias'" ng-model="vm.histMode" aria-label="montos o frecuencias" class="md-block" ng-change='vm.changeHistMode()'>
           </md-switch>
         </div>
-        <nvd3 options="vm.histOptions" data="vm.stats.frequency" api="api"></nvd3>
-        <br/>
+        <nvd3 options="vm.histOptions" data="vm.stats.frequency" api="vm.api"></nvd3>
+
+
         <h3>Serie Historica</h3>
         <nvd3 options="vm.chartOptions" data="vm.stats.timeSeries"></nvd3>
         <h3>Por dependencia</h3>
         <nvd3 options="vm.pieOptions" data="vm.stats.agencyDistribution"></nvd3>
+
+
       </div>
     </div>
   </md-content>
