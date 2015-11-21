@@ -192,7 +192,6 @@ angular.module('ctbookApp')
       var defaults = {
         page: 0,
         limit: 20,
-        letter: 'a',
         sort: 'proveedor_contratista ASC'
       };
 
@@ -201,12 +200,12 @@ angular.module('ctbookApp')
       params = {
         limit: defaults.limit,
         skip: defaults.page * defaults.limit,
-        sort: defaults.sort,
+        sort: defaults.sort,/*
         where: {
           proveedor_contratista: {
             startsWith: defaults.letter
           }
-        }
+        }*/
       };
       return this.Empresa.getList(params);
     };

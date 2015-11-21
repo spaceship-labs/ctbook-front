@@ -65,8 +65,8 @@ module.exports = function(config) {
     // - IE (only Windows)
     browsers: [
       "PhantomJS",
-      "Chrome",
-      "Firefox",
+      /*"Chrome",
+      "Firefox",*/
     ],
 
     // Code coverage report

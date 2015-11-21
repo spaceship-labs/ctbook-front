@@ -8,25 +8,34 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('CompaniesCtrl', function($scope) {
-    $scope.page = 0;
-    $scope.letter = 'a';
-    $scope.companies = [];
+  .controller('CompaniesCtrl', companiesCtrl);
 
-    $scope.load = function() {
-      $scope.loading = true;
-      $scope.ctbookApi.getCompanies({
-        page: $scope.page,
-        letter: $scope.letter,
-      }).then(function(companies) {
-        $scope.loading = false;
-        $scope.companies = companies;
-      });
-    };
+function companiesCtrl(ctbookApi) {
+  /* jshint validthis: true */
+  var vm = this;
 
-    $scope.nextPage = function() {
-      $scope.load();
-      $scope.page += 1;
-    };
+  vm.companies = [];
+  vm.letter = 'a';
+  vm.page = 0;
+  vm.load = load;
+  vm.nextPage = nextPage;
 
-  });
+  function load() {
+    vm.loading = true;
+    ctbookApi.getCompanies({
+      page: vm.page,
+      sort: 'totalContractAmmount DESC',
+      limit: 100
+    }).then(function(companies) {
+      vm.loading = false;
+      vm.companies = companies;
+    });
+  }
+
+  function nextPage() {
+    //Not working correctly (infinite scroll)
+    vm.load();
+    vm.page += 1;
+  }
+
+}

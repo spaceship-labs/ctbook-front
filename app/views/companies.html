@@ -1,12 +1,13 @@
 <div ng-include="'views/sidebar.html'" layout='row'></div>
-<div layout='column' flex layout-fill role='main' tab-index='-1' role='main' >
+<div layout='column' flex layout-fill role='main' tab-index='-1' role='main' infinite-scroll="vm.nextPage()">
 
     <md-content class='main-container' flex layout-fill layout='column' >
-      <md-list layout='row' layout-wrap infinite-scroll="nextPage()" infinite-scroll-distance="0" >
-        <md-item ng-repeat="company in companies" flex='50' layout-padding>
-          <md-content class="rounded-box half">
-            <a ng-href='/empresa/{{company.id}}' layout='row'>
-              <p >{{company.proveedor_contratista}}</p>
+      <md-list layout='row' layout-wrap  infinite-scroll-distance="0" >
+        <md-item ng-repeat="company in vm.companies" flex='50' layout-padding>
+          <md-content class="contrato-item half">
+            <a ng-href='/empresa/{{company.id}}' layout='column'>
+              <p class='title'>{{company.proveedor_contratista}}</p>
+              <p class='title'>$ {{numberFormat(mdpify(company.totalContractAmmount))}} MDP en {{company.totalContractCount}} contratos</p>
             </a>
           </md-content>
         </md-item>

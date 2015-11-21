@@ -116,7 +116,7 @@ describe('Service: ctbookApi', function () {
 
   describe('getCompanies',function(){
     it('should call the api searching for companies', function (done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&skip=0&sort=proveedor_contratista+ASC&where=%7B%22proveedor_contratista%22:%7B%22startsWith%22:%22a%22%7D%7D')
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&skip=0&sort=proveedor_contratista+ASC')
         .respond([{'proveedor_contratista':'abc'}]);
       ctbookApi.getCompanies().then(function(companies){
         companies.length.should.equal(1);
@@ -125,7 +125,7 @@ describe('Service: ctbookApi', function () {
       $httpBackend.flush();
     });
     it('should calls the api searching for companies with params', function (done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&skip=40&sort=proveedor_contratista+ASC&where=%7B%22proveedor_contratista%22:%7B%22startsWith%22:%22a%22%7D%7D')
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&skip=40&sort=proveedor_contratista+ASC')
         .respond([{'proveedor_contratista':'abc'}]);
       ctbookApi.getCompanies({page:2}).then(function(companies){
         companies.length.should.equal(1);
