@@ -54,10 +54,6 @@ angular.module('ctbookApp')
     function changeHistMode(){
       chartService.mode = vm.histMode;
       vm.api.update();
-      /*var options = chartService.histogram(vm.histMode,vm.frequencies);
-      console.log(options);
-      vm.api.updateWithOptions(options);*/
-      //vm.api.apply();
     }
 
 
