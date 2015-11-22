@@ -19,6 +19,7 @@ function companiesCtrl(ctbookApi) {
   vm.page = 0;
   vm.load = load;
   vm.nextPage = nextPage;
+  vm.setCompanies = setCompanies;
 
   function load() {
     vm.loading = true;
@@ -26,16 +27,18 @@ function companiesCtrl(ctbookApi) {
       page: vm.page,
       sort: 'totalContractAmmount DESC',
       limit: 100
-    }).then(function(companies) {
-      vm.loading = false;
-      vm.companies = companies;
-    });
+    }).then(setCompanies);
   }
 
   function nextPage() {
     //Not working correctly (infinite scroll)
     vm.load();
     vm.page += 1;
+  }
+
+  function setCompanies(companies) {
+    vm.loading = false;
+    vm.companies = companies;
   }
 
 }

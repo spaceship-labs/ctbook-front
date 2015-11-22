@@ -14,7 +14,7 @@ angular.module('ctbookApp')
 
     vm.load = load;
     vm.setCompany = setCompany;
-    vm.setContracts = setContracts;
+    //vm.setContracts = setContracts;
     vm.setStats = setStats;
     vm.histMode = 'frecuencias';
     vm.companyId = $routeParams.companyId;
@@ -28,12 +28,13 @@ angular.module('ctbookApp')
     function load() {
       chartService.mode = vm.histMode;
       vm.loading = true;
+      vm.loadingStats = true;
       ctbookApi.getCompany(vm.companyId).then(vm.setCompany);
       ctbookApi.getContractStats({
         empresas: [{
           id: vm.companyId
         }]
-      }).then(vm.setStats);
+      }).then(setStats);
     }
 
     function setCompany(company) {
@@ -41,11 +42,12 @@ angular.module('ctbookApp')
       vm.company = company;
     }
 
-    function setContracts(contracts) {
+   /* function setContracts(contracts) {
       vm.contracts = contracts;
     }
-
+*/
     function setStats(stats) {
+      vm.loadingStats = false;
       vm.stats = stats;
       chartService.frequencies = vm.stats.frequency[0].values;
       vm.histOptions = chartService.histogram();
