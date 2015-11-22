@@ -8,39 +8,40 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('ContratoCtrl', function($scope, $routeParams, $location, twitter) {
-    $scope.contractId = $routeParams.contractId;
-    $scope.loading = true;
+  .controller('ContratoCtrl', contratoCtrl);
 
+function contratoCtrl($routeParams, twitter, ctbookApi, ctbookRoutes) {
+  /* jshint validthis: true */
+  var vm = this;
 
-    $scope.getTweets = function() {
-      twitter.getTweets('#'+$scope.contract.hashTag).then(function(tweets) {
-        $scope.tweets = tweets;
-      });
-    };
+  vm.contractId = $routeParams.contractId;
+  vm.getTweets = getTweets;
+  vm.init = init;
+  vm.loading = true;
+  vm.setContract = setContract;
+  vm.setTweets = setTweets;
 
-    $scope.init = function(){
-      $scope.ctbookApi.getContract($scope.contractId).then(function(contract) {
-        $scope.contract = contract;
-        $scope.contract.hashTag = $scope.contract.numero_procedimiento.replace(/-/g,'');
-        $scope.loading = false;
-        $scope.getTweets();
-      });
+  vm.init();
 
-      $scope.params = $scope.ctbookRoutes.getParams();
-    };
+  function getTweets() {
+    twitter.getTweets('#' + vm.contract.hashTag).then(vm.setTweets);
+  }
 
-    $scope.addSearchParam = function(collection, item){
-      if(item){
-        $scope.params[collection].push(item);
-        $scope.params.page = 1;
-        $scope.ctbookRoutes.setParams($scope.params);
-        $location.path('/contratos');
-      }
-    };
+  function init() {
+    ctbookApi.getContract(vm.contractId).then(vm.setContract);
 
-    $scope.init();
+    vm.params = ctbookRoutes.getParams();
+  }
 
+  function setContract(contract) {
+    vm.contract = contract;
+    vm.contract.hashTag = vm.contract.numero_procedimiento.replace(/-/g, '');
+    vm.loading = false;
+    vm.getTweets();
+  }
 
+  function setTweets(tweets) {
+    vm.tweets = tweets;
+  }
 
-  });
+}

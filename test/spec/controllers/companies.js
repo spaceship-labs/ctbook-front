@@ -44,7 +44,7 @@ describe('Controller: CompaniesCtrl', function () {
     });
   });
 
-  describe('setComapnies',function(){
+  describe('setCompanies',function(){
     it('should se the companies and loading to false',function(){
       CompaniesCtrl.setCompanies('ajdkla');
       CompaniesCtrl.loading.should.equal(false);

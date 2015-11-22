@@ -16,9 +16,9 @@ function companiesCtrl(ctbookApi) {
 
   vm.companies = [];
   vm.letter = 'a';
-  vm.page = 0;
   vm.load = load;
   vm.nextPage = nextPage;
+  vm.page = 0;
   vm.setCompanies = setCompanies;
 
   function load() {

@@ -3,8 +3,8 @@
     <section class="send-comment">
       <p><i class="fa fa-commenting"></i></p>
       <p><strong>USA ESTE HASHTAG</strong></p>
-      <p><strong>#{{contract.hashTag}}</strong></p>
-      <a target='_blank' ng-href='https://twitter.com/intent/tweet?text=%23{{contract.hashTag}}' class="send-comment-btn">Escribe un comentario</a>
+      <p><strong>#{{vm.contract.hashTag}}</strong></p>
+      <a target='_blank' ng-href='https://twitter.com/intent/tweet?text=%23{{vm.contract.hashTag}}' class="send-comment-btn">Escribe un comentario</a>
     </section>
   </div>
   <md-list-item class="md-3-line" ng-repeat='tweet in tweets'>

@@ -8,55 +8,59 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('CompanyCtrl', function($routeParams, ctbookApi, chartService) {
-    var minFreq, maxFreq, minSum, maxSum;
-    var vm = this;
+  .controller('CompanyCtrl', companyCtrl);
 
-    vm.load = load;
-    vm.setCompany = setCompany;
-    //vm.setContracts = setContracts;
-    vm.setStats = setStats;
-    vm.histMode = 'frecuencias';
-    vm.companyId = $routeParams.companyId;
-    vm.chartOptions = chartService.stackedArea();
-    vm.histOptions = chartService.histogram(vm.mode,vm.frequencies);
-    vm.pieOptions = chartService.pie();
-    vm.changeHistMode = changeHistMode;
+function companyCtrl($routeParams, ctbookApi, chartService) {
+  /* jshint validthis: true */
+  var minFreq, maxFreq, minSum, maxSum;
+  var vm = this;
 
-    vm.load();
+  vm.companyId = $routeParams.companyId;
+  vm.changeHistMode = changeHistMode;
+  vm.chartOptions = {};
+  vm.chartOptions.histogram = chartService.histogram(vm.mode, vm.frequencies);
+  vm.chartOptions.pie = chartService.pie();
+  vm.chartOptions.stacked = chartService.stackedArea();
+  vm.histMode = 'frecuencias';
+  vm.load = load;
+  vm.setCompany = setCompany;
+  vm.setStats = setStats;
+  //vm.setContracts = setContracts;
 
-    function load() {
-      chartService.mode = vm.histMode;
-      vm.loading = true;
-      vm.loadingStats = true;
-      ctbookApi.getCompany(vm.companyId).then(vm.setCompany);
-      ctbookApi.getContractStats({
-        empresas: [{
-          id: vm.companyId
-        }]
-      }).then(setStats);
-    }
+  vm.load();
 
-    function setCompany(company) {
-      vm.loading = false;
-      vm.company = company;
-    }
+  function load() {
+    chartService.mode = vm.histMode;
+    vm.loading = true;
+    vm.loadingStats = true;
+    ctbookApi.getCompany(vm.companyId).then(vm.setCompany);
+    ctbookApi.getContractStats({
+      empresas: [{
+        id: vm.companyId
+      }]
+    }).then(setStats);
+  }
 
-   /* function setContracts(contracts) {
+  function setCompany(company) {
+    vm.loading = false;
+    vm.company = company;
+  }
+
+  /* function setContracts(contracts) {
       vm.contracts = contracts;
     }
 */
-    function setStats(stats) {
-      vm.loadingStats = false;
-      vm.stats = stats;
-      chartService.frequencies = vm.stats.frequency[0].values;
-      vm.histOptions = chartService.histogram();
-    }
+  function setStats(stats) {
+    vm.loadingStats = false;
+    vm.stats = stats;
+    chartService.frequencies = vm.stats.frequency[0].values;
+    vm.chartOptions.histogram = chartService.histogram();
+  }
 
-    function changeHistMode(){
-      chartService.mode = vm.histMode;
-      vm.api.update();
-    }
+  function changeHistMode() {
+    chartService.mode = vm.histMode;
+    vm.api.update();
+  }
 
 
-  });
+}

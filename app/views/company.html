@@ -3,7 +3,7 @@
 <div ng-show='vm.loading' layout-fill layout='column' layout-align='center center' flex>
   <md-progress-circular md-mode="indeterminate"></md-progress-circular>
 </div>
-<div ng-hide='vm.loading' class="wrap-main-container" layout='column' flex layout-fill role='main' tab-index='-1' role='main'>
+<div class="wrap-main-container" layout='column' flex layout-fill role='main' tab-index='-1' role='main'>
   <md-content ng-show='!vm.loading' class='main-container' layout-fill flex layout='column'>
     <div class="contrato-item contrato-item-main md-whiteframe-z1">
       <h2 class="ammount">{{vm.company.proveedor_contratista}}</h2>
@@ -18,19 +18,19 @@
           </li>
         </ul>
         <div>
-          <nvd3 options="vm.pieOptions" data="vm.stats.agencyDistribution"></nvd3>
+          <nvd3 options="vm.chartOptions.pie" data="vm.stats.agencyDistribution"></nvd3>
         </div>
       </div>
       <div layout='column'>
         <h3>Serie Historica</h3>
-        <nvd3 options="vm.chartOptions" data="vm.stats.timeSeries"></nvd3>
+        <nvd3 options="vm.chartOptions.stacked" data="vm.stats.timeSeries"></nvd3>
         <div layout='row'>
           <h3 flex>Histograma</h3>
           <div>Ver {{vm.histMode}}</div>
           <md-switch ng-true-value="'montos'" ng-false-value="'frecuencias'" ng-model="vm.histMode" aria-label="montos o frecuencias" class="md-block" ng-change='vm.changeHistMode()'>
           </md-switch>
         </div>
-        <nvd3 options="vm.histOptions" data="vm.stats.frequency" api="vm.api"></nvd3>
+        <nvd3 options="vm.chartOptions.histogram" data="vm.stats.frequency" api="vm.api"></nvd3>
       </div>
     </div>
   </md-content>
