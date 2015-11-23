@@ -10,8 +10,8 @@ angular
       controllerAs: 'home'
     })*/
       .when('/contratos', {
-        templateUrl: 'views/contratos.html',
-        controller: 'ContratosCtrl',
+        templateUrl: 'views/contracts.html',
+        controller: 'ContractsCtrl',
         controllerAs: 'vm',
         reloadOnSearch: false
       })

@@ -41,8 +41,8 @@
         <section class="autocomplete-search-area">
           <md-autocomplete
               md-search-text-change=""
-              md-selected-item-change="addItem(item,'dependencias');dependencia=''"
-              md-selected-item="selectedItem"
+              md-selected-item-change="vm.addItem(item,'dependencias');dependencia=''"
+              md-selected-item="vm.selectedItem"
               md-search-text="dependencia"
               md-items="item in ctbookApi.autocomplete(dependencia,'dependencia','Dependencia')"
               md-item-text="item.dependencia"
@@ -59,8 +59,8 @@
 
           <md-autocomplete
               md-search-text-change=""
-              md-selected-item-change="addItem(item,'ucs');nombre_de_la_uc=''"
-              md-selected-item="selectedItem2"
+              md-selected-item-change="vm.addItem(item,'ucs');nombre_de_la_uc=''"
+              md-selected-item="vm.selectedItem2"
               md-search-text="nombre_de_la_uc"
               md-items="item in ctbookApi.autocomplete(nombre_de_la_uc,'nombre_de_la_uc','UnidadCompradora')"
               md-item-text="item.nombre_de_la_uc"
@@ -78,8 +78,8 @@
 
           <md-autocomplete
               md-search-text-change=""
-              md-selected-item-change="addItem(item,'empresas');proveedor_contratista=''"
-              md-selected-item="selectedItem3"
+              md-selected-item-change="vm.addItem(item,'empresas');proveedor_contratista=''"
+              md-selected-item="vm.selectedItem3"
               md-search-text="proveedor_contratista"
               md-items="item in ctbookApi.autocomplete(proveedor_contratista,'proveedor_contratista','Empresa')"
               md-item-text="item.proveedor_contratista"
@@ -100,27 +100,27 @@
         <div layout-align='center center'>
           <div class="year-range" layout="row" layout-align="space-between center">
             <span>Desde</span>
-            <span>{{params.year.start}}</span>
+            <span>{{vm.params.year.start}}</span>
           </div>
           <md-slider
             flex='80'
-            ng-model="params.year.start"
+            ng-model="vm.params.year.start"
             min="2002"
-            max="{{params.year.end}}"
-            ng-mouseup="sliderup($event)"
+            max="{{vm.params.year.end}}"
+            ng-mouseup="vm.sliderup($event)"
             aria-label="año"
             md-discrete
           ></md-slider>
 
           <div class="year-range" layout="row" layout-align="space-between center">
             <span>Hasta</span>
-            <span>{{params.year.end}}</span>
+            <span>{{vm.params.year.end}}</span>
           </div>
           <md-slider
             flex='80'
-            ng-model="params.year.end"
-            min="{{params.year.start}}"
-            ng-mouseup="sliderup($event)"
+            ng-model="vm.params.year.end"
+            min="{{vm.params.year.start}}"
+            ng-mouseup="vm.sliderup($event)"
             max="2015"
             aria-label="año"
             md-discrete

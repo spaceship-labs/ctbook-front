@@ -23,74 +23,74 @@
     </md-toolbar>
 
 
-    <md-toolbar class='search-filter transparent-toolbar' layout="row" layout-md="column" layout-sm="column" layout-align="space-between start" ng-hide='loading'>
+    <md-toolbar class='search-filter transparent-toolbar' layout="row" layout-md="column" layout-sm="column" layout-align="space-between start" ng-hide='vm.loading'>
       <!-- Los filtros seleccionados -->
-      <section  flex="80" flex-md="100" flex-sm='100' ng-hide='params.dependencias.length === 0 && params.ucs.length === 0 && params.empresas.length === 0'>
+      <section  flex="80" flex-md="100" flex-sm='100' ng-hide='vm.params.dependencias.length === 0 && vm.params.ucs.length === 0 && vm.params.empresas.length === 0'>
         <p><strong>Filtrar resultados de búsqueda</strong></p>
-        <md-content class="transparent-toolbar" style="min-height:86px;" ng-show='searchObjectsExists()'>
+        <md-content class="transparent-toolbar" style="min-height:86px;" ng-show='vm.searchObjectsExists()'>
           <md-checkbox
             md-no-ink
-            ng-repeat='item in params.dependencias track by $index'
+            ng-repeat='item in vm.params.dependencias track by $index'
             ng-init="dependencyChecked=true"
             ng-model="dependencyChecked"
             class="md-primary"
-            ng-click='removeItem("dependencias",item)'>
+            ng-click='vm.removeItem("dependencias",item)'>
             {{item.dependencia}}
           </md-checkbox>
 
           <md-checkbox
             md-no-ink
-            ng-repeat='item in params.ucs track by $index'
+            ng-repeat='item in vm.params.ucs track by $index'
             ng-init="ucChecked=true"
             ng-model="ucChecked"
             class="md-primary"
-            ng-click='removeItem("ucs",item)'>
+            ng-click='vm.removeItem("ucs",item)'>
             {{item.nombre_de_la_uc}}
           </md-checkbox>
 
           <md-checkbox
             md-no-ink
-            ng-repeat='item in params.empresas track by $index'
+            ng-repeat='item in vm.params.empresas track by $index'
             ng-init="empresaChecked=true"
             ng-model="empresaChecked"
             class="md-primary"
-            ng-click='removeItem("empresas",item)'>
+            ng-click='vm.removeItem("empresas",item)'>
             {{item.proveedor_contratista}}
           </md-checkbox>
 
         </md-content>
       </section>
-      <section flex-md="100" flex-sm='100' class="search-clear" ng-hide='params.dependencias.length === 0 && params.ucs.length === 0 && params.empresas.length === 0'>
-        <p><a href="" ng-click="clearFilters()">Limpiar resultados <i class="fa fa-trash"></i></a></p>
+      <section flex-md="100" flex-sm='100' class="search-clear" ng-hide='vm.params.dependencias.length === 0 && vm.params.ucs.length === 0 && vm.params.empresas.length === 0'>
+        <p><a href="" ng-click="vm.clearFilters()">Limpiar resultados <i class="fa fa-trash"></i></a></p>
       </section>
 
     </md-toolbar>
 
     <section class="search-results-info" layout="row" layout-align="space-between center">
       <p class="search-results-text"><strong>Resultados de la búsqueda</strong></p>
-      <div ng-hide='!pages || pages <= 1'>Pagina {{params.page}} de {{pages}}</div>
+      <div ng-hide='!pages || pages <= 1'>Pagina {{vm.params.page}} de {{pages}}</div>
     </section>
 
     <!-- montos -->
-    <md-toolbar class='sum-toolbar transparent-toolbar' layout='row' ng-hide='loading'>
+    <md-toolbar class='sum-toolbar transparent-toolbar' layout='row' ng-hide='vm.loading'>
 
       <div >
-        <div ng-hide='!sum'> Monto de contratos : $ {{numberFormat(sum)}} {{sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
+        <div ng-hide='!vm.sum'> Monto de contratos : $ {{numberFormat(vm.sum)}} {{vm.sum_abbr}} <span ng-show='sum_abbr == ""'>MXN</span> </div>
       </div>
 
     </md-toolbar>
 
 
     <!-- El Loader -->
-    <div ng-show='loading' layout-fill layout='column' layout-align='center center' flex>
+    <div ng-show='vm.loading' layout-fill layout='column' layout-align='center center' flex>
       <md-progress-circular md-mode="indeterminate"></md-progress-circular>
     </div>
 
 
-    <md-list ng-hide='loading' >
+    <md-list ng-hide='vm.loading' >
 
       <!-- El listado -->
-      <md-item ng-repeat="contract in contracts" >
+      <md-item ng-repeat="contract in vm.contracts" >
         <md-content layout='column' class="contrato-item">
           <div layout='row' layout-md="column" layout-sm='column'>
             <div flex='50' flex-md="100" flex-sm='100'>
@@ -150,18 +150,18 @@
     </md-list>
 
     <!-- pagination -->
-    <md-toolbar class='transparent-toolbar pagination-wrapper' layout='row' layout-align="end center" ng-hide='loading'>
+    <md-toolbar class='transparent-toolbar pagination-wrapper' layout='row' layout-align="end center" ng-hide='vm.loading'>
 
-      <nav class="pagination-cb" ng-hide='!pages || pages <= 1' layout="row" >
-       <a ng-click='prevPage()' href="">&lt;</a>
+      <nav class="pagination-cb" ng-hide='!vm.pages || vm.pages <= 1' layout="row" >
+       <a ng-click='vm.prevPage()' href="">&lt;</a>
         <a
-          ng-repeat="itemPage in getRange(pages) | limitTo:8:(endPagination-8) track by $index"
-          ng-click='moveToPage(itemPage)'
-          ng-class="{'current-page': (itemPage) === params.page}"
+          ng-repeat="itemPage in vm.getRange(vm.pages) | limitTo:8:(vm.endPagination-8) track by $index"
+          ng-click='vm.moveToPage(itemPage)'
+          ng-class="{'current-page': (itemPage) === vm.params.page}"
           href="">
           {{itemPage}}
         </a>
-        <a ng-click='nextPage()' href="">&gt;</a></li>
+        <a ng-click='vm.nextPage()' href="">&gt;</a></li>
       </nav>
 
     </md-toolbar>
