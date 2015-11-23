@@ -16,25 +16,20 @@ function chartService() {
     histogram: histogram,
     pie: pie,
     stackedArea: stackedArea,
-    mode : 'frecuencias',
-    frequencies : []
   };
 
   return service;
 
-  function histogram() {
+  function histogram(frequencies,mode) {
     var maxSum, minSum, maxFreq, minFreq;
-    if (!service.mode) {
-      service.mode = 'frecuencias';
-    }
-    if (service.frequencies) {
-      var sums = service.frequencies.map(function(bin) {
+    if (frequencies) {
+      var sums = frequencies.map(function(bin) {
         return bin.sum;
       });
       maxSum = Math.max.apply(Math, sums);
       minSum = Math.min.apply(Math, sums);
 
-      var freqs = service.frequencies.map(function(bin) {
+      var freqs = frequencies.map(function(bin) {
         return bin.frequency;
       });
 

@@ -54,7 +54,6 @@ describe('Controller: ContratoCtrl', function() {
     it('should set the contract',function(){
       sinon.spy(ContratoCtrl,'getTweets');
       ContratoCtrl.setContract({numero_procedimiento:"3-4"});
-      console.log(ContratoCtrl.contract);
       ContratoCtrl.contract.numero_procedimiento.should.equal('3-4');
       ContratoCtrl.contract.hashTag.should.equal('34');
       ContratoCtrl.loading.should.equal(false);

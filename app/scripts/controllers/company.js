@@ -18,7 +18,7 @@ function companyCtrl($routeParams, ctbookApi, chartService) {
   vm.companyId = $routeParams.companyId;
   vm.changeHistMode = changeHistMode;
   vm.chartOptions = {};
-  vm.chartOptions.histogram = chartService.histogram(vm.mode, vm.frequencies);
+  vm.chartOptions.histogram = chartService.histogram(vm.frequencies);
   vm.chartOptions.pie = chartService.pie();
   vm.chartOptions.stacked = chartService.stackedArea();
   vm.histMode = 'frecuencias';
@@ -53,8 +53,7 @@ function companyCtrl($routeParams, ctbookApi, chartService) {
   function setStats(stats) {
     vm.loadingStats = false;
     vm.stats = stats;
-    chartService.frequencies = vm.stats.frequency[0].values;
-    vm.chartOptions.histogram = chartService.histogram();
+    vm.chartOptions.histogram = chartService.histogram(vm.stats.frequency[0].values);
   }
 
   function changeHistMode() {
