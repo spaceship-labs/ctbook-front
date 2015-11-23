@@ -8,13 +8,13 @@
     <div class="contrato-item contrato-item-main md-whiteframe-z1">
       <h2 class="ammount">{{vm.company.proveedor_contratista}}</h2>
       <div layout='row'>
-        <ul class='data-items-list' flex>
+        <ul class='data-items-list' flex ng-hide='loading'>
           <li>
-            <p><strong>Numero de contratos:</strong> {{vm.stats.generalStats.count}} </p>
-            <p><strong>Monto total en contratos:</strong> $ {{mdpify(vm.stats.generalStats.total)}} MDP</p>
-            <p><strong>Contrato Promédio: </strong> $ {{mdpify(vm.stats.generalStats.mean)}} MDP</p>
-            <p><strong>Contrato mas grande:</strong> $ {{mdpify(vm.stats.generalStats.limits.max)}} MDP</p>
-            <p><strong>Desviación Estandar: </strong> $ {{mdpify(vm.stats.generalStats.stdev)}} MDP</p>
+            <p><strong>Numero de contratos:</strong> {{vm.company.totalContractCount}} </p>
+            <p><strong>Monto total en contratos:</strong> $ {{mdpify(vm.company.totalContractAmmount)}} MDP</p>
+            <p><strong>Contrato Promédio: </strong> $ {{mdpify(vm.company.contractsMean)}} MDP</p>
+            <p><strong>Contrato mas grande:</strong> $ {{mdpify(vm.company.contractsMax)}} MDP</p>
+            <p><strong>Desviación Estandar: </strong> $ {{mdpify(vm.company.contractsStdev)}} MDP</p>
           </li>
         </ul>
         <div>
@@ -22,11 +22,11 @@
         </div>
       </div>
       <div layout='column'>
-        <h3>Serie Historica</h3>
+        <h3 ng-hide='vm.loadingStats'>Serie Historica</h3>
         <nvd3 options="vm.chartOptions.stacked" data="vm.stats.timeSeries"></nvd3>
-        <div layout='row'>
-          <h3 flex>Histograma</h3>
-          <div>Ver {{vm.histMode}}</div>
+        <div ng-hide='vm.loadingStats' layout='row'>
+          <h3 flex ng-hide='vm.loadingStats' >Histograma</h3>
+          <div >Ver {{vm.histMode}}</div>
           <md-switch ng-true-value="'montos'" ng-false-value="'frecuencias'" ng-model="vm.histMode" aria-label="montos o frecuencias" class="md-block" ng-change='vm.changeHistMode()'>
           </md-switch>
         </div>
