@@ -68,7 +68,7 @@
 
     <section class="search-results-info" layout="row" layout-align="space-between center">
       <p class="search-results-text"><strong>Resultados de la búsqueda</strong></p>
-      <div ng-hide='!pages || pages <= 1'>Pagina {{vm.params.page}} de {{pages}}</div>
+      <div ng-hide='!vm.pages || vm.pages <= 1'>Pagina {{vm.params.page}} de {{vm.pages}}</div>
     </section>
 
     <!-- montos -->

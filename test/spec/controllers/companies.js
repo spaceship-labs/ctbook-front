@@ -17,7 +17,6 @@ describe('Controller: CompaniesCtrl', function () {
     CompaniesCtrl = $controller('CompaniesCtrl', {
       $scope: scope,
       _ctbookApi : ctbookApi
-      // place here mocked dependencies
     });
   }));
 

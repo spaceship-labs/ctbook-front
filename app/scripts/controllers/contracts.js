@@ -17,71 +17,23 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
 
   vm.addItem = addItem;
   vm.clearFilters = clearFilters;
-  vm.getContracts = getContracts;
   vm.getContractMeta = getContractMeta;
+  vm.getContracts = getContracts;
   vm.getRange = getRange;
   vm.init = init;
   vm.moveToPage = moveToPage;
   vm.nextPage = nextPage;
-  vm.numberFormat = numberFormat;
   vm.prevPage = prevPage;
   vm.refresh = refresh;
   vm.removeItem = removeItem;
   vm.searchObjectsExists = searchObjectsExists;
+  vm.setContractMeta = setContractMeta;
+  vm.setContracts = setContracts;
   vm.sliderup = sliderup;
-  vm.toggleContract = toggleContract;
 
   vm.init();
 
-  $rootScope.$on('params change', function() {
-    vm.init();
-  });
-
-  function init() {
-    vm.params = ctbookRoutes.getParams();
-    vm.refresh();
-    vm.endPagination = 8;
-  }
-
-  function refresh() {
-    vm.getContracts();
-    vm.getContractMeta();
-  }
-
-  function getContracts() {
-    vm.loading = true;
-    ctbookRoutes.setParams(vm.params);
-    ctbookApi.getContracts(vm.params).then(function(response) {
-      vm.loading = false;
-      vm.contracts = response;
-      vm.params = ctbookApi.completeParams(vm.params, vm.contracts);
-      if (vm.params.page > 7) {
-        vm.endPagination = vm.params.page;
-      } else {
-        vm.endPagination = 8;
-      }
-    });
-  }
-
-  function getContractMeta() {
-    ctbookApi.getContractMeta(vm.params).then(function(response) {
-      vm.pages = response.pages;
-      vm.sum = response.sum;
-    });
-  }
-
-  function sliderup() {
-    vm.params.page = 1;
-    vm.refresh();
-  }
-
-  function toggleContract(contract) {
-    if (contract.show !== null) {
-      contract.show = !contract.show;
-    } else {
-      contract.show = true;
-    }
-  }
+  $rootScope.$on('params change', vm.init);
 
   function addItem(item, items) {
     if (item) {
@@ -89,6 +41,61 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
       vm.params.page = 1;
       vm.refresh();
     }
+  }
+
+  function clearFilters() {
+    vm.params.dependencias = [];
+    vm.params.empresas = [];
+    vm.params.ucs = [];
+    vm.refresh();
+  }
+
+  function getContracts() {
+    vm.loading = true;
+    ctbookRoutes.setParams(vm.params);
+    ctbookApi.getContracts(vm.params).then(vm.setContracts);
+  }
+
+  function getContractMeta() {
+    ctbookApi.getContractMeta(vm.params).then(setContractMeta);
+  }
+
+  function getRange(n) {
+    var arr = new Array(n);
+    for (var i = 0; i < n; i++) {
+      arr[i] = i + 1;
+    }
+    return arr;
+  }
+
+
+
+  function init() {
+    vm.params = ctbookRoutes.getParams();
+    vm.refresh();
+    vm.endPagination = 8;
+  }
+
+  function moveToPage(page) {
+    vm.params.page = page;
+    vm.getContracts();
+  }
+
+  function nextPage() {
+    vm.params.page += 1;
+    vm.params.page = vm.params.page <= vm.pages ? vm.params.page : 1;
+    vm.getContracts();
+  }
+
+  function prevPage() {
+    vm.params.page -= 1;
+    vm.params.page = vm.params.page > 0 ? vm.params.page : 1;
+    vm.getContracts();
+  }
+
+  function refresh() {
+    vm.getContracts();
+    vm.getContractMeta();
   }
 
   function removeItem(key, item) {
@@ -101,38 +108,20 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
     vm.refresh();
   }
 
-  function clearFilters() {
-    vm.params.dependencias = [];
-    vm.params.empresas = [];
-    vm.params.ucs = [];
-
-    vm.refresh();
+  function setContractMeta(response) {
+    vm.pages = response.pages;
+    vm.sum = response.sum;
   }
 
-  function prevPage() {
-    vm.params.page -= 1;
-    vm.params.page = vm.params.page > 0 ? vm.params.page : 1;
-    vm.getContracts();
-  }
-
-  function nextPage() {
-    vm.params.page += 1;
-    vm.params.page = vm.params.page <= vm.pages ? vm.params.page : 1;
-    vm.getContracts();
-  }
-
-  function moveToPage(page) {
-    vm.params.page = page;
-    vm.getContracts();
-  }
-
-  function numberFormat(number) {
-    if (number === undefined || isNaN(number)) {
-      number = '0';
+  function setContracts(contracts) {
+    vm.loading = false;
+    vm.contracts = contracts;
+    vm.params = ctbookApi.completeParams(vm.params, vm.contracts);
+    if (vm.params.page > 7) {
+      vm.endPagination = vm.params.page;
+    } else {
+      vm.endPagination = 8;
     }
-    number = Number(number);
-    number = number.toFixed(2);
-    return new Intl.NumberFormat().format(number);
   }
 
   function searchObjectsExists() {
@@ -146,13 +135,11 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
     return false;
   }
 
-
-  function getRange(n) {
-    var arr = new Array(n);
-    for (var i = 0; i < n; i++) {
-      arr[i] = i + 1;
-    }
-    return arr;
+  function sliderup() {
+    vm.params.page = 1;
+    vm.refresh();
   }
+
+
 
 }
