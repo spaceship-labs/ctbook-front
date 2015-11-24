@@ -12,7 +12,6 @@ angular.module('ctbookApp')
 
 function companyCtrl($routeParams, ctbookApi, chartService) {
   /* jshint validthis: true */
-  var minFreq, maxFreq, minSum, maxSum;
   var vm = this;
 
   vm.companyId = $routeParams.companyId;

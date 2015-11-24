@@ -18,14 +18,18 @@ function companiesCtrl(ctbookApi) {
   vm.letter = 'a';
   vm.load = load;
   vm.nextPage = nextPage;
+  vm.openMenu = openMenu;
   vm.page = 0;
   vm.setCompanies = setCompanies;
 
-  function load() {
+  function load(sortBy) {
+    if(!sortBy){
+      sortBy = 'totalContractAmmount';
+    }
     vm.loading = true;
     ctbookApi.getCompanies({
       page: vm.page,
-      sort: 'totalContractAmmount DESC',
+      sort: sortBy+' DESC',
       limit: 100
     }).then(setCompanies);
   }
@@ -36,9 +40,14 @@ function companiesCtrl(ctbookApi) {
     vm.page += 1;
   }
 
+  function openMenu($mdOpenMenu, ev) {
+    $mdOpenMenu(ev);
+  }
+
   function setCompanies(companies) {
     vm.loading = false;
     vm.companies = companies;
   }
+
 
 }
