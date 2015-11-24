@@ -21,17 +21,16 @@ function companiesCtrl(ctbookApi) {
   vm.openMenu = openMenu;
   vm.page = 0;
   vm.setCompanies = setCompanies;
+  vm.textQuery = textQuery;
 
-  function load(sortBy) {
-    if(!sortBy){
-      sortBy = 'totalContractAmmount';
-    }
-    vm.loading = true;
-    ctbookApi.getCompanies({
-      page: vm.page,
-      sort: sortBy+' DESC',
+  function load(options) {
+    var defaults = {
+      sort: 'totalContractAmmount DESC',
       limit: 100
-    }).then(setCompanies);
+    };
+    vm.loading = true;
+    angular.extend(defaults, options);
+    ctbookApi.getCompanies(defaults).then(setCompanies);
   }
 
   function nextPage() {
@@ -47,6 +46,18 @@ function companiesCtrl(ctbookApi) {
   function setCompanies(companies) {
     vm.loading = false;
     vm.companies = companies;
+  }
+
+  function textQuery(text) {
+    vm.load({
+      sort: 'proveedor_contratista ASC',
+      where : {
+        proveedor_contratista : {
+          contains : text,
+        }
+      }
+    });
+    console.log(text);
   }
 
 

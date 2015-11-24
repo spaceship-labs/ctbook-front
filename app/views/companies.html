@@ -15,19 +15,19 @@
             </md-button>
             <md-menu-content width="4">
               <md-menu-item>
-                <md-button ng-click="vm.load('totalContractAmmount')">
+                <md-button ng-click="vm.load({sort: 'totalContractAmmount DESC'})">
                   <md-icon class='fa fa-money plus'></md>
                     Por monto total de contratos
                 </md-button>
               </md-menu-item>
               <md-menu-item>
-                <md-button ng-click="vm.load('totalContractCount')">
+                <md-button ng-click="vm.load({sort: 'totalContractCount DESC'})">
                   <md-icon class='fa fa-sort-numeric-desc step'></md>
                     Por numero de contratos
                 </md-button>
               </md-menu-item>
               <md-menu-item>
-                <md-button ng-click="vm.load('contractsMean')">
+                <md-button ng-click="vm.load({sort: 'contractsMean DESC'})">
                   <md-icon class='fa fa-usd step'></md>
                     Por monto promedio
                 </md-button>

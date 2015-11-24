@@ -26,7 +26,6 @@ describe('Controller: CompaniesCtrl', function () {
       sinon.spy(_ctbookApi, 'getCompanies');
       CompaniesCtrl.load();
       _ctbookApi.getCompanies.should.have.been.calledWith({
-        page : 0,
         sort : 'totalContractAmmount DESC',
         limit : 100
       });
