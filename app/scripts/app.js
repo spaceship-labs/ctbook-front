@@ -15,6 +15,5 @@ angular
     'ngTwitter',
     'contentful',
     'restangular',
-    'infinite-scroll',
     'nvd3'
   ]);

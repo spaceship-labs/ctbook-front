@@ -12,8 +12,6 @@
     "restangular": "~1.5.1",
     "components-font-awesome": "~4.4.0",
     "ng-twitter-api": "~0.1.5",
-    "ngInfiniteScroll": "~1.2.1",
-    "angular-chart.js": "~0.8.5",
     "angular-nvd3": "~1.0.3"
   },
   "devDependencies": {
