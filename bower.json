@@ -2,11 +2,11 @@
   "name": "ctbook",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "^1.3.0",
-    "angular-animate": "^1.3.0",
+    "angular": "^1.4.8",
+    "angular-animate": "^1.4.8",
     "angular-aria": "^1.3.0",
     "angular-route": "^1.3.0",
-    "angular-material": "~0.10.0",
+    "angular-material": "^1.0.1",
     "angular-packery": "~1.0.4",
     "angular-contentful": "~2.0.0",
     "restangular": "~1.5.1",
@@ -18,5 +18,8 @@
     "angular-mocks": "^1.3.0"
   },
   "appPath": "app",
-  "moduleName": "ctbookApp"
+  "moduleName": "ctbookApp",
+  "resolutions": {
+    "angular": "1.4.8"
+  }
 }

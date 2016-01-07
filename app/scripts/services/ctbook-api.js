@@ -137,6 +137,7 @@ angular.module('ctbookApp')
           '<=': defaults.year.end
         }
       };
+      //if(params.)
       var skip = this.perPage * (defaults.page - 1);
       var query = {
         limit: this.perPage,

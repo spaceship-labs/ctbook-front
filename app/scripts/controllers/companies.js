@@ -23,6 +23,8 @@ function companiesCtrl(ctbookApi) {
   vm.setCompanies = setCompanies;
   vm.textQuery = textQuery;
 
+  vm.load();
+
   function load(options) {
     var defaults = {
       sort: 'totalContractAmmount DESC',
