@@ -30,6 +30,7 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
   vm.setContractMeta = setContractMeta;
   vm.setContracts = setContracts;
   vm.sliderup = sliderup;
+  vm.textSearch = textSearch;
 
   vm.init();
 
@@ -67,8 +68,6 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
     }
     return arr;
   }
-
-
 
   function init() {
     vm.params = ctbookRoutes.getParams();
@@ -140,6 +139,11 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
     vm.refresh();
   }
 
+  function textSearch(e){
+    if(e.which === 13){
 
+      vm.refresh();
+    }
+  }
 
 }

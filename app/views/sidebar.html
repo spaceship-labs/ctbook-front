@@ -42,7 +42,7 @@
 
           <md-input-container flex>
             <label>Busqueda por texto</label>
-            <input ng-model="user.title">
+            <input ng-model="vm.params.textFilter" ng-keypress='vm.textSearch($event)' >
           </md-input-container>
 
 
