@@ -137,9 +137,9 @@ angular.module('ctbookApp')
           '<=': defaults.year.end
         }
       };
-      if(params.textFilter){
+      if(defaults.textFilter){
         where.titulo_contrato = {
-          contains : params.textFilter
+          contains : defaults.textFilter
         };
       }
       var skip = this.perPage * (defaults.page - 1);
