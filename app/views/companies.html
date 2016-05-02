@@ -40,7 +40,7 @@
     <md-list layout='row' ng-hide='vm.loading' layout-wrap >
       <md-item ng-repeat="company in vm.companies" flex='50' layout-padding>
         <md-content class="contrato-item half">
-          <a ng-href='/empresa/{{company.id}}' layout='column'>
+          <a ng-href='/#/empresa/{{company.id}}' layout='column'>
             <p class='title'>{{company.proveedor_contratista}}</p>
             <p class='title'>$ {{numberFormat(mdpify(company.totalContractAmmount))}} MDP en {{company.totalContractCount}} contratos</p>
             <p class='title'>Contrato Promedio : $ {{numberFormat(mdpify(company.contractsMean))}} MDP</p>

@@ -18,20 +18,20 @@
       <ul class="data-items-list">
         <li>
           <p>
-            <a ng-href="/contratos?D{{vm.contract.dependencia2.id}}"><i class="fa fa-institution"></i> <strong>Institución:</strong> {{vm.contract.dependencia}}
+            <a ng-href="/#/contratos?D{{vm.contract.dependencia2.id}}"><i class="fa fa-institution"></i> <strong>Institución:</strong> {{vm.contract.dependencia}}
             </a>
           </p>
         </li>
         <li>
           <p>
-              <a ng-href="/contratos?U{{vm.contract.unidadCompradora.id}}">
+              <a ng-href="/#/contratos?U{{vm.contract.unidadCompradora.id}}">
                 <i class="fa fa-shopping-cart"></i> <strong>Unidad compradora:</strong> {{vm.contract.nombre_de_la_uc}} (clave: {{vm.contract.unidadCompradora.claveuc}})
               </a>
             </p>
         </li>
         <li>
           <p>
-            <a ng-href="/empresa/{{vm.contract.provedorContratista.id}}">
+            <a ng-href="/#/empresa/{{vm.contract.provedorContratista.id}}">
               <i class="fa fa-suitcase"></i> <strong>Proveedor contratista:</strong> {{vm.contract.proveedor_contratista}}
             </a>
           </p>
