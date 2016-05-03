@@ -1,9 +1,0 @@
-.packery-sizer,.packery-object{width:100px;height:100px;}
-#home-content .item{width:200px;height:200px;overflow:hidden;}
-#home-content .item img{display:block;position:absolute;top:0;left:0;opacity:1;transition:opacity .3s ease;}
-#home-content .item:hover img{opacity:.75}
-#home-content .item h3{position:relative;background-color:rgba(255,255,255,.8);font-size:12px;padding:15px 10px;text-align: right}
-#home-content .item.small{width:100px;height:100px;}
-#home-content .item.large{width:300px;height:300px;}
-#home-content .item.x-large{width:400px;height:400px;}
-
