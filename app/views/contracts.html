@@ -94,16 +94,16 @@
         <md-content layout='column' class="contrato-item">
           <div layout='row' layout-md="column" layout-sm='column'>
             <div flex='50' flex-md="100" flex-sm='100'>
-              <h3 class='ammount'><a ng-href='/#/contrato/{{contract.id}}'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</a></h3>
-              <p class='title'><a ng-href='/#/contrato/{{contract.id}}'>{{contract.titulo_contrato}}</a></p>
-              <p class='light'><a ng-href='/#/contrato/{{contract.id}}'>{{contract.tipo_procedimiento}} {{contract.caracter}}</a> </p>
+              <h3 class='ammount'><a ng-href='#/contrato/{{contract.id}}'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</a></h3>
+              <p class='title'><a ng-href='#/contrato/{{contract.id}}'>{{contract.titulo_contrato}}</a></p>
+              <p class='light'><a ng-href='#/contrato/{{contract.id}}'>{{contract.tipo_procedimiento}} {{contract.caracter}}</a> </p>
             </div>
             <div flex='50' flex-md="100" flex-sm='100'>
               <ul class="data-items-list">
                 <li>
                   <p>
                     <!--<a ng-href="/contratos?D{{contract.dependencia2.id}}" ng-click="changeSearchParam('/contratos?D'+ contract.dependencia2.id)">-->
-                    <a ng-href="/#/contratos?D{{contract.dependencia2.id}}" target="_self">
+                    <a ng-href="#/contratos?D{{contract.dependencia2.id}}" target="_self">
                       <i class="fa fa-institution"></i> {{contract.dependencia}}
                     </a>
                   </p>
@@ -111,13 +111,13 @@
                 <li>
                   <p>
                     <!--<a ng-href="/contratos?U{{contract.unidadCompradora.id}}" ng-click="changeSearchParam('/contratos?U'+ contract.unidadCompradora.id)">-->
-                    <a ng-href="/#/contratos?U{{contract.unidadCompradora.id}}" target="_self">
+                    <a ng-href="#/contratos?U{{contract.unidadCompradora.id}}" target="_self">
                       <i class="fa fa-shopping-cart"></i> Unidad compradora
                     </a>
                   </p>
                   <p>
                     <!--<a class="data-item" ng-href="/contratos?U{{contract.unidadCompradora.id}}" ng-click="changeSearchParam('/contratos?U'+ contract.unidadCompradora.id)">-->
-                    <a class="data-item" ng-href="/#/contratos?U{{contract.unidadCompradora.id}}" target="_self">
+                    <a class="data-item" ng-href="#/contratos?U{{contract.unidadCompradora.id}}" target="_self">
                       {{contract.nombre_de_la_uc}}
                     </a>
                   </p>
@@ -125,11 +125,11 @@
                 <li>
                   <p>
                     <!--<a ng-href="/contratos?E{{contract.provedorContratista.id}}" ng-click="changeSearchParam('/contratos?E'+ contract.provedorContratista.id)">-->
-                    <a ng-href="/#/contratos?E{{contract.provedorContratista.id}}" target="_self">
+                    <a ng-href="#/contratos?E{{contract.provedorContratista.id}}" target="_self">
                       <i class="fa fa-suitcase"></i> Empresa
                     </a>
                   </p>
-                  <p><a ng-href="/#/empresa/{{contract.provedorContratista.id}}" class="data-item">{{contract.proveedor_contratista}}</a></p>
+                  <p><a ng-href="#/empresa/{{contract.provedorContratista.id}}" class="data-item">{{contract.proveedor_contratista}}</a></p>
                 </li>
                 <li>
                   <p>
