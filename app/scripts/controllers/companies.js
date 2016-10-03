@@ -14,6 +14,7 @@ function companiesCtrl(ctbookApi) {
   /* jshint validthis: true */
   var vm = this;
 
+
   vm.companies = [];
   vm.letter = 'a';
   vm.load = load;
