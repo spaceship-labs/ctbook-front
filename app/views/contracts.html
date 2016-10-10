@@ -1,31 +1,57 @@
-<div flex-sm="100" ng-include="'views/sidebar.html'" layout='row'></div>
+<div 
+  flex-sm="100" 
+  class="sidebar-wrapper"
+  ng-include="'views/sidebar.html'" 
+  layout='row'></div>
 
-<md-content class="wrap-main-container" layout='column' flex flex-sm="100" layout-fill role='main' tab-index='-1' >
+<md-content 
+  class="wrap-main-container" 
+  flex 
+  flex-sm="100" 
+  layout-fill 
+  role='main' 
+  tab-index='-1'>
+
+  <div 
+    ng-include="'views/header-mobile.html'" 
+    hide-gt-md
+    layout='row'>
+  </div>
 
   <md-content class='main-container' flex layout-fill layout='column'>
 
     <md-toolbar
       class="search-header transparent-toolbar"
       layout="row"
-      layout-md="column"
-      layout-sm="column"
+      layout-wrap
       layout-align="space-between center"
       layout-align-md="space-between start"
       layout-align-sm="space-between start">
-      <div class="search-header-title" flex-md="100" flex-sm='100'>
+      <div class="search-header-title" flex flex-md="100" flex-sm='100' flex-xs="100">
         <h1><strong>BUSCA ANALIZA Y COMPARTE</strong></h1>
         <h1>LOS CONTRATOS DEL GOBIERNO</h1>
       </div>
-      <div class="search-header-social" flex-md="100" flex-sm='100'>
+      <div class="search-header-social" flex flex-md="100" flex-sm='100' flex-xs="100">
         <a href="#"><i class="fa fa-facebook"></i></a>
         <a href="#"><i class="fa fa-twitter"></i></a>
       </div>
     </md-toolbar>
 
 
-    <md-toolbar class='search-filter transparent-toolbar' layout="row" layout-md="column" layout-sm="column" layout-align="space-between start" ng-hide='vm.loading'>
+    <md-toolbar 
+      class='search-filter transparent-toolbar' 
+      layout="row" 
+      layout-wrap
+      layout-align="space-between start" 
+      ng-hide='vm.loading'
+    >
       <!-- Los filtros seleccionados -->
-      <section  flex="80" flex-md="100" flex-sm='100' ng-hide='vm.params.dependencias.length === 0 && vm.params.ucs.length === 0 && vm.params.empresas.length === 0'>
+      <section  
+        flex="80" 
+        flex-md="100" 
+        flex-sm='100' 
+        ng-hide='vm.params.dependencias.length === 0 && vm.params.ucs.length === 0 && vm.params.empresas.length === 0'
+      >
         <p><strong>Filtrar resultados de búsqueda</strong></p>
         <md-content class="transparent-toolbar" style="min-height:86px;" ng-show='vm.searchObjectsExists()'>
           <md-checkbox
@@ -60,13 +86,23 @@
 
         </md-content>
       </section>
-      <section flex-md="100" flex-sm='100' class="search-clear" ng-hide='vm.params.dependencias.length === 0 && vm.params.ucs.length === 0 && vm.params.empresas.length === 0'>
+
+      <section 
+        flex-md="100" 
+        flex-sm='100' 
+        class="search-clear" 
+        ng-hide='vm.params.dependencias.length === 0 && vm.params.ucs.length === 0 && vm.params.empresas.length === 0'
+      >
         <p><a href="" ng-click="vm.clearFilters()">Limpiar resultados <i class="fa fa-trash"></i></a></p>
       </section>
 
     </md-toolbar>
 
-    <section class="search-results-info" layout="row" layout-align="space-between center">
+    <section 
+      class="search-results-info" 
+      layout="row" 
+      layout-align="space-between center"
+    >
       <p class="search-results-text"><strong>Resultados de la búsqueda</strong></p>
       <div ng-hide='!vm.pages || vm.pages <= 1'>Pagina {{vm.params.page}} de {{vm.pages}}</div>
     </section>
@@ -92,13 +128,13 @@
       <!-- El listado -->
       <md-item ng-repeat="contract in vm.contracts" >
         <md-content layout='column' class="contrato-item">
-          <div layout='row' layout-md="column" layout-sm='column'>
-            <div flex='50' flex-md="100" flex-sm='100'>
+          <div layout='row' layout-wrap>
+            <div flex='50' flex-md="100" flex-sm='100' flex-xs="100">
               <h3 class='ammount'><a ng-href='#/contrato/{{contract.id}}'>$ {{numberFormat(contract.importe_contrato)}} {{contract.moneda}}</a></h3>
               <p class='title'><a ng-href='#/contrato/{{contract.id}}'>{{contract.titulo_contrato}}</a></p>
               <p class='light'><a ng-href='#/contrato/{{contract.id}}'>{{contract.tipo_procedimiento}} {{contract.caracter}}</a> </p>
             </div>
-            <div flex='50' flex-md="100" flex-sm='100'>
+            <div flex='50' flex-md="100" flex-sm='100' flex-xs="100">
               <ul class="data-items-list">
                 <li>
                   <p>

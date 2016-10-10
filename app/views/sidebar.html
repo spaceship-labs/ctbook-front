@@ -1,6 +1,11 @@
-<md-sidebar layout='column' class="md-sidenav-left md-whiteframe-z2 main-sidenav">
+<md-sidenav 
+  class="md-sidenav-left md-whiteframe-z2 main-sidenav"
+  md-component-id="filters"
+  md-is-locked-open="$mdMedia('gt-md')"
+  md-whiteframe="4"
+>
 
-  <md-content flex layout='column' >
+  <md-content>
     <h2 class='logobox'>
       <a href='#/'>
         <img src='images/contratologo.png' alt='contratobook' />
@@ -174,4 +179,4 @@
     </md-content>
     <md-content class="user-list-wrapper" ng-if='ctbookRoutes.basePath() == "contrato"' flex ng-include="'views/twitter-feed.html'"></md-content>
   </md-content>
-</md-sidebar>
+</md-sidenav>

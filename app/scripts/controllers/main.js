@@ -8,10 +8,15 @@
  * Controller of the ctbookApp
  */
 angular.module('ctbookApp')
-  .controller('MainCtrl', function($scope, ctbookApi, ctbookRoutes) {
+  .controller('MainCtrl', function($scope, $mdSidenav, ctbookApi, ctbookRoutes) {
     $scope.ctbookApi = ctbookApi;
     $scope.ctbookRoutes = ctbookRoutes;
     $scope.toggleFilters = true;
+
+    $scope.toggleSidebar = function(){
+      console.log('toggleSidebar');
+      $mdSidenav('filters').toggle()      
+    };
 
     $scope.numberFormat = function(number) {
       if (number === undefined || isNaN(number)) {
