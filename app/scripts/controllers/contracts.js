@@ -10,7 +10,7 @@
 angular.module('ctbookApp')
   .controller('ContractsCtrl', contractsCtrl);
 
-function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
+function contractsCtrl($rootScope, $mdSidenav, ctbookRoutes, ctbookApi) {
   /* jshint validthis: true */
   var minFreq, maxFreq, minSum, maxSum;
   var vm = this;
@@ -38,6 +38,7 @@ function contractsCtrl($rootScope, ctbookRoutes, ctbookApi) {
 
   function addItem(item, items) {
     if (item) {
+      $mdSidenav('filters').close();
       vm.params[items].push(item);
       vm.params.page = 1;
       vm.refresh();
