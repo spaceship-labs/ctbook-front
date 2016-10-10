@@ -321,6 +321,7 @@ md-list-item .md-list-item-inner .md-secondary {
 
 
 md-content {
+  background: transparent;
   color: #686868;
 }
 
