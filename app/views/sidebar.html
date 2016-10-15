@@ -45,11 +45,11 @@
 
         <section class="autocomplete-search-area" layout='column'>
 
-          <md-input-container flex>
+          <!-- <md-input-container flex>
             <label>Busqueda por texto</label>
             <input ng-model="vm.params.textFilter" ng-keypress='vm.textSearch($event)' >
           </md-input-container>
-
+ -->
 
           <md-autocomplete
               md-search-text-change=""
@@ -141,10 +141,10 @@
       </md-content>
     </section>
 
-    <a href='#/dependencias' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/dependencias" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/dependencias"' >
+<!--     <a href='#/dependencias' class='menu-item menu-title' ng-class='ctbookRoutes.path == "/dependencias" ? "selected" : ""' md-ink-ripple="#bbb" ng-click='ctbookRoutes.path = "/dependencias"' >
       <i class="fa fa-institution"></i>
       Dependencias
-    </a>
+    </a> -->
 
     <section ng-show='ctbookRoutes.path == "/dependencias"' class="sidenav-filter">
       <md-content  flex class='md-padding'>
@@ -177,6 +177,6 @@
       </md-input-container>
 
     </md-content>
-    <md-content class="user-list-wrapper" ng-if='ctbookRoutes.basePath() == "contrato"' flex ng-include="'views/twitter-feed.html'"></md-content>
+    <!-- <md-content class="user-list-wrapper" ng-if='ctbookRoutes.basePath() == "contrato"' flex ng-include="'views/twitter-feed.html'"></md-content> -->
   </md-content>
 </md-sidenav>
