@@ -18,6 +18,9 @@ md-autocomplete[md-floating-label] md-input-container, md-input-container{
   padding: 0;
 }
 
+.autocomplete-search-area{
+  margin-top:20px;
+}
 .main-sidenav,
 .sidenav-filter {
   /*
