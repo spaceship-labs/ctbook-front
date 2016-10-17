@@ -37,7 +37,7 @@ function contratoCtrl($routeParams, twitter, ctbookApi, ctbookRoutes) {
     vm.contract = contract;
     vm.contract.hashTag = vm.contract.numero_procedimiento.replace(/-/g, '');
     vm.loading = false;
-    vm.getTweets();
+    //vm.getTweets();
   }
 
   function setTweets(tweets) {
