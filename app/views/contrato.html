@@ -10,6 +10,7 @@
         <h2 class="ammount"><i class="fa fa-folder-open"></i></h2>
         <h2 class="ammount">$ {{numberFormat(vm.contract.importe_contrato)}} {{vm.contract.moneda}}</h2>
         <h1>{{vm.contract.titulo_contrato}}</h1>
+        <h3>{{vm.contract.titulo_expediente}}</h3>
         <h3 class="procedimiento-text">{{vm.contract.tipo_procedimiento}} {{vm.contract.caracter}}</h3>
         <h3 class="procedimiento-text"><strong>#{{vm.contract.numero_procedimiento}}</strong></h3>
       </section>
@@ -142,7 +143,7 @@
         </li>
           <!--Solo disponibleen registros de compranet 2010-2012 -->
           <div ng-if='vm.contract.numero_expediente'>
-            <li><p> <strong>Titulo Expediente:</strong> {{vm.contract.numero_expediente}}</p></li>
+            <li><p> <strong>Titulo Expediente:</strong> {{vm.contract.titulo_expediente}}</p></li>
             <li><p> <strong>Numero de Expediente:</strong> {{vm.contract.numero_expediente}}</p></li>
           </div>
       </ul>
