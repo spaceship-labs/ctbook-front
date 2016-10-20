@@ -426,6 +426,7 @@ md-toolbar.transparent-toolbar {
 .footer .logos img{
   margin: 10px 20px 0;
   vertical-align: middle;
+  max-width: 1000px;
 }
 
 @media (max-width: 959px) and (min-width: 600px) {
