@@ -422,6 +422,12 @@ md-toolbar.transparent-toolbar {
   line-height: 1.05em;
 }
 
+.footer .logos{margin: 0;}
+.footer .logos img{
+  margin: 10px 20px 0;
+  vertical-align: middle;
+}
+
 @media (max-width: 959px) and (min-width: 600px) {
   /*[flex-md="100"] {
     -webkit-flex: 1!important;
@@ -459,4 +465,9 @@ md-toolbar.transparent-toolbar {
     display: block;
   }
   */
+  .footer .logos{text-align: center;}
+  .footer .logos img{
+    max-width: 40%;
+    margin: 10px;
+  }
 }
