@@ -33,7 +33,7 @@ describe('Service: ctbookRoutes', function () {
     sample = samples[0];
     location.search(sample.hash);
   }));
-  
+
   describe('basePath',function(){
     it('should return the base path',function(){
       location.path('/contratos/Y2004-2013/P22');
@@ -44,7 +44,7 @@ describe('Service: ctbookRoutes', function () {
   });
 
   describe('setParams',function(){
-    it('should set the params in the URL search', function () {      
+    it('should set the params in the URL search', function () {
       ctbookRoutes.setParams(sample.params);
       Object.keys(location.search())[0].should.equal(sample.hash);
     });
@@ -83,8 +83,8 @@ describe('Service: ctbookRoutes', function () {
       var route = ctbookRoutes.encodeParams({
         year : {
           start : 2002,
-          end : 2015,
-        },     
+          end : 2016,
+        },
         page : 1
       });
       route.should.be.string;
@@ -101,8 +101,8 @@ describe('Service: ctbookRoutes', function () {
   describe('decodeParams',function(){
     it('should return default params when given blank url',function(){
       var params = ctbookRoutes.decodeParams();
-      params.year.start.should.equal(2002); 
-      params.year.end.should.equal(2015);
+      params.year.start.should.equal(2002);
+      params.year.end.should.equal(2016);
       params.page.should.equal(1);
       params.empresas.should.be.empty;
       params.dependencias.should.be.empty;
