@@ -18,7 +18,7 @@ angular.module('ctbookApp')
 
     function toggleSidebar(){
       console.log('toggleSidebar');
-      $mdSidenav('filters').toggle()      
+      $mdSidenav('filters').toggle();      
     }
 
 

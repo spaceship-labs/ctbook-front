@@ -3,11 +3,6 @@ angular
   .config(function($routeProvider, $locationProvider) {
 
     $routeProvider
-    /*.when('/', {
-      templateUrl: 'views/home.html',
-      controller: 'HomeCtrl',
-      controllerAs: 'home'
-    })*/
       .when('/contratos', {
         templateUrl: 'views/contracts.html',
         controller: 'ContractsCtrl',
@@ -22,6 +17,11 @@ angular
       .when('/dependencias', {
         templateUrl: 'views/dependencias.html',
         controller: 'DependenciasCtrl',
+        controllerAs: 'vm'
+      })
+      .when('/dependencia/:depId', {
+        templateUrl: 'views/dependencia.html',
+        controller: 'DependenciaCtrl',
         controllerAs: 'vm'
       })
       .when('/widget', {

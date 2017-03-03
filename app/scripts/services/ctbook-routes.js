@@ -1,3 +1,4 @@
+/*jshint maxcomplexity:false */
 'use strict';
 
 /**

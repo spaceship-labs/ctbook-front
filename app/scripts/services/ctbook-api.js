@@ -142,6 +142,13 @@ angular.module('ctbookApp')
           contains : defaults.textFilter
         };
       }
+
+      if(defaults.definitivos){
+        where.Definitivo = {
+          '!' : null
+        };
+      }
+
       var skip = this.perPage * (defaults.page - 1);
       var query = {
         limit: this.perPage,
@@ -183,6 +190,14 @@ angular.module('ctbookApp')
         }
       };
       return this.Dependencia.getList(params);
+    };
+
+    this.getDependencia = function(id){
+      return Restangular.one('dependencia',id).get();
+    };
+
+    this.getDependenciaBlackList = function(id){
+      return this.Dependencia.one('definitivos',id).get();
     };
 
     this.getCompany = function(id) {

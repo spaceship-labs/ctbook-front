@@ -1,0 +1,17 @@
+<div ng-include="'views/sidebar.html'" layout='row'></div>
+<!-- El Loader -->
+<div ng-show='vm.loading' layout-fill layout='column' layout-align='center center' flex>
+  <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+</div>
+<div class="wrap-main-container" layout='column' flex layout-fill role='main' tab-index='-1' role='main'>
+  <md-content ng-show='!vm.loading' class='main-container' layout-fill flex layout='column'>
+    <div class="contrato-item contrato-item-main md-whiteframe-z1">
+      <h2 class="ammount">{{vm.dep.dependencia}}</h2>
+      <h3>Empresas con las que tiene contratos y estan en lista Definitivos SAT:</h3>
+      <ul>
+      	<li ng-repeat='comp in vm.blaclistedCompanies'>
+      		<a ng-href="#/contratos?E{{comp.id}}.D{{vm.dep.id}}">{{comp.proveedor_contratista}}</a>
+      	</li>
+      </ul>
+  </md-content>
+</div>
