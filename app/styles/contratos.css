@@ -134,6 +134,8 @@
 .search-filter md-checkbox{
   display: inline-block;
   margin: 4px 8px;
+  color:white;
+  font-size:13px;
 }
 .search-filter md-checkbox .md-icon{
   border-color: #fff;
