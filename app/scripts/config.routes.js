@@ -1,7 +1,7 @@
 angular
   .module('ctbookApp')
   .config(function($routeProvider, $locationProvider) {
-
+    $locationProvider.hashPrefix('');
     $routeProvider
       .when('/contratos', {
         templateUrl: 'views/contracts.html',
