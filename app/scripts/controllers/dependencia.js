@@ -26,9 +26,14 @@ function dependenciaCtrl($routeParams, ctbookApi) {
     	dependencias : [{id:vm.depId}],
     	definitivos : true
     };
-    ctbookApi.getContracts(params);
-    ctbookApi.getDependenciaBlackList(vm.depId).then(function(companies){
-      vm.blaclistedCompanies = companies;
+    ctbookApi.getDependenciaBlackList(vm.depId,'definitivo').then(function(companies){
+      vm.definitivas = companies;
+    });
+    ctbookApi.getDependenciaBlackList(vm.depId,'presunto').then(function(companies){
+      vm.presuntas = companies;
+    });
+    ctbookApi.getDependenciaBlackList(vm.depId,'no-localizado').then(function(companies){
+      vm.noLocalizadas = companies;
     });
   }
 

@@ -196,8 +196,8 @@ angular.module('ctbookApp')
       return Restangular.one('dependencia',id).get();
     };
 
-    this.getDependenciaBlackList = function(id){
-      return this.Dependencia.one('definitivos',id).get();
+    this.getDependenciaBlackList = function(id,status){
+      return this.Dependencia.one('blacklist',id).get({status:status});
     };
 
     this.getCompany = function(id) {

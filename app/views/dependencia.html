@@ -8,10 +8,25 @@
     <div class="contrato-item contrato-item-main md-whiteframe-z1">
       <h2 class="ammount">{{vm.dep.dependencia}}</h2>
       <h3>Empresas con las que tiene contratos y estan en lista Definitivos SAT:</h3>
+      <md-progress-linear ng-show='!vm.definitivas' md-mode="indeterminate"></md-progress-linear>
       <ul>
-      	<li ng-repeat='comp in vm.blaclistedCompanies'>
-      		<a ng-href="#/contratos?E{{comp.id}}.D{{vm.dep.id}}">{{comp.proveedor_contratista}}</a>
-      	</li>
+        <li ng-repeat='comp in vm.definitivas'>
+          <a ng-href="#/contratos?E{{comp.id}}.D{{vm.dep.id}}">{{comp.proveedor_contratista}}</a>
+        </li>
+      </ul>
+      <h3>Empresas con las que tiene contratos y estan en lista Presuntos SAT:</h3>
+      <md-progress-linear ng-show='!vm.presuntas' md-mode="indeterminate"></md-progress-linear>
+      <ul>
+        <li ng-repeat='comp in vm.presuntas'>
+          <a ng-href="#/contratos?E{{comp.id}}.D{{vm.dep.id}}">{{comp.proveedor_contratista}}</a>
+        </li>
+      </ul>
+      <h3>Empresas con las que tiene contratos y estan en lista No-Localizados SAT:</h3>
+      <md-progress-linear ng-show='!vm.noLocalizadas' md-mode="indeterminate"></md-progress-linear>
+      <ul>
+        <li ng-repeat='comp in vm.noLocalizadas'>
+          <a ng-href="#/contratos?E{{comp.id}}.D{{vm.dep.id}}">{{comp.proveedor_contratista}}</a>
+        </li>
       </ul>
   </md-content>
-</div>
+  </div>
