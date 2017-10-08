@@ -140,7 +140,7 @@
                 <li>
                   <p>
                     <!--<a ng-href="/contratos?D{{contract.dependencia2.id}}" ng-click="changeSearchParam('/contratos?D'+ contract.dependencia2.id)">-->
-                    <a ng-href="#/contratos?D{{contract.dependencia2.id}}" target="_self">
+                    <a ng-href="#/contratos?D{{contract.dependencia2}}" target="_self">
                       <i class="fa fa-institution"></i> {{contract.dependencia}}
                     </a>
                   </p>
@@ -148,13 +148,13 @@
                 <li>
                   <p>
                     <!--<a ng-href="/contratos?U{{contract.unidadCompradora.id}}" ng-click="changeSearchParam('/contratos?U'+ contract.unidadCompradora.id)">-->
-                    <a ng-href="#/contratos?U{{contract.unidadCompradora.id}}" target="_self">
+                    <a ng-href="#/contratos?U{{contract.unidadCompradora}}" target="_self">
                       <i class="fa fa-shopping-cart"></i> Unidad compradora
                     </a>
                   </p>
                   <p>
                     <!--<a class="data-item" ng-href="/contratos?U{{contract.unidadCompradora.id}}" ng-click="changeSearchParam('/contratos?U'+ contract.unidadCompradora.id)">-->
-                    <a class="data-item" ng-href="#/contratos?U{{contract.unidadCompradora.id}}" target="_self">
+                    <a class="data-item" ng-href="#/contratos?U{{contract.unidadCompradora}}" target="_self">
                       {{contract.nombre_de_la_uc}}
                     </a>
                   </p>
@@ -162,11 +162,11 @@
                 <li>
                   <p>
                     <!--<a ng-href="/contratos?E{{contract.provedorContratista.id}}" ng-click="changeSearchParam('/contratos?E'+ contract.provedorContratista.id)">-->
-                    <a ng-href="#/contratos?E{{contract.provedorContratista.id}}" target="_self">
+                    <a ng-href="#/contratos?E{{contract.provedorContratista}}" target="_self">
                       <i class="fa fa-suitcase"></i> Empresa
                     </a>
                   </p>
-                  <p><a ng-href="#/empresa/{{contract.provedorContratista.id}}" class="data-item">{{contract.proveedor_contratista}}</a></p>
+                  <p><a ng-href="#/empresa/{{contract.provedorContratista}}" class="data-item">{{contract.proveedor_contratista}}</a></p>
                 </li>
                 <li>
                   <p>

@@ -124,7 +124,7 @@ angular.module('ctbookApp')
       var defaults = {
         year: {
           start: 2002,
-          end: 2016
+          end: 2017
         },
         page : 1
       };

@@ -43,7 +43,7 @@ angular.module('ctbookApp')
       if(typeof params === 'object'){
         var components = [];
         if(typeof params.year === 'object'){
-          if(params.year.start !== 2002 || params.year.end !== 2016){
+          if(params.year.start !== 2002 || params.year.end !== 2017){
             var component = 'Y'+params.year.start+'-'+params.year.end;
             components.push(component);
           }
@@ -80,7 +80,7 @@ angular.module('ctbookApp')
       var params = {
         year : {
           start : 2002,
-          end : 2016
+          end : 2017
         },
         empresas : [],
         dependencias : [],
