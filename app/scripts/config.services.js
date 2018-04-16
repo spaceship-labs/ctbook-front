@@ -7,8 +7,8 @@ angular
     });
   })
   .config(function(RestangularProvider) {
-    RestangularProvider.setBaseUrl('http://ctbook-api.herokuapp.com/');
-    //RestangularProvider.setBaseUrl('http://localhost:1337/');
+    //RestangularProvider.setBaseUrl('http://ctbook-api.herokuapp.com/');
+    RestangularProvider.setBaseUrl('http://localhost:1337/');
   })
   .config(function($mdThemingProvider) {
 
