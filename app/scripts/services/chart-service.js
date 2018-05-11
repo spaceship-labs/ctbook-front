@@ -101,8 +101,8 @@ function chartService() {
     return {
       chart: {
         type: 'pieChart',
-        height: 200,
-        donut: true,
+        height: 500,
+        donut: false,
         showLabels: false,
         pie: {},
         x: function(d) {

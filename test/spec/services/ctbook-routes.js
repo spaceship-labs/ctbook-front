@@ -83,7 +83,7 @@ describe('Service: ctbookRoutes', function () {
       var route = ctbookRoutes.encodeParams({
         year : {
           start : 2002,
-          end : 2016,
+          end : 2018,
         },
         page : 1
       });
@@ -102,7 +102,7 @@ describe('Service: ctbookRoutes', function () {
     it('should return default params when given blank url',function(){
       var params = ctbookRoutes.decodeParams();
       params.year.start.should.equal(2002);
-      params.year.end.should.equal(2016);
+      params.year.end.should.equal(2018);
       params.page.should.equal(1);
       params.empresas.should.be.empty;
       params.dependencias.should.be.empty;

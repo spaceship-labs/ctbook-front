@@ -62,12 +62,12 @@ describe('Service: ctbookApi', function () {
 
   describe('getContracts',function(){
     it('call the api searching for contracts', function () {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2016%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
         .respond([{'nombre':'instituto ifai'}]);
       ctbookApi.getContracts({
         year : {
           start : 2002,
-          end : 2016
+          end : 2018
         },
         page : 1,
         empresas : [{
@@ -79,7 +79,7 @@ describe('Service: ctbookApi', function () {
     });
 
     it('should work with no params', function () {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2016%7D%7D')
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D%7D')
         .respond([{'nombre':'instituto ifai'}]);
       ctbookApi.getContracts();
       $httpBackend.flush();
@@ -90,14 +90,14 @@ describe('Service: ctbookApi', function () {
 
   describe('getContractMeta',function(){
     it('call the api searching for contracts parse page num', function (done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato/count?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2016%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato/count?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
         .respond({"count":981815});
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato/sum?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2016%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
+      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato/sum?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
         .respond({"error":"at least one of dependencia2, provedorContratista or unidadCompradora must be defined"});
       ctbookApi.getContractMeta({
         year : {
           start : 2002,
-          end : 2016
+          end : 2018
         },
         page : 1,
         empresas : [{
