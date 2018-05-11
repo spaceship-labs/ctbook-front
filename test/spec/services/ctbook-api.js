@@ -10,9 +10,10 @@ describe('Service: ctbookApi', function () {
   var $httpBackend,
       ctbookApi;
 
-  beforeEach(inject(function (_$httpBackend_,_ctbookApi_) {
+  beforeEach(inject(function (_$httpBackend_,_ctbookApi_,$urlRouterProvider) {
     ctbookApi = _ctbookApi_;
     $httpBackend = _$httpBackend_;
+    $urlRouterProvider.deferIntercept();
   }));
 
   describe('autocomplete',function(){
