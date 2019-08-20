@@ -36,6 +36,7 @@ function contratoCtrl($routeParams, twitter, ctbookApi, ctbookRoutes) {
   function setContract(contract) {
     vm.contract = contract;
     vm.contract.hashTag = vm.contract.numero_procedimiento.replace(/-/g, '');
+    vm.contract.anuncio = vm.contract.anuncio.replace(/funcionpublica/g,'hacienda');
     vm.loading = false;
     //vm.getTweets();
   }
