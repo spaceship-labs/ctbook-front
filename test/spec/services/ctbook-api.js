@@ -26,7 +26,7 @@ describe('Service: ctbookApi', function() {
 
   describe('autocomplete', function() {
     it('call the api searching dependencia and return promise', function(done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/dependencia?limit=40&where=%7B%22dependencia%22:%7B%22contains%22:%22acc%22%7D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/dependencia?limit=40&where=%7B%22dependencia%22:%7B%22contains%22:%22acc%22%7D%7D')
         .respond([{ 'nombre': 'instituto ifai' }]);
       ctbookApi.autocomplete('acc', 'dependencia', 'Dependencia').then(function() {
         done();
@@ -37,7 +37,7 @@ describe('Service: ctbookApi', function() {
 
   describe('completeParams', function() {
     it('get the missing names', function() {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?where=%7B%22id%22:%5B%223%22%5D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/empresa?where=%7B%22id%22:%5B%223%22%5D%7D')
         .respond([{ id: '3', dependencia: 'dependencia 3 async' }]);
       var params = ctbookApi.completeParams({
         empresas: [{ id: '1' }, { id: '2' }, { id: '3' }],
@@ -69,7 +69,7 @@ describe('Service: ctbookApi', function() {
 
   describe('getContracts', function() {
     it('call the api searching for contracts', function() {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
         .respond([{ 'nombre': 'instituto ifai' }]);
       ctbookApi.getContracts({
         year: {
@@ -86,7 +86,7 @@ describe('Service: ctbookApi', function() {
     });
 
     it('should work with no params', function() {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/contrato?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D%7D')
         .respond([{ 'nombre': 'instituto ifai' }]);
       ctbookApi.getContracts();
       $httpBackend.flush();
@@ -97,9 +97,9 @@ describe('Service: ctbookApi', function() {
 
   describe('getContractMeta', function() {
     it('call the api searching for contracts parse page num', function(done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato/count?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/contrato/count?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
         .respond({ "count": 981815 });
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/contrato/sum?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/contrato/sum?limit=10&skip=0&sort=importe_contrato+DESC&where=%7B%22fecha_inicio_year%22:%7B%22%3E%3D%22:2002,%22%3C%3D%22:2018%7D,%22provedorContratista%22:%5B%22random%22%5D%7D')
         .respond({ "error": "at least one of dependencia2, provedorContratista or unidadCompradora must be defined" });
       ctbookApi.getContractMeta({
         year: {
@@ -123,7 +123,7 @@ describe('Service: ctbookApi', function() {
 
   describe('getCompanies', function() {
     it('should call the api searching for companies', function(done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&sort=proveedor_contratista+ASC')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/empresa?limit=20&sort=proveedor_contratista+ASC')
         .respond([{ 'proveedor_contratista': 'abc' }]);
       ctbookApi.getCompanies().then(function(companies) {
         companies.length.should.equal(1);
@@ -132,7 +132,7 @@ describe('Service: ctbookApi', function() {
       $httpBackend.flush();
     });
     it('should calls the api searching for companies with params', function(done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/empresa?limit=20&page=2&sort=proveedor_contratista+ASC')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/empresa?limit=20&page=2&sort=proveedor_contratista+ASC')
         .respond([{ 'proveedor_contratista': 'abc' }]);
       ctbookApi.getCompanies({ page: 2 }).then(function(companies) {
         companies.length.should.equal(1);
@@ -144,7 +144,7 @@ describe('Service: ctbookApi', function() {
 
   describe('getDependencias', function() {
     it('should call the api searching for dependencias', function(done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/dependencia?limit=20&skip=0&sort=dependencia+ASC&where=%7B%22dependencia%22:%7B%22startsWith%22:%22a%22%7D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/dependencia?limit=20&skip=0&sort=dependencia+ASC&where=%7B%22dependencia%22:%7B%22startsWith%22:%22a%22%7D%7D')
         .respond([{ 'dependencia': 'abc' }]);
       ctbookApi.getDependencias().then(function(companies) {
         companies.length.should.equal(1);
@@ -153,7 +153,7 @@ describe('Service: ctbookApi', function() {
       $httpBackend.flush();
     });
     it('should calls the api searching for companies with params', function(done) {
-      $httpBackend.expectGET('http://ctbook-api.herokuapp.com/dependencia?limit=20&skip=40&sort=dependencia+ASC&where=%7B%22dependencia%22:%7B%22startsWith%22:%22a%22%7D%7D')
+      $httpBackend.expectGET('https://ctbook-api.herokuapp.com/dependencia?limit=20&skip=40&sort=dependencia+ASC&where=%7B%22dependencia%22:%7B%22startsWith%22:%22a%22%7D%7D')
         .respond([{ 'dependencia': 'abc' }]);
       ctbookApi.getDependencias({ page: 2 }).then(function(companies) {
         companies.length.should.equal(1);
